@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jenn Hauser | Athletic Development</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { brand: { 900: '#12136b', 800: '#1a1b8a', 700: '#242593', detail: '#00D4FF', detailLight: '#66E8FF'} } }, fontFamily: { sans: ['Outfit'] } } }
+    </script>
+    <style>
+        ::-webkit-scrollbar{width:8px} ::-webkit-scrollbar-track{background:#12136b} ::-webkit-scrollbar-thumb{background:#242593;border-radius:4px} ::-webkit-scrollbar-thumb:hover{background:#00D4FF}
+    </style>
+</head>
+<body class="bg-brand-900 text-gray-300 antialiased overflow-x-hidden">
+
+    <div class="fixed inset-0 z-[-1] min-h-screen bg-cover bg-center opacity-10 mix-blend-screen" style="background-image: url('https://images.unsplash.com/photo-1551280857-2b9bbe520442?ixlib=rb-4.0.3');"></div>
+
+    <header class="w-full z-50 backdrop-blur-md border-b border-brand-detail/20 sticky top-0" style="background:rgba(18,19,107,0.85);">
+        <div class="container mx-auto px-4 py-5 flex justify-between items-center">
+            <a href="index.html#staff" class="group text-white hover:text-brand-detail transition flex items-center font-bold" data-i18n="coach_back">
+                <div class="w-8 h-8 rounded-full bg-white/10 group-hover:bg-brand-detail/20 flex items-center justify-center mr-3 transition">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </div>
+                Voltar à Seção da Equipe
+            </a>
+            <div class="flex items-center gap-4">
+                <span class="font-black text-xl tracking-widest text-white uppercase drop-shadow-md" data-i18n="coach_page_label">Staff Profile</span>
+                <div class="flex items-center bg-white/5 backdrop-blur-md rounded-full p-1 border border-white/10">
+                    <button onclick="toggleLanguage('pt')" class="lang-btn-pt px-3 py-1 text-[10px] font-bold rounded-full transition-all duration-300 bg-brand-detail text-brand-900 shadow-[0_0_10px_rgba(0,212,255,0.5)]">PT</button>
+                    <button onclick="toggleLanguage('en')" class="lang-btn-en px-3 py-1 text-[10px] font-bold rounded-full transition-all duration-300 text-gray-400 hover:text-white">EN</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-20 max-w-6xl relative">
+        <div class="absolute top-40 right-10 w-96 h-96 bg-blue-500 blur-[130px] opacity-20 rounded-full z-0 pointer-events-none"></div>
+
+        <div class="flex flex-col lg:flex-row gap-16 relative z-10 items-center lg:items-start">
+            
+            <!-- Foto e Stats -->
+            <div class="w-full lg:w-1/3 flex flex-col items-center lg:sticky lg:top-32 transition-all duration-300">
+                <div class="relative w-64 h-80 lg:w-full lg:h-96 rounded-3xl overflow-hidden shadow-[0_0_40px_rgba(1,24,67,0.8)] border border-white/10 group">
+                    <img src="imagem.jenn.fundo.jpeg" alt="Jenn Hauser" class="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition duration-700 transform group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0d0e3a] via-transparent to-transparent opacity-80"></div>
+                    <div class="absolute bottom-4 left-4 right-4 flex justify-center space-x-3">
+                        <a href="#" class="w-12 h-12 rounded-full bg-brand-800/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-white hover:bg-[#0A66C2] hover:scale-110 transition"><i class="fa-brands fa-linkedin-in text-xl"></i></a>
+                        <a href="https://www.instagram.com/jennhause2" target="_blank" class="w-12 h-12 rounded-full bg-brand-800/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-white hover:bg-gradient-to-tr hover:from-yellow-500 hover:via-pink-500 hover:to-purple-500 hover:scale-110 transition"><i class="fa-brands fa-instagram text-xl"></i></a>
+                    </div>
+                </div>
+                
+                <div class="w-full grid grid-cols-2 gap-4 mt-8">
+                    <div class="bg-brand-800/50 backdrop-blur-md rounded-2xl p-4 text-center border border-white/5 shadow-inner">
+                        <span class="block text-3xl font-black text-brand-detail">C/B</span>
+                        <span class="text-xs uppercase tracking-widest text-gray-400 font-bold" data-i18n="jenn_stat1">Aprimoramentos Atléticos</span>
+                    </div>
+                    <div class="bg-brand-800/50 backdrop-blur-md rounded-2xl p-4 text-center border border-white/5 shadow-inner">
+                        <span class="block text-3xl font-black text-brand-detail">NCAA</span>
+                        <span class="text-xs uppercase tracking-widest text-gray-400 font-bold" data-i18n="jenn_stat2">Bolsas de Estudo Focadas</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info -->
+            <div class="w-full lg:w-2/3">
+                <div class="inline-block bg-brand-detail/10 border border-brand-detail/30 px-4 py-1 rounded-full mb-4">
+                    <span class="text-brand-detail font-bold text-xs uppercase tracking-widest" data-i18n="jenn_role_badge">College Placement & Transition</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-black text-white mb-2 leading-tight">Jenn Hauser</h1>
+                <p class="text-xl text-gray-400 font-light mb-10 pb-10 border-b border-white/10" data-i18n="jenn_subtitle">O canal definitivo para a escalada universitária americana.</p>
+                
+                <div class="space-y-6 text-lg text-gray-300 font-light leading-relaxed">
+                    <p data-i18n="jenn_p1">Jenn atua no coração do desenvolvimento atlético e do networking esportivo dos Estados Unidos. Sua carreira é pautada por preparar atletas fisicamente e tecnicamente para o violento impacto de transição ao futebol colegial americano.</p>
+                    <p data-i18n="jenn_p2">Com experiência comprovada nas quadras e campos da NCAA, ela orienta a formulação mecânica do atleta e a estratégia de colocação junto aos scouts. <strong class="text-white font-bold">Ela assegura que nossos atletas superem as métricas de performance antes mesmo de serem avaliados.</strong></p>
+                </div>
+
+                <div class="mt-12">
+                    <h3 class="text-2xl font-black text-white mb-6" data-i18n="jenn_skills_title">Expertise em Solo Americano</h3>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center px-5 py-3 rounded-xl bg-brand-800 border border-brand-detail/20 text-white font-bold whitespace-nowrap hover:border-brand-detail transition">
+                            <i class="fa-solid fa-heart-pulse text-brand-detail mr-3 text-xl"></i> <span data-i18n="jenn_skill1">Condicionamento Físico</span>
+                        </div>
+                        <div class="flex items-center px-5 py-3 rounded-xl bg-brand-800 border border-brand-detail/20 text-white font-bold whitespace-nowrap hover:border-brand-detail transition">
+                            <i class="fa-solid fa-graduation-cap text-brand-detail mr-3 text-xl"></i> <span data-i18n="jenn_skill2">Transição para NCAA</span>
+                        </div>
+                        <div class="flex items-center px-5 py-3 rounded-xl bg-brand-800 border border-brand-detail/20 text-white font-bold whitespace-nowrap hover:border-brand-detail transition">
+                            <i class="fa-solid fa-stopwatch text-brand-detail mr-3 text-xl"></i> <span data-i18n="jenn_skill3">Métricas de Performance</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-16 bg-gradient-to-r from-brand-800 to-transparent p-8 rounded-2xl border-l-4 border-brand-detail relative overflow-hidden">
+                    <i class="fa-solid fa-quote-left absolute top-4 right-4 text-6xl text-white/5"></i>
+                    <p class="text-xl font-light italic text-white leading-relaxed z-10 relative" data-i18n="jenn_quote">"A técnica te dá o convite para a entrevista, mas é o condicionamento mental e físico inquebrável que te assina o contrato."</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="i18n.js"></script>
+</body>
+</html>

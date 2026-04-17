@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio Hattrick | Nossa Galeria de Sucesso</title>
+
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 
+                        brand: { 900: '#12136b', 800: '#1a1b8a', 700: '#242593', 600: '#2d2eab', detail: '#00D4FF', detailLight: '#66E8FF' } 
+                    },
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    animation: { 
+                        'float': 'float 6s ease-in-out infinite', 
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                        'zoom': 'zoomIn 0.5s ease-out forwards'
+                    },
+                    keyframes: {
+                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-20px)' } },
+                        slideUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        zoomIn: { '0%': { opacity: '0', transform: 'scale(0.95)' }, '100%': { opacity: '1', transform: 'scale(1)' } }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #12136b; color: #f3f4f6; overflow-x: hidden; }
+        .glass { background: rgba(26, 27, 138, 0.50); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.07); }
+        .glass-card { background: linear-gradient(145deg, rgba(36, 37, 147, 0.45) 0%, rgba(18, 19, 107, 0.85) 100%); backdrop-filter: blur(10px); border: 1px solid rgba(0, 212, 255, 0.15); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4); }
+        .text-gradient { background: linear-gradient(135deg, #00D4FF, #66E8FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .btn-primary { background: linear-gradient(90deg, #242593, #00D4FF); box-shadow: 0 0 15px rgba(0, 212, 255, 0.3); transition: all 0.3s ease; cursor: pointer; }
+        .btn-primary:hover { box-shadow: 0 0 30px rgba(0, 212, 255, 0.7); transform: translateY(-2px); }
+        .filter-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(4px); transition: all 0.3s ease; color: #9ca3af; padding: 0.5rem 1.5rem; border-radius: 9999px; font-weight: 500; cursor: pointer; }
+        .filter-btn:hover { background: rgba(0, 212, 255, 0.15); border-color: rgba(0, 212, 255, 0.5); color: white; }
+        .filter-btn.active { background: linear-gradient(90deg, #242593, #00D4FF); box-shadow: 0 0 15px rgba(0, 212, 255, 0.35); border-color: transparent; color: white; border-radius: 9999px; }
+        
+        .logo-container { position: relative; border-radius: 50%; overflow: hidden; border: 2px solid rgba(0, 212, 255, 0.7); box-shadow: 0 0 15px rgba(0, 212, 255, 0.4); background: #fff; display: flex; align-items: center; justify-content: center; }
+        .logo-container img { position: absolute; width: 100%; height: 100%; object-fit: cover; transform: scale(1.18); }
+        
+        .page-header-bg {
+            background-image: url('https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center 30%;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Header Completo -->
+    <header class="fixed w-full z-50 transition-all duration-300 glass" id="navbar">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex-shrink-0 flex items-center cursor-pointer group" onclick="window.location.href='index.html'">
+                    <div class="logo-container w-20 h-20 transition-transform duration-300 group-hover:scale-110 group-hover:shadow-[0_0_25px_rgba(36, 37, 147,0.8)]" style="image-rendering: high-quality;">
+                        <img src="logo.png" alt="Hattrick Academy Logo">
+                    </div>
+                    <div class="ml-4 hidden sm:block">
+                        <h1 class="font-black text-2xl tracking-widest uppercase leading-none text-white drop-shadow-md">Hattrick</h1>
+                        <span class="text-xs text-brand-detail font-bold tracking-[0.3em] uppercase">Academy</span>
+                    </div>
+                </div>
+                <nav class="hidden md:flex space-x-6 items-center">
+                    <a href="sobre.html" class="text-sm font-semibold text-gray-300 hover:text-white transition duration-300" data-i18n="nav_sobre">Sobre</a>
+                    <a href="camps.html" class="text-sm font-semibold text-gray-300 hover:text-white transition duration-300" data-i18n="nav_camp">Soccer Camp</a>
+                    <a href="index.html#staff" class="text-sm font-semibold text-gray-300 hover:text-white transition duration-300" data-i18n="nav_staff">Staff</a>
+                    <a href="estrutura.html" class="text-sm font-semibold text-gray-300 hover:text-white transition duration-300" data-i18n="nav_estrutura">Estrutura</a>
+                    <a href="portfolio.html" class="text-sm font-semibold text-brand-detail hover:text-white transition duration-300" data-i18n="nav_portfolio">Portfólio</a>
+                    <div class="flex items-center bg-white/5 backdrop-blur-md rounded-full p-1 border border-white/10 ml-2">
+                        <button onclick="toggleLanguage('pt')" class="lang-btn-pt px-3 py-1 text-[10px] font-bold rounded-full transition-all duration-300 bg-brand-detail text-brand-900 shadow-[0_0_10px_rgba(0,212,255,0.5)]">PT</button>
+                        <button onclick="toggleLanguage('en')" class="lang-btn-en px-3 py-1 text-[10px] font-bold rounded-full transition-all duration-300 text-gray-400 hover:text-white">EN</button>
+                    </div>
+                    <div class="flex items-center space-x-3 ml-2 pl-4 border-l border-white/10">
+                        <a href="login.html" class="text-sm font-bold text-gray-300 hover:text-brand-detailLight transition flex items-center"><i class="fa-solid fa-lock mr-2 text-brand-detail"></i> <span data-i18n="nav_login">Área do Atleta</span></a>
+                        <a href="index.html#contato" class="btn-primary text-sm font-bold py-2 px-6 rounded-full text-white" data-i18n="nav_contact">Contato</a>
+                    </div>
+                </nav>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/10 absolute w-full left-0">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="sobre.html" class="block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:text-white">Sobre</a>
+                <a href="camps.html" class="block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:text-white">Soccer Camp</a>
+                <a href="index.html#staff" class="block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:text-white">Staff</a>
+                <a href="estrutura.html" class="block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:text-white">Estrutura</a>
+                <a href="portfolio.html" class="block px-3 py-3 rounded-md text-base font-bold text-brand-detail">Portfólio</a>
+                <a href="index.html#contato" class="block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:text-white">Contato</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero do Portfólio -->
+    <section class="page-header-bg relative pt-40 pb-24 overflow-hidden border-b border-brand-800/50">
+        <div class="absolute inset-0 bg-brand-900/90 mix-blend-multiply"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-900 to-transparent"></div>
+        <div class="absolute top-0 right-1/4 w-96 h-96 bg-brand-detail rounded-full mix-blend-multiply filter blur-[120px] opacity-20 animate-blob"></div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center animate-slide-up">
+            <div class="inline-block bg-brand-detail/10 border border-brand-detail/30 px-4 py-1 rounded-full mb-6">
+                <span class="text-brand-detail font-bold text-xs uppercase tracking-widest" data-i18n="portfolio_badge">Nossas Conquistas</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black text-white mb-4 drop-shadow-lg" data-i18n="portfolio_title">Mural de <span class="text-gradient">Atletas</span></h1>
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto font-light" data-i18n="portfolio_subtitle">
+                Viagens exclusivas, treinamentos intensos e o momento mais aguardado: a assinatura da sonhada bolsa.
+            </p>
+        </div>
+    </section>
+
+    <!-- Galeria com Filtros -->
+    <section class="py-20 relative" style="background:#12136b;">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <!-- Botões de Filtro -->
+            <div class="flex flex-wrap justify-center gap-4 mb-16">
+                <button class="filter-btn active" onclick="filterGallery('todos')" data-i18n="portfolio_filter_all">Todos</button>
+                <button class="filter-btn" onclick="filterGallery('eua')" data-i18n="portfolio_filter_usa">USA Showcase</button>
+                <button class="filter-btn" onclick="filterGallery('bolsa')" data-i18n="portfolio_filter_nli">Assinatura NLI</button>
+                <button class="filter-btn" onclick="filterGallery('treino')" data-i18n="portfolio_filter_training">Treinos e Camps</button>
+            </div>
+
+            <!-- Grid de Imagens -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto" id="gallery-grid">
+                
+                <!-- Item 1 -->
+                <div class="group relative h-[400px] rounded-3xl overflow-hidden glass-card gallery-item" data-category="eua">
+                    <img src="https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Jogo" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 z-20">
+                        <span class="text-xs font-bold text-white tracking-widest uppercase">Showcase</span>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/40 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-8 z-10">
+                        <div class="transform translate-y-8 group-hover:translate-y-0 transition duration-500">
+                            <h4 class="text-white font-black text-2xl mb-2">Final Regional - SP</h4>
+                            <p class="text-brand-detailLight text-sm font-bold uppercase tracking-wider mb-4"><i class="fa-solid fa-location-dot mr-2"></i>São Paulo, BR</p>
+                            <button class="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-brand-detail transition"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="group relative h-[400px] rounded-3xl overflow-hidden glass-card gallery-item" data-category="eua">
+                    <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Campus" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 z-20">
+                        <span class="text-xs font-bold text-white tracking-widest uppercase">EUA Tour</span>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/40 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-8 z-10">
+                        <div class="transform translate-y-8 group-hover:translate-y-0 transition duration-500">
+                            <h4 class="text-white font-black text-2xl mb-2">Campus Tour - 2025</h4>
+                            <p class="text-brand-detailLight text-sm font-bold uppercase tracking-wider mb-4"><i class="fa-solid fa-location-dot mr-2"></i>Florida, US</p>
+                            <button class="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-brand-detail transition"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="group relative h-[400px] rounded-3xl overflow-hidden glass-card gallery-item" data-category="bolsa">
+                    <img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="NLI" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-4 right-4 bg-brand-detail/80 backdrop-blur-md px-3 py-1 rounded-full border border-brand-detailLight/50 z-20">
+                        <span class="text-xs font-bold text-white tracking-widest uppercase"><i class="fa-solid fa-star mr-1"></i> Bolsa 100%</span>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/40 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-8 z-10">
+                        <div class="transform translate-y-8 group-hover:translate-y-0 transition duration-500">
+                            <h4 class="text-white font-black text-2xl mb-2">Assinatura NLI</h4>
+                            <p class="text-brand-detailLight text-sm font-bold uppercase tracking-wider mb-4"><i class="fa-solid fa-file-signature mr-2"></i>Gabriel Santos</p>
+                            <button class="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-brand-detail transition"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="group relative h-[400px] rounded-3xl overflow-hidden glass-card gallery-item" data-category="treino">
+                    <img src="https://images.unsplash.com/photo-1511886929837-354d827aae26?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Camp" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 z-20">
+                        <span class="text-xs font-bold text-white tracking-widest uppercase">Draft Camp</span>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/40 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-8 z-10">
+                        <div class="transform translate-y-8 group-hover:translate-y-0 transition duration-500">
+                            <h4 class="text-white font-black text-2xl mb-2">Treino Físico</h4>
+                            <p class="text-brand-detailLight text-sm font-bold uppercase tracking-wider mb-4"><i class="fa-solid fa-dumbbell mr-2"></i>Alta Intensidade</p>
+                            <button class="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-brand-detail transition"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="group relative h-[400px] rounded-3xl overflow-hidden glass-card gallery-item" data-category="eua">
+                    <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Estádio" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 z-20">
+                        <span class="text-xs font-bold text-white tracking-widest uppercase">EUA Tour</span>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/40 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-8 z-10">
+                        <div class="transform translate-y-8 group-hover:translate-y-0 transition duration-500">
+                            <h4 class="text-white font-black text-2xl mb-2">College Match</h4>
+                            <p class="text-brand-detailLight text-sm font-bold uppercase tracking-wider mb-4"><i class="fa-solid fa-eye mr-2"></i>Visão de Olheiros</p>
+                            <button class="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-brand-detail transition"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="group relative h-[400px] rounded-3xl overflow-hidden glass-card gallery-item" data-category="treino">
+                    <img src="https://images.unsplash.com/photo-1553778263-73a83bab9b0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tática" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-4 right-4 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 z-20">
+                        <span class="text-xs font-bold text-white tracking-widest uppercase">Teoria</span>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/40 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-8 z-10">
+                        <div class="transform translate-y-8 group-hover:translate-y-0 transition duration-500">
+                            <h4 class="text-white font-black text-2xl mb-2">Sessões Táticas</h4>
+                            <p class="text-brand-detailLight text-sm font-bold uppercase tracking-wider mb-4"><i class="fa-solid fa-chalkboard mr-2"></i>Entendimento de Jogo</p>
+                            <button class="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-brand-detail transition"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Completo -->
+    <footer class="py-10 border-t border-white/10" style="background:#0e0f5c;">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-6 md:gap-0">
+            <div class="flex items-center justify-center md:justify-start">
+                <div class="logo-container w-12 h-12 mr-3 border-2 border-brand-detail shadow-[0_0_10px_rgba(36, 37, 147,0.4)]">
+                    <img src="logo.png" alt="Logo">
+                </div>
+                <span class="font-bold text-white tracking-widest uppercase">Hattrick Academy</span>
+            </div>
+            
+            <p class="text-gray-500 text-sm font-light" data-i18n="footer_copy">&copy; 2026 Hattrick Soccer. Experiência Premium. Todos os direitos reservados.</p>
+            
+            <div class="flex space-x-4 justify-center">
+                <a href="https://www.instagram.com/hattrickacademyusa?igsh=MXI3YXV3aHcxemQwOQ==" target="_blank" class="w-10 h-10 rounded-full bg-brand-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-gradient-to-tr hover:from-yellow-500 hover:via-pink-500 hover:to-purple-500 hover:scale-110 shadow-lg transition duration-300">
+                    <i class="fa-brands fa-instagram text-lg"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+        // Script para filtrar galeria
+        function filterGallery(category) {
+            // Atualizar classes dos botões
+            document.querySelectorAll('.filter-btn').forEach(button => {
+                button.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Filtrar os itens
+            const items = document.querySelectorAll('.gallery-item');
+            items.forEach(item => {
+                item.style.display = 'none'; // Esconde primeiro para resetar a animação
+                if(category === 'todos' || item.dataset.category === category) {
+                    setTimeout(() => {
+                        item.style.display = 'block';
+                        item.classList.add('animate-zoom');
+                    }, 50);
+                }
+            });
+        }
+    </script>
+    <script src="i18n.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodologia & Estrutura | Hattrick Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { brand: { 900: '#12136b', 800: '#1a1b8a', 700: '#242593', detail: '#00D4FF', detailLight: '#66E8FF'} } }, fontFamily: { sans: ['Outfit'] } } }
+    </script>
+    <style>
+        body { background-color: #12136b; color: #f3f4f6; }
+        .text-gradient { background: linear-gradient(135deg, #00D4FF, #66E8FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        ::-webkit-scrollbar{width:8px} ::-webkit-scrollbar-track{background:#12136b} ::-webkit-scrollbar-thumb{background:#242593;border-radius:4px} ::-webkit-scrollbar-thumb:hover{background:#00D4FF}
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden pb-32">
+
+    <!-- Fundo de Imagem Estilizado -->
+    <div class="fixed inset-0 z-[-1] min-h-screen bg-cover bg-center opacity-5 mix-blend-screen" style="background-image: url('https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?ixlib=rb-4.0.3');"></div>
+
+    <header class="w-full z-50 backdrop-blur-md border-b border-brand-detail/20 sticky top-0" style="background:rgba(18,19,107,0.85);">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html#staff" class="text-white hover:text-brand-detail flex items-center font-bold" data-i18n="estrutura_back">
+                <i class="fa-solid fa-arrow-left mr-2"></i> Voltar ao Menu Principal
+            </a>
+            <div class="flex items-center gap-4">
+                <span class="font-black text-xl tracking-widest text-white uppercase drop-shadow-md" data-i18n="estrutura_header">Nossa Estrutura</span>
+                <!-- Language Switcher -->
+                <div class="flex items-center bg-white/5 backdrop-blur-md rounded-full p-1 border border-white/10">
+                    <button onclick="toggleLanguage('pt')" class="lang-btn-pt px-3 py-1 text-[10px] font-bold rounded-full transition-all duration-300 bg-brand-detail text-brand-900 shadow-[0_0_10px_rgba(0,212,255,0.5)]">PT</button>
+                    <button onclick="toggleLanguage('en')" class="lang-btn-en px-3 py-1 text-[10px] font-bold rounded-full transition-all duration-300 text-gray-400 hover:text-white">EN</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="conheca" class="py-16 relative">
+        <div class="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-brand-800/50 to-transparent z-[-1]"></div>
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-6xl">
+            <div class="flex flex-col lg:flex-row items-center justify-between mb-16 gap-12 text-center lg:text-left">
+                <div class="w-full lg:w-2/3">
+                    <div class="inline-block bg-brand-detail/10 border border-brand-detail/30 px-4 py-1 rounded-full mb-4">
+                        <span class="text-brand-detail font-bold text-xs uppercase tracking-widest" data-i18n="estrutura_badge">A Fórmula Hattrick</span>
+                    </div>
+                    <h2 class="text-4xl md:text-6xl font-black text-white mb-6" data-i18n="estrutura_title">Metodologia Exclusiva</h2>
+                    <p class="text-gray-400 font-light text-xl" data-i18n="estrutura_subtitle">Do campo à sala de aula, um ecossistema desenvolvido para forjar atletas completos, prontos para a exigência internacional.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Box 1 -->
+                <div class="bg-brand-800/80 backdrop-blur-md border border-white/5 p-8 rounded-2xl group hover:-translate-y-3 transition duration-500 shadow-xl">
+                    <div class="w-16 h-16 rounded-full bg-brand-900 border border-brand-detail/50 flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300 group-hover:bg-brand-detail">
+                        <i class="fa-solid fa-language text-2xl text-white"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-3" data-i18n="estrutura_box1_title">Imersão em Inglês</h4>
+                    <p class="text-gray-400 text-base font-light leading-relaxed" data-i18n="estrutura_box1_desc">Comunicação e orientações 100% no idioma durante o treino.</p>
+                </div>
+                <!-- Box 2 -->
+                <div class="bg-brand-800/80 backdrop-blur-md border border-white/5 p-8 rounded-2xl group hover:-translate-y-3 transition duration-500 shadow-xl">
+                    <div class="w-16 h-16 rounded-full bg-brand-900 border border-brand-detail/50 flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300 group-hover:bg-brand-detail">
+                        <i class="fa-solid fa-video text-2xl text-white"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-3" data-i18n="estrutura_box2_title">Filmagem Tática</h4>
+                    <p class="text-gray-400 text-base font-light leading-relaxed" data-i18n="estrutura_box2_desc">Construímos vídeos (Highlights) perfeitos para recrutadores.</p>
+                </div>
+                <!-- Box 3 -->
+                <div class="bg-brand-800/80 backdrop-blur-md border border-white/5 p-8 rounded-2xl group hover:-translate-y-3 transition duration-500 shadow-xl">
+                    <div class="w-16 h-16 rounded-full bg-brand-900 border border-brand-detail/50 flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300 group-hover:bg-brand-detail">
+                        <i class="fa-solid fa-graduation-cap text-2xl text-white"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-3" data-i18n="estrutura_box3_title">College Placement</h4>
+                    <p class="text-gray-400 text-base font-light leading-relaxed" data-i18n="estrutura_box3_desc">Apoio burocrático e contato direto com as Universidades.</p>
+                </div>
+                <!-- Box 4 -->
+                <div class="bg-brand-800/80 backdrop-blur-md border border-white/5 p-8 rounded-2xl group hover:-translate-y-3 transition duration-500 shadow-xl">
+                    <div class="w-16 h-16 rounded-full bg-brand-900 border border-brand-detail/50 flex items-center justify-center mb-6 group-hover:scale-110 transition duration-300 group-hover:bg-brand-detail">
+                        <i class="fa-solid fa-dumbbell text-2xl text-white"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-3" data-i18n="estrutura_box4_title">Alta Performance</h4>
+                    <p class="text-gray-400 text-base font-light leading-relaxed" data-i18n="estrutura_box4_desc">Preparação física padrão americano, moldada para o esporte NCAA.</p>
+                </div>
+            </div>
+            
+            <!-- CTA -->
+            <div class="mt-24 rounded-[2.5rem] p-10 md:p-16 border-2 border-brand-detail relative overflow-hidden" style="background:linear-gradient(135deg,#1a1b8a,#12136b); box-shadow:0 0 50px rgba(0,212,255,0.2);">
+                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+                <div class="absolute -top-32 -right-32 w-96 h-96 bg-brand-detail blur-[150px] opacity-40 rounded-full z-0 pointer-events-none"></div>
+                
+                <div class="flex flex-col xl:flex-row items-center justify-between gap-12 relative z-10">
+                    <div class="xl:w-2/3">
+                        <span class="inline-block px-4 py-1 bg-white/10 text-brand-detail font-bold uppercase tracking-widest text-sm rounded-full mb-4 backdrop-blur-md" data-i18n="estrutura_cta_badge">Primeiro Passo</span>
+                        <h3 class="text-4xl md:text-5xl font-black text-white mb-6 leading-tight" data-i18n="estrutura_cta_title">Agende uma Chamada Introdutória</h3>
+                        <p class="text-xl text-gray-300 font-light leading-relaxed" data-i18n="estrutura_cta_p1">
+                            Estamos aqui para ajudar você a começar sua jornada no <strong class="text-brand-detail font-black tracking-wide bg-white/5 px-2 py-1 rounded">HATTRICK SOCCER ACADEMY!</strong> Clique aqui para agendar uma chamada e saiba mais sobre nossos programas de treinamento de futebol em inglês.
+                        </p>
+                        <p class="text-xl text-gray-300 font-light leading-relaxed mt-4" data-i18n="estrutura_cta_p2">
+                            Estamos prontos para responder suas perguntas e fornecer todas as informações necessárias para que seus filhos possam <strong class="text-white font-bold border-b-2 border-brand-detail">crescer como atletas e aprender a língua inglesa</strong> de maneira natural.
+                        </p>
+                    </div>
+                    
+                    <div class="xl:w-1/3 flex justify-center xl:justify-end w-full">
+                        <button onclick="alert('Redirecionando para Sistema de Agendamento...');" class="w-full xl:w-auto font-black text-white text-xl py-6 px-12 rounded-3xl transform hover:-translate-y-2 hover:scale-105 transition duration-500 flex flex-col items-center justify-center group overflow-hidden relative" style="background:linear-gradient(90deg,#242593,#00D4FF); box-shadow:0 0 30px rgba(0,212,255,0.5);">
+                            <div class="absolute inset-0 w-full h-full bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out"></div>
+                            <span class="relative z-10 flex items-center" data-i18n="estrutura_cta_btn">
+                                <i class="fa-solid fa-calendar-plus mr-4 text-3xl"></i> Agendar Agora
+                            </span>
+                            <span class="relative z-10 text-sm font-normal mt-2 opacity-80" data-i18n="estrutura_cta_btn_sub">100% Gratuito</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="i18n.js"></script>
+</body>
+</html>

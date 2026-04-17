@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós | Hattrick Soccer Academy</title>
+
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 
+                        brand: { 
+                            900: '#12136b', 
+                            800: '#1a1b8a', 
+                            700: '#242593', 
+                            600: '#2d2eab', 
+                            detail: '#00D4FF', 
+                            detailLight: '#66E8FF' 
+                        } 
+                    },
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    animation: { 
+                        'float': 'float 6s ease-in-out infinite', 
+                        'slide-up': 'slideUp 0.8s ease-out forwards' 
+                    },
+                    keyframes: {
+                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-20px)' } },
+                        slideUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #12136b; color: #f3f4f6; overflow-x: hidden; }
+        .glass { background: rgba(26, 27, 138, 0.50); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.07); }
+        .glass-card { background: linear-gradient(145deg, rgba(36, 37, 147, 0.45) 0%, rgba(18, 19, 107, 0.85) 100%); backdrop-filter: blur(10px); border: 1px solid rgba(0, 212, 255, 0.15); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4); }
+        .text-gradient { background: linear-gradient(135deg, #00D4FF, #66E8FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .btn-primary { background: linear-gradient(90deg, #242593, #00D4FF); box-shadow: 0 0 15px rgba(0, 212, 255, 0.3); transition: all 0.3s ease; }
+        .btn-primary:hover { box-shadow: 0 0 30px rgba(0, 212, 255, 0.7); transform: translateY(-2px); }
+        .btn-secondary { background: rgba(255,255,255,0.05); border: 1px solid rgba(0, 212, 255, 0.4); backdrop-filter: blur(4px); transition: all 0.3s ease; }
+        .btn-secondary:hover { background: rgba(0, 212, 255, 0.1); border-color: #00D4FF; transform: translateY(-2px); }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #12136b; }
+        ::-webkit-scrollbar-thumb { background: #242593; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00D4FF; }
+        .logo-container { position: relative; border-radius: 50%; overflow: hidden; border: 2px solid rgba(0, 212, 255, 0.7); box-shadow: 0 0 15px rgba(0, 212, 255, 0.4); background: #fff; display: flex; align-items: center; justify-content: center; }
+        .logo-container img { position: absolute; width: 100%; height: 100%; object-fit: cover; transform: scale(1.18); }
+        
+        .page-header-bg {
+            background-image: url('https://images.unsplash.com/photo-1431324155629-1a6fb1ce8f4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 transition-all duration-300 glass" id="navbar">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex-shrink-0 flex items-center cursor-pointer group" onclick="window.location.href='index.html'">
+                    <div class="logo-container w-20 h-20 transition-transform duration-300 group-hover:scale-110" style="image-rendering: high-quality;">
+                        <img src="logo.png" alt="Hattrick Academy Logo">
+                    </div>
+                    <div class="ml-4 hidden sm:block">
+                        <h1 class="font-black text-2xl tracking-widest uppercase leading-none text-white drop-shadow-md">Hattrick</h1>
+                        <span class="text-xs text-brand-detail font-bold tracking-[0.3em] uppercase">Academy</span>
+                    </div>
+                </div>
+                <nav class="hidden md:flex space-x-6 items-center">
+                    <a href="sobre.html" class="text-sm font-semibold text-brand-detail hover:text-white transition duration-300" data-i18n="nav_sobre">Sobre</a>
+                    <a href="camps.html" class="text-sm font-semibold text-gray-300 hover:text-white transition duration-300" data-i18n="nav_camp">Soccer Camp</a>
+                    <a href="index.html#staff" class="text-sm font-semibold text-gray-300 hover:text-white transition duration-300" data-i18n="nav_staff">Staff</a>
+                    <a href="estrutura.html" class="text-sm font-semibold text-gray-300 hover:text-white transition duration-300" data-i18n="nav_estrutura">Estrutura</a>
+                    <a href="portfolio.html" class="text-sm font-semibold text-gray-300 hover:text-white transition duration-300" data-i18n="nav_portfolio">Portfólio</a>
+                    <div class="flex items-center bg-white/5 backdrop-blur-md rounded-full p-1 border border-white/10 ml-2">
+                        <button onclick="toggleLanguage('pt')" class="lang-btn-pt px-3 py-1 text-[10px] font-bold rounded-full transition-all duration-300 bg-brand-detail text-brand-900 shadow-[0_0_10px_rgba(0,212,255,0.5)]">PT</button>
+                        <button onclick="toggleLanguage('en')" class="lang-btn-en px-3 py-1 text-[10px] font-bold rounded-full transition-all duration-300 text-gray-400 hover:text-white">EN</button>
+                    </div>
+                    <div class="flex items-center space-x-3 ml-2 pl-4 border-l border-white/10">
+                        <a href="login.html" class="text-sm font-bold text-gray-300 hover:text-brand-detailLight transition flex items-center"><i class="fa-solid fa-lock mr-2 text-brand-detail"></i> <span data-i18n="nav_login">Área do Atleta</span></a>
+                        <a href="index.html#contato" class="btn-primary text-sm font-bold py-2 px-6 rounded-full text-white" data-i18n="nav_contact">Contato</a>
+                    </div>
+                </nav>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/10 absolute w-full left-0">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="sobre.html" class="block px-3 py-3 rounded-md text-base font-bold text-brand-detail" data-i18n="nav_sobre">Sobre</a>
+                <a href="camps.html" class="block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:text-white" data-i18n="nav_camp">Soccer Camp</a>
+                <a href="index.html#staff" class="block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:text-white" data-i18n="nav_staff">Staff</a>
+                <a href="estrutura.html" class="block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:text-white" data-i18n="nav_estrutura">Estrutura</a>
+                <a href="portfolio.html" class="block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:text-white" data-i18n="nav_portfolio">Portfólio</a>
+                <a href="index.html#contato" class="block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:text-white" data-i18n="nav_contact">Contato</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header-bg relative pt-40 pb-24 overflow-hidden border-b border-brand-800/50">
+        <div class="absolute inset-0 bg-brand-900/90 mix-blend-multiply"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-900 to-transparent"></div>
+        <div class="absolute top-0 right-1/4 w-96 h-96 bg-brand-detail rounded-full mix-blend-multiply filter blur-[120px] opacity-20"></div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center animate-slide-up">
+            <div class="inline-block bg-brand-detail/10 border border-brand-detail/30 px-4 py-1 rounded-full mb-6">
+                <span class="text-brand-detail font-bold text-xs uppercase tracking-widest" data-i18n="sobre_page_badge">Nossa História</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black text-white mb-4 drop-shadow-lg" data-i18n="sobre_page_title">Sobre a <span class="text-gradient">Hattrick</span></h1>
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto font-light" data-i18n="sobre_page_subtitle">
+                Conheça a essência da nossa academia e o que nos motiva a transformar o futuro de jovens atletas.
+            </p>
+        </div>
+    </section>
+
+    <!-- Nossa Missão -->
+    <section class="py-24 bg-brand-900 relative">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2">
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-brand-detail filter blur-3xl opacity-20 group-hover:opacity-40 transition duration-500 rounded-2xl"></div>
+                        <img src="https://images.unsplash.com/photo-1518605368461-1ee7e149f1db?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Visão Hattrick" class="rounded-2xl shadow-2xl relative z-10 border border-white/10 grayscale-[0.5] group-hover:grayscale-0 transition duration-700">
+                        <div class="absolute -bottom-8 -right-8 glass-card rounded-2xl p-6 z-20 w-48 text-center animate-float">
+                            <i class="fa-solid fa-earth-americas text-4xl text-brand-detail mb-3"></i>
+                            <p class="font-bold text-white leading-tight">Bilingual<br><span class="text-gray-400 font-light">Academy</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/2 mt-10 lg:mt-0">
+                    <h2 class="text-4xl md:text-5xl font-black text-white mb-8 leading-tight" data-i18n="sobre_missao_title">Nossa <span class="text-gradient">Missão</span></h2>
+                    <div class="bg-[#1a1b8a]/80 backdrop-blur-xl rounded-3xl p-8 md:p-10 border border-brand-detail/20 shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
+                        <p class="text-gray-300 font-light leading-relaxed text-lg" data-i18n="sobre_missao_p1">
+                            Na <strong class="text-white text-xl">Hattrick Soccer Academy</strong>, nossa missão é preparar jovens talentos do futebol brasileiro, com idades entre <span class="text-brand-detail font-bold text-xl inline-block transform hover:scale-110 transition cursor-default">4 e 16 anos</span>, para oportunidades acadêmicas e atléticas internacionais.
+                        </p>
+                        <div class="h-px w-full bg-gradient-to-r from-brand-detail/50 to-transparent my-6"></div>
+                        <p class="text-gray-300 font-light leading-relaxed text-lg mt-4" data-i18n="sobre_missao_p2">
+                            Oferecemos um ambiente de aprendizagem bilíngue, onde os alunos podem aprender inglês naturalmente enquanto se aprimoram no futebol. Nosso objetivo é que cada estudante saia da academia não apenas como um melhor jogador, mas também como um <strong class="text-white font-bold border-b-2 border-brand-detail pb-1 hover:text-brand-detail transition">falante confiante da língua inglesa</strong>, pronto para enfrentar os desafios do mundo globalizado.
+                        </p>
+                    </div>
+                    <div class="mt-10">
+                        <a href="camps.html" class="btn-primary text-white font-bold py-4 px-8 rounded-full text-lg inline-flex items-center group" data-i18n="sobre_missao_btn">
+                            Conheça Nossos Programas
+                            <i class="fa-solid fa-arrow-right ml-3 transform group-hover:translate-x-2 transition"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="py-10 border-t border-white/10" style="background:#0e0f5c;">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-6 md:gap-0">
+            <div class="flex items-center justify-center md:justify-start">
+                <div class="logo-container w-12 h-12 mr-3 border-2 border-brand-detail">
+                    <img src="logo.png" alt="Logo">
+                </div>
+                <span class="font-bold text-white tracking-widest uppercase">Hattrick Academy</span>
+            </div>
+            <p class="text-gray-500 text-sm font-light" data-i18n="footer_copy">&copy; 2026 Hattrick Soccer. Experiência Premium. Todos os direitos reservados.</p>
+            <div class="flex space-x-4 justify-center">
+                <a href="https://www.instagram.com/hattrickacademyusa?igsh=MXI3YXV3aHcxemQwOQ==" target="_blank" class="w-10 h-10 rounded-full bg-brand-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-gradient-to-tr hover:from-yellow-500 hover:via-pink-500 hover:to-purple-500 hover:scale-110 shadow-lg transition duration-300">
+                    <i class="fa-brands fa-instagram text-lg"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    </script>
+    <script src="i18n.js"></script>
+</body>
+</html>

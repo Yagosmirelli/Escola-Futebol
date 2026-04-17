@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hattrick Camps | EUA & Brasil</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { brand: { 900: '#12136b', 800: '#1a1b8a', 700: '#242593', 600: '#2d2eab', detail: '#00D4FF', detailLight: '#66E8FF' } },
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    animation: { 'float': 'float 6s ease-in-out infinite', 'slide-up': 'slideUp 0.8s ease-out forwards', 'blob': 'blob 10s infinite' },
+                    keyframes: {
+                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-20px)' } },
+                        slideUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        blob: { '0%': { transform: 'translate(0px, 0px) scale(1)' }, '33%': { transform: 'translate(30px, -50px) scale(1.1)' }, '66%': { transform: 'translate(-20px, 20px) scale(0.9)' }, '100%': { transform: 'translate(0px, 0px) scale(1)' } }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #12136b; color: #f3f4f6; overflow-x: hidden; }
+        .glass { background: rgba(26, 27, 138, 0.50); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.07); }
+        .glass-card { background: linear-gradient(145deg, rgba(36, 37, 147, 0.45) 0%, rgba(18, 19, 107, 0.85) 100%); backdrop-filter: blur(10px); border: 1px solid rgba(0, 212, 255, 0.15); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4); transition: all 0.4s ease; }
+        .glass-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2); border-color: rgba(0, 212, 255, 0.5); }
+        .text-gradient { background: linear-gradient(135deg, #00D4FF, #66E8FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .btn-primary { background: linear-gradient(90deg, #242593, #00D4FF); box-shadow: 0 0 15px rgba(0, 212, 255, 0.3); transition: all 0.3s ease; cursor: pointer; }
+        .btn-primary:hover { box-shadow: 0 0 30px rgba(0, 212, 255, 0.7); transform: translateY(-2px); }
+        .logo-container { position: relative; border-radius: 50%; overflow: hidden; border: 2px solid rgba(0, 212, 255, 0.7); box-shadow: 0 0 15px rgba(0, 212, 255, 0.4); background: #fff; display: flex; align-items: center; justify-content: center; }
+        .logo-container img { position: absolute; width: 100%; height: 100%; object-fit: cover; transform: scale(1.18); }
+        .page-header-bg { background-image: url('https://images.unsplash.com/photo-1518605368461-1ee7e149f1db?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center 40%; }
+        ::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-track { background: #12136b; } ::-webkit-scrollbar-thumb { background: #242593; border-radius: 4px; } ::-webkit-scrollbar-thumb:hover { background: #00D4FF; }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 transition-all duration-300 glass" id="navbar">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex-shrink-0 flex items-center cursor-pointer group" onclick="window.location.href='index.html'">
+                    <div class="logo-container w-20 h-20 transition-transform duration-300 group-hover:scale-110" style="image-rendering: high-quality;">
+                        <img src="logo.png" alt="Hattrick Academy Logo">
+                    </div>
+                    <div class="ml-4 hidden sm:block">
+                        <h1 class="font-black text-2xl tracking-widest uppercase leading-none text-white drop-shadow-md">Hattrick</h1>
+                        <span class="text-xs text-brand-detail font-bold tracking-[0.3em] uppercase">Academy</span>
+                    </div>
+                </div>
+                <nav class="hidden md:flex space-x-6 items-center">
+                    <a href="sobre.html" class="text-sm font-semibold text-gray-300 hover:text-white transition duration-300" data-i18n="nav_sobre">Sobre</a>
+                    <a href="camps.html" class="text-sm font-semibold text-brand-detail hover:text-white transition duration-300" data-i18n="nav_camp">Soccer Camp</a>
+                    <a href="index.html#staff" class="text-sm font-semibold text-gray-300 hover:text-white transition duration-300" data-i18n="nav_staff">Staff</a>
+                    <a href="estrutura.html" class="text-sm font-semibold text-gray-300 hover:text-white transition duration-300" data-i18n="nav_estrutura">Estrutura</a>
+                    <a href="portfolio.html" class="text-sm font-semibold text-gray-300 hover:text-white transition duration-300" data-i18n="nav_portfolio">Portfólio</a>
+                    <div class="flex items-center bg-white/5 backdrop-blur-md rounded-full p-1 border border-white/10 ml-2">
+                        <button onclick="toggleLanguage('pt')" class="lang-btn-pt px-3 py-1 text-[10px] font-bold rounded-full transition-all duration-300 bg-brand-detail text-brand-900 shadow-[0_0_10px_rgba(0,212,255,0.5)]">PT</button>
+                        <button onclick="toggleLanguage('en')" class="lang-btn-en px-3 py-1 text-[10px] font-bold rounded-full transition-all duration-300 text-gray-400 hover:text-white">EN</button>
+                    </div>
+                    <div class="flex items-center space-x-3 ml-2 pl-4 border-l border-white/10">
+                        <a href="login.html" class="text-sm font-bold text-gray-300 hover:text-brand-detailLight transition flex items-center"><i class="fa-solid fa-lock mr-2 text-brand-detail"></i> <span data-i18n="nav_login">Área do Atleta</span></a>
+                        <a href="index.html#contato" class="btn-primary text-sm font-bold py-2 px-6 rounded-full text-white" data-i18n="nav_contact">Contato</a>
+                    </div>
+                </nav>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/10 absolute w-full left-0">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="sobre.html" class="block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:text-white" data-i18n="nav_sobre">Sobre</a>
+                <a href="camps.html" class="block px-3 py-3 rounded-md text-base font-bold text-brand-detail" data-i18n="nav_camp">Soccer Camp</a>
+                <a href="index.html#staff" class="block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:text-white" data-i18n="nav_staff">Staff</a>
+                <a href="estrutura.html" class="block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:text-white" data-i18n="nav_estrutura">Estrutura</a>
+                <a href="portfolio.html" class="block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:text-white" data-i18n="nav_portfolio">Portfólio</a>
+                <a href="index.html#contato" class="block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:text-white" data-i18n="nav_contact">Contato</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-header-bg relative pt-40 pb-24 overflow-hidden border-b border-brand-800/50">
+        <div class="absolute inset-0 bg-brand-900/90 mix-blend-multiply"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-brand-900 via-brand-900/80 to-transparent"></div>
+        <div class="absolute top-20 right-10 w-96 h-96 bg-brand-detail rounded-full mix-blend-multiply filter blur-[120px] opacity-30 animate-blob"></div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center animate-slide-up">
+            <div class="inline-block bg-brand-detail/10 border border-brand-detail/30 px-4 py-1 rounded-full mb-6">
+                <span class="text-brand-detail font-bold text-xs uppercase tracking-widest" data-i18n="camps_page_badge">Nossos Programas</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black text-white mb-4 drop-shadow-lg" data-i18n="camps_page_title">Camps <span class="text-gradient">Intensivos</span></h1>
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto font-light" data-i18n="camps_page_subtitle">
+                Mergulhe no mais alto nível de exigência competitiva. A sua porta de entrada para vivenciar como um atleta global se prepara para grandes desafios.
+            </p>
+        </div>
+    </section>
+
+    <!-- Camp Panels -->
+    <section class="py-24 relative" style="background:#12136b;">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-6xl">
+            <div class="grid md:grid-cols-2 gap-12">
+                
+                <!-- Box Brasil (Draft Camp) -->
+                <div class="glass-card rounded-3xl p-10 relative overflow-hidden group border border-white/5 hover:border-brand-detail transition-all duration-500">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-green-500 blur-[80px] opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                    <div class="mb-6 flex justify-between items-center relative z-10">
+                        <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-green-400 text-2xl shadow-lg">
+                            <i class="fa-solid fa-flag"></i>
+                        </div>
+                        <img src="https://flagcdn.com/w40/br.png" alt="Brasil" class="rounded opacity-60 block">
+                    </div>
+                    
+                    <h3 class="text-3xl font-black text-white mb-2 relative z-10" data-i18n="camps_draft_title">Draft Camp - Brasil</h3>
+                    <p class="text-gray-400 mb-8 font-light h-16 relative z-10" data-i18n="camps_draft_desc">Imersão de 7 dias nas bases do Brasil. Rotina diária focada 100% em tática, vídeos e dinâmicas preparatórias para olheiros.</p>
+                    
+                    <div class="bg-brand-detail/5 p-6 rounded-2xl border border-brand-detail/20 mb-8 relative z-10 group-hover:bg-brand-detail/10 transition">
+                        <div class="text-white text-4xl font-black flex items-end drop-shadow-md">
+                            R$ 1.990<span class="text-sm text-brand-detailLight font-bold ml-2 mb-1 uppercase tracking-wider" data-i18n="camps_draft_price_unit">/ vaga</span>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-10 relative z-10">
+                        <li class="flex items-start">
+                            <div class="w-6 h-6 rounded-full bg-brand-detail/60 flex items-center justify-center mr-3 mt-0.5 shrink-0"><i class="fa-solid fa-check text-white text-xs"></i></div>
+                            <span class="text-gray-300 font-light text-sm" data-i18n="camps_draft_feat1">Alojamento completo e Alimentação em hotel 4 estrelas.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-6 h-6 rounded-full bg-brand-detail/60 flex items-center justify-center mr-3 mt-0.5 shrink-0"><i class="fa-solid fa-check text-white text-xs"></i></div>
+                            <span class="text-gray-300 font-light text-sm" data-i18n="camps_draft_feat2">Gravação Tática e cobertura completa por Drones de alta resolução.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-6 h-6 rounded-full bg-brand-detail/60 flex items-center justify-center mr-3 mt-0.5 shrink-0"><i class="fa-solid fa-check text-white text-xs"></i></div>
+                            <span class="text-gray-300 font-light text-sm" data-i18n="camps_draft_feat3">Aulas imersivas de Inglês com foco no nivelamento (ESL).</span>
+                        </li>
+                    </ul>
+                    <button onclick="alert('Redirecionando para inscrição...')" class="w-full btn-primary text-white font-bold py-4 rounded-xl relative z-10 text-lg uppercase tracking-wider" data-i18n="camps_draft_btn">
+                        Aplicar para Vaga
+                    </button>
+                </div>
+
+                <!-- Box US (Showcase Tour) -->
+                <div class="glass-card rounded-3xl p-10 relative overflow-hidden group border border-brand-detail transition-all duration-500">
+                    <div class="absolute -top-6 -right-6 flex z-20">
+                        <div class="bg-brand-detail text-white text-xs font-black px-6 pt-8 pb-2 rounded-full uppercase tracking-widest transform rotate-12 shadow-lg w-28 h-28 flex items-center justify-center text-center">
+                            Elite<br>Tour
+                        </div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-32 h-32 bg-blue-500 blur-[80px] opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                    <div class="mb-6 flex justify-between items-center relative z-10">
+                        <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-blue-400 text-2xl shadow-lg">
+                            <i class="fa-solid fa-plane-departure"></i>
+                        </div>
+                        <img src="https://flagcdn.com/w40/us.png" alt="EUA" class="rounded opacity-60 block mr-12">
+                    </div>
+                    
+                    <h3 class="text-3xl font-black text-white mb-2 relative z-10" data-i18n="camps_showcase_title">Showcase Tour - EUA</h3>
+                    <p class="text-gray-400 mb-8 font-light h-16 relative z-10" data-i18n="camps_showcase_desc">A experiência definitiva: viajar em grupo para jogar torneios de vitrine diante dos principais "College Coaches" universitários nos EUA.</p>
+                    
+                    <div class="bg-brand-detail/10 p-6 rounded-2xl border border-brand-detail/30 mb-8 relative z-10 group-hover:bg-brand-detail/20 transition">
+                        <div class="text-white text-4xl font-black flex items-end drop-shadow-md">
+                            US$ 3.500<span class="text-sm text-brand-detailLight font-bold ml-2 mb-1 uppercase tracking-wider" data-i18n="camps_showcase_price_unit">/ tour</span>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-10 relative z-10">
+                        <li class="flex items-start">
+                            <div class="w-6 h-6 rounded-full bg-brand-detail/60 flex items-center justify-center mr-3 mt-0.5 shrink-0"><i class="fa-solid fa-check text-white text-xs"></i></div>
+                            <span class="text-gray-300 font-light text-sm" data-i18n="camps_showcase_feat1">Aéreo Internacional, Hospedagem VIP, Traslados e Seguros inclusos.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-6 h-6 rounded-full bg-brand-detail/60 flex items-center justify-center mr-3 mt-0.5 shrink-0"><i class="fa-solid fa-check text-white text-xs"></i></div>
+                            <span class="text-gray-300 font-light text-sm" data-i18n="camps_showcase_feat2">Mínimo de 3 Jogos Oficiais In-Loco contra academias e colegiais americanos.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-6 h-6 rounded-full bg-brand-detail/60 flex items-center justify-center mr-3 mt-0.5 shrink-0"><i class="fa-solid fa-check text-white text-xs"></i></div>
+                            <span class="text-gray-300 font-light text-sm" data-i18n="camps_showcase_feat3">Assessoria Jurídica especializada para a tiragem dos Vistos correspondentes (ex: F1, I-20).</span>
+                        </li>
+                    </ul>
+                    <button onclick="alert('Redirecionando para aplicação internacional...')" class="w-full btn-primary text-white font-bold py-4 rounded-xl relative z-10 text-lg uppercase tracking-wider" data-i18n="camps_showcase_btn">
+                        Aplicar para Vaga
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 border-t border-white/10" style="background:#0e0f5c;">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-6 md:gap-0">
+            <div class="flex items-center justify-center md:justify-start">
+                <div class="logo-container w-12 h-12 mr-3 border-2 border-brand-detail">
+                    <img src="logo.png" alt="Logo">
+                </div>
+                <span class="font-bold text-white tracking-widest uppercase">Hattrick Academy</span>
+            </div>
+            <p class="text-gray-500 text-sm font-light" data-i18n="footer_copy">&copy; 2026 Hattrick Soccer. Experiência Premium. Todos os direitos reservados.</p>
+            <div class="flex space-x-4 justify-center">
+                <a href="https://www.instagram.com/hattrickacademyusa?igsh=MXI3YXV3aHcxemQwOQ==" target="_blank" class="w-10 h-10 rounded-full bg-brand-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-gradient-to-tr hover:from-yellow-500 hover:via-pink-500 hover:to-purple-500 hover:scale-110 shadow-lg transition duration-300">
+                    <i class="fa-brands fa-instagram text-lg"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    </script>
+    <script src="i18n.js"></script>
+</body>
+</html>

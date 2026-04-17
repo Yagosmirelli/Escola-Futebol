@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área Restrita | Hattrick Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { brand: { 900: '#12136b', 800: '#1a1b8a', 700: '#242593', detail: '#00D4FF'} } }, fontFamily: { sans: ['Outfit'] } } }
+    </script>
+</head>
+<body class="bg-brand-900 text-gray-300 font-sans antialiased min-h-screen flex flex-col justify-center items-center relative" style="background-image: url('https://images.unsplash.com/photo-1518605368461-1ee7e149f1db?ixlib=rb-4.0.3'); background-size: cover;">
+    
+    <div class="absolute inset-0 backdrop-blur-md" style="background:rgba(18,19,107,0.92);"></div>
+
+    <div class="relative z-10 w-full max-w-md p-8 bg-brand-800/80 backdrop-blur-xl border border-white/10 rounded-3xl shadow-[0_0_50px_rgba(36, 37, 147,0.2)]">
+        
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-black text-white">Login do Atleta</h2>
+            <p class="text-sm mt-2 font-light">Acesse seus Highlights, Avaliações e Progresso de Inglês.</p>
+        </div>
+
+        <form onsubmit="event.preventDefault();" class="space-y-6">
+            <div>
+                <label class="block text-sm font-bold text-gray-400 mb-2">Email do Aluno</label>
+                <div class="relative">
+                    <i class="fa-solid fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
+                    <input type="email" class="w-full bg-brand-900/50 border border-white/10 rounded-xl py-3 pl-10 pr-4 text-white focus:border-brand-detail focus:outline-none transition">
+                </div>
+            </div>
+            <div>
+                <label class="block text-sm font-bold text-gray-400 mb-2">Senha</label>
+                <div class="relative">
+                    <i class="fa-solid fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
+                    <input type="password" class="w-full bg-brand-900/50 border border-white/10 rounded-xl py-3 pl-10 pr-4 text-white focus:border-brand-detail focus:outline-none transition">
+                </div>
+            </div>
+            
+            <div class="flex justify-between items-center text-sm">
+                <label class="flex items-center cursor-pointer">
+                    <input type="checkbox" class="mr-2 rounded border-white/20 bg-transparent text-brand-detail focus:ring-0">
+                    <span class="font-light">Lembrar-me</span>
+                </label>
+                <a href="#" class="text-brand-detail hover:text-white font-bold transition">Esqueci a Senha</a>
+            </div>
+
+            <button type="submit" class="w-full text-white font-bold py-4 rounded-xl transition transform hover:-translate-y-1" style="background:linear-gradient(90deg,#242593,#00D4FF); box-shadow:0 0 15px rgba(0,212,255,0.4);">
+                Entrar no Portal
+            </button>
+        </form>
+
+        <div class="mt-8 text-center text-sm">
+            <a href="index.html" class="text-gray-400 hover:text-white"><i class="fa-solid fa-arrow-left"></i> Voltar pro site principal</a>
+        </div>
+    </div>
+</body>
+</html>

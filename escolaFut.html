@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hattrick Soccer Academy | USA & Brasil</title>
+
+    <!-- Google Fonts: Outfit (moderno, premium) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            900: '#12136b', // Fundo principal — índigo profundo
+                            800: '#1a1b8a', // Azul índigo escuro
+                            700: '#242593', // Cor primária principal
+                            600: '#2d2eab', // Azul médio vibrante
+                            detail: '#00D4FF', // Ciano vibrante — acento/destaque
+                            detailLight: '#66E8FF', // Ciano mais claro para gradientes
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    animation: {
+                        'blob': 'blob 10s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #12136b; /* Fundo global — índigo profundo */
+            color: #f3f4f6; /* Texto claro base */
+            overflow-x: hidden;
+        }
+
+        /* Hero com Overlay Dinâmico */
+        .hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1518605368461-1ee7e149f1db?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Efeito de Vidro (Glassmorphism) */
+        .glass {
+            background: rgba(26, 27, 138, 0.50);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .glass-card {
+            background: linear-gradient(145deg, rgba(36, 37, 147, 0.45) 0%, rgba(18, 19, 107, 0.85) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+        }
+
+        /* Gradientes de Texto */
+        .text-gradient {
+            background: linear-gradient(135deg, #00D4FF, #66E8FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Botões Premium */
+        .btn-primary {
+            background: linear-gradient(90deg, #242593, #00D4FF);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.7);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(0, 212, 255, 0.4);
+            backdrop-filter: blur(4px);
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: #00D4FF;
+            transform: translateY(-2px);
+        }
+
+        /* Scrollbar Personalizada */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #12136b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #242593;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00D4FF;
+        }
+
+        /* Estilo da Logo Arredondada Recortada */
+        .logo-container {
+            position: relative;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid rgba(0, 212, 255, 0.7);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-container img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.18);
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Navegação (Glassmorphism) -->
+    <header class="fixed w-full z-50 transition-all duration-300 glass" id="navbar">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer group" onclick="window.scrollTo(0,0)">
+                    <div class="logo-container w-20 h-20 transition-transform duration-300 group-hover:scale-110 group-hover:shadow-[0_0_25px_rgba(36, 37, 147,0.8)]" style="image-rendering: high-quality;">
+                        <img src="logo.png" alt="Hattrick Academy Logo">
+                    </div>
+                    <div class="ml-4 hidden sm:block">
+                        <h1 class="font-black text-2xl tracking-widest uppercase leading-none text-white drop-shadow-md">Hattrick</h1>
+                        <span class="text-xs text-brand-detail font-bold tracking-[0.3em] uppercase">Academy</span>
+                    </div>
+                </div>
+
+                <!-- Menu Desktop -->
+                <nav class="hidden md:flex space-x-6 items-center">
+                    <a href="sobre.html" class="text-sm font-semibold text-gray-300 hover:text-white transition duration-300 hover:text-shadow-glow" data-i18n="nav_sobre">Sobre</a>
+                    <a href="camps.html" class="text-sm font-semibold text-gray-300 hover:text-white transition duration-300 hover:text-shadow-glow" data-i18n="nav_camp">Soccer Camp</a>
+                    <a href="#staff" class="text-sm font-semibold text-gray-300 hover:text-white transition duration-300 hover:text-shadow-glow" data-i18n="nav_staff">Staff</a>
+                    <a href="estrutura.html" class="text-sm font-semibold text-gray-300 hover:text-white transition duration-300 hover:text-shadow-glow" data-i18n="nav_estrutura">Estrutura</a>
+                    <a href="portfolio.html" class="text-sm font-semibold text-gray-300 hover:text-white transition duration-300 hover:text-shadow-glow" data-i18n="nav_portfolio">Portfólio</a>
+                        <!-- Language Switcher -->
+                        <div class="flex items-center bg-white/5 backdrop-blur-md rounded-full p-1 border border-white/10 ml-2">
+                            <button onclick="toggleLanguage('pt')" class="lang-btn-pt px-3 py-1 text-[10px] font-bold rounded-full transition-all duration-300 bg-brand-detail text-brand-900 shadow-[0_0_10px_rgba(0,212,255,0.5)]">PT</button>
+                            <button onclick="toggleLanguage('en')" class="lang-btn-en px-3 py-1 text-[10px] font-bold rounded-full transition-all duration-300 text-gray-400 hover:text-white">EN</button>
+                        </div>
+
+                        <a href="login.html" class="text-sm font-bold text-gray-300 hover:text-brand-detailLight transition flex items-center"><i class="fa-solid fa-lock mr-2 text-brand-detail"></i> <span data-i18n="nav_login">Área do Atleta</span></a>
+                        <a href="#contato" class="btn-primary text-sm font-bold py-2 px-6 rounded-full text-white" data-i18n="nav_contact">Contato</a>
+                    </div>
+                </nav>
+
+                <!-- Botão Menu Mobile -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/10 absolute w-full left-0">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="sobre.html" class="block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:bg-brand-detail/20 hover:text-white">Sobre</a>
+                <a href="#camp" class="block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:bg-brand-detail/20 hover:text-white">Soccer Camp</a>
+                <a href="#staff" class="block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:bg-brand-detail/20 hover:text-white">Staff</a>
+                <a href="estrutura.html" class="block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:bg-brand-detail/20 hover:text-white">Estrutura</a>
+                <a href="portfolio.html" class="block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:bg-brand-detail/20 hover:text-white">Portfólio</a>
+                <a href="#contato" class="block px-3 py-3 rounded-md text-base font-bold text-brand-detail hover:text-white">Contato</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center justify-center text-center px-4 relative overflow-hidden">
+        <!-- Overlays para escurecer e colorir a imagem de fundo -->
+        <div class="absolute inset-0 bg-brand-900/80 z-0"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-brand-800/60 via-transparent to-brand-detail/30 z-0 mix-blend-multiply"></div>
+        
+        <!-- Animated Blobs (Decoração ao fundo) -->
+        <div class="absolute top-20 left-10 w-72 h-72 bg-brand-detail rounded-full mix-blend-multiply filter blur-[100px] opacity-30 animate-blob z-0"></div>
+        <div class="absolute top-40 right-10 w-72 h-72 bg-brand-600 rounded-full mix-blend-multiply filter blur-[100px] opacity-30 animate-blob animation-delay-2000 z-0"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto mt-20 md:mt-0 animate-slide-up">
+            <div class="inline-flex justify-center items-center space-x-3 mb-8 bg-white/5 backdrop-blur-md px-6 py-2 rounded-full border border-white/10 shadow-lg">
+                <img src="https://flagcdn.com/w40/br.png" alt="Brasil" class="w-6 rounded-sm shadow-sm">
+                <span class="text-white font-bold tracking-widest text-xs uppercase px-2" data-i18n="hero_badge"><span class="text-gray-400">Rumo aos</span> EUA</span>
+                <img src="https://flagcdn.com/w40/us.png" alt="USA" class="w-6 rounded-sm shadow-sm">
+            </div>
+            
+            <h2 class="text-5xl md:text-7xl font-black mb-6 leading-tight text-white drop-shadow-xl" data-i18n="hero_title">
+                A Ginga Brasileira,<br>
+                <span class="text-gradient">Oportunidade Global.</span>
+            </h2>
+            
+            <p class="text-lg md:text-2xl text-gray-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed" data-i18n="hero_subtitle">
+                A ponte definitiva entre o talento do futebol brasileiro e as bolsas de estudo universitárias de elite nos Estados Unidos.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="camps.html" class="btn-primary text-white font-bold py-4 px-10 rounded-full text-lg" data-i18n="hero_btn_camp">
+                    Conheça os Camps
+                </a>
+                <a href="#contato" class="btn-secondary text-white font-bold py-4 px-10 rounded-full text-lg" data-i18n="hero_btn_contact">
+                    Fale Conosco
+                </a>
+            </div>
+        </div>
+        
+        <!-- Indicador de Scroll -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-float z-10">
+            <div class="w-[30px] h-[50px] rounded-full border-2 border-white/30 flex justify-center pt-2">
+                <div class="w-1 h-3 bg-brand-detail rounded-full animate-pulse"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="py-24 bg-brand-900 relative" style="background:#12136b;">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2">
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-brand-detail filter blur-3xl opacity-20 group-hover:opacity-40 transition duration-500 rounded-full"></div>
+                        <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Preparação" class="rounded-2xl shadow-2xl relative z-10 border border-white/10 grayscale group-hover:grayscale-0 transition duration-700">
+                        
+                        <div class="absolute -bottom-8 -right-8 glass-card rounded-2xl p-6 z-20 w-48 text-center animate-float hidden sm:block">
+                            <i class="fa-solid fa-earth-americas text-4xl text-brand-detail mb-3"></i>
+                            <p class="font-bold text-white leading-tight">Bilingual<br><span class="text-gray-400 font-light">Academy</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="inline-block bg-brand-detail/10 border border-brand-detail/30 px-4 py-1 rounded-full mb-4">
+                        <span class="text-brand-detail font-bold text-xs uppercase tracking-widest" data-i18n="sobre_badge">A Nossa História</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-black text-white mb-6 leading-tight" data-i18n="sobre_title">Mais que futebol.<br> Uma <span class="text-brand-detail">preparação</span> para a vida.</h2>
+                    
+                    <p class="text-lg text-gray-300 mb-8 font-light leading-relaxed" data-i18n="sobre_desc">
+                        Nossa metodologia exclusiva combina o talento natural do futebol brasileiro com a disciplina tática e preparação física exigidas internacionalmente. Entregamos uma formação integral, garantindo que nossos atletas brilhem tanto nos gramados quanto nas salas de aula, prontos para acessar as melhores <strong>bolsas universitárias</strong> e oportunidades globais.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="bg-[#1a1b8a]/60 backdrop-blur-sm border border-brand-detail/20 rounded-2xl p-5 hover:bg-brand-detail/10 hover:-translate-y-1 transition duration-300">
+                            <h4 class="text-3xl font-black text-white mb-1" data-i18n="sobre_stat1_title">100<span class="text-brand-detail">%</span></h4>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider font-semibold" data-i18n="sobre_stat1_desc">Foco Multidisciplinar</p>
+                        </div>
+                        <div class="bg-[#1a1b8a]/60 backdrop-blur-sm border border-brand-detail/20 rounded-2xl p-5 hover:bg-brand-detail/10 hover:-translate-y-1 transition duration-300">
+                            <h4 class="text-3xl font-black text-white mb-1" data-i18n="sobre_stat2_title">+50</h4>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider font-semibold" data-i18n="sobre_stat2_desc">Bolsas e Parcerias</p>
+                        </div>
+                    </div>
+
+                    <a href="sobre.html" class="inline-flex items-center btn-secondary text-white font-bold py-3 px-8 rounded-full mb-8 group transition-all duration-300 hover:bg-brand-detail hover:border-brand-detail" data-i18n="sobre_btn">
+                        Conheça Nossa Missão Completa
+                        <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-2 transition"></i>
+                    </a>
+
+                    <div class="space-y-5">
+                        <div class="glass-card p-4 rounded-xl flex items-center transform transition duration-300 hover:translate-x-2 border-l-4 border-l-brand-detail" data-i18n="sobre_item1">
+                            <i class="fa-solid fa-bolt text-brand-detail text-2xl w-12 text-center"></i>
+                            <span class="text-white font-medium text-lg">Treinamento Tático de Elite</span>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl flex items-center transform transition duration-300 hover:translate-x-2 border-l-4 border-l-brand-detail" data-i18n="sobre_item2">
+                            <i class="fa-solid fa-language text-brand-detail text-2xl w-12 text-center"></i>
+                            <span class="text-white font-medium text-lg">Aulas de Inglês integradas</span>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl flex items-center transform transition duration-300 hover:translate-x-2 border-l-4 border-l-brand-detail" data-i18n="sobre_item3">
+                            <i class="fa-solid fa-plane-departure text-brand-detail text-2xl w-12 text-center"></i>
+                            <span class="text-white font-medium text-lg">Assessoria para intercâmbio</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Soccer Camp Section -->
+    <section id="camp" class="py-24 bg-[#1a1b8a]/30 relative border-t border-brand-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <div class="inline-block bg-brand-detail/10 border border-brand-detail/30 px-4 py-1 rounded-full mb-4">
+                    <span class="text-brand-detail font-bold text-xs uppercase tracking-widest" data-i18n="camp_badge">Programas Intensivos</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-black text-white mb-6" data-i18n="camp_title">Hattrick Camps</h2>
+                <p class="text-gray-400 text-lg font-light" data-i18n="camp_subtitle">Vivencie a rotina de um atleta universitário americano e prepare-se para os palcos mundiais.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- Camp Brasil -->
+                <div class="glass-card rounded-3xl overflow-hidden group">
+                    <div class="h-72 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-brand-900/40 group-hover:bg-transparent transition duration-500 z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1574629810360-7efbb1925536?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Brasil" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 z-0">
+                        <div class="absolute top-6 left-6 z-20 bg-[#12136b]/90 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-bold flex items-center border border-brand-detail/30" data-i18n="camp_br_tag">
+                            <img src="https://flagcdn.com/w20/br.png" class="mr-2 rounded-sm" alt="BR"> Etapa Brasil
+                        </div>
+                    </div>
+                    <div class="p-10 relative">
+                        <div class="absolute -top-10 right-10 w-20 h-20 bg-brand-detail rounded-full blur-2xl opacity-40 group-hover:opacity-80 transition duration-500"></div>
+                        <h4 class="text-3xl font-black mb-4 text-white" data-i18n="camp_br_title">Draft Camp</h4>
+                        <p class="text-gray-400 mb-8 font-light leading-relaxed" data-i18n="camp_br_desc">Imersão de 7 dias no Brasil. Rotina dupla de treinos, palestras sobre o sistema universitário (NCAA) e simulações de jogos em inglês.</p>
+                        <a href="#contato" class="inline-flex items-center text-brand-detail font-bold hover:text-white transition group/btn" data-i18n="camp_br_btn">
+                            Inscreva-se <i class="fa-solid fa-arrow-right ml-2 transform group-hover/btn:translate-x-2 transition"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Camp USA -->
+                <div class="glass-card rounded-3xl overflow-hidden group">
+                    <div class="h-72 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-brand-900/40 group-hover:bg-transparent transition duration-500 z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="USA" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 z-0">
+                        <div class="absolute top-6 left-6 z-20 bg-[#12136b]/90 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-bold flex items-center border border-brand-detail/30" data-i18n="camp_us_tag">
+                            <img src="https://flagcdn.com/w20/us.png" class="mr-2 rounded-sm" alt="US"> Etapa USA
+                        </div>
+                    </div>
+                    <div class="p-10 relative">
+                        <div class="absolute -top-10 right-10 w-20 h-20 bg-blue-500 rounded-full blur-2xl opacity-20 group-hover:opacity-50 transition duration-500"></div>
+                        <h4 class="text-3xl font-black mb-4 text-white" data-i18n="camp_us_title">Showcase Tour</h4>
+                        <p class="text-gray-400 mb-8 font-light leading-relaxed" data-i18n="camp_us_desc">A experiência definitiva. Levamos talentos para os Estados Unidos para jogar torneios de vitrine diante dos olheiros (College Coaches).</p>
+                        <a href="#contato" class="inline-flex items-center text-white font-bold hover:text-brand-detail transition group/btn" data-i18n="camp_us_btn">
+                            Saiba Mais <i class="fa-solid fa-arrow-right ml-2 transform group-hover/btn:translate-x-2 transition"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coach Staff Section -->
+    <section id="staff" class="py-24 bg-[#12136b] relative border-t border-brand-700/50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <div class="inline-block bg-brand-detail/10 border border-brand-detail/30 px-4 py-1 rounded-full mb-4">
+                    <span class="text-brand-detail font-bold text-xs uppercase tracking-widest" data-i18n="staff_badge">Nossa Equipe</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-6" data-i18n="staff_title">Coach Staff</h2>
+                <p class="text-gray-400 font-light text-lg" data-i18n="staff_subtitle">Treinadores com experiência internacional focados no seu máximo potencial.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+                <!-- Coach 1: Lucas Sousa -->
+                <div class="glass-card rounded-3xl p-8 text-center group hover:-translate-y-4 transition duration-500">
+                    <div class="relative w-40 h-40 mx-auto rounded-full overflow-hidden border-4 border-brand-800 group-hover:border-brand-detail transition duration-500 mb-6 shadow-xl">
+                        <img src="imagem.lucas.perfil1.jpeg" alt="Lucas Sousa" class="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition duration-500">
+                    </div>
+                    <h4 class="text-2xl font-black text-white mb-2">Lucas Sousa</h4>
+                    <p class="text-brand-detail font-bold text-sm uppercase tracking-wider mb-4" data-i18n="staff_lucas_role">Head Coach</p>
+                    <p class="text-gray-400 font-light text-sm mb-6" data-i18n="staff_lucas_desc">Especialista em desenvolvimento tático e técnico para os padrões mais exigentes do futebol universitário.</p>
+                    <div class="flex justify-center space-x-4 mb-5">
+                        <a href="https://www.linkedin.com/in/lucas-sousa-579309106/" target="_blank" class="w-10 h-10 rounded-full bg-brand-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#0A66C2] transition"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/lucasgfernandes" target="_blank" class="w-10 h-10 rounded-full bg-brand-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-gradient-to-tr hover:from-yellow-500 hover:via-pink-500 hover:to-purple-500 transition"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                    <a href="lucas.html" class="block w-full py-3 bg-brand-900 border border-brand-800 text-brand-detail font-bold rounded-xl hover:bg-brand-detail hover:mb-0 hover:text-white transition" data-i18n="staff_btn_profile">Ver Perfil Completo</a>
+                </div>
+
+                <!-- Coach 2: Jenn Hauser -->
+                <div class="glass-card rounded-3xl p-8 text-center group hover:-translate-y-4 transition duration-500 border-b-4 border-b-brand-detail">
+                    <div class="relative w-40 h-40 mx-auto rounded-full overflow-hidden border-4 border-brand-800 group-hover:border-brand-detail transition duration-500 mb-6 shadow-xl">
+                        <img src="imagem.jenn.perfil.jpeg" alt="Jenn Hauser" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                    </div>
+                    <h4 class="text-2xl font-black text-white mb-2">Jenn Hauser</h4>
+                    <p class="text-brand-detail font-bold text-sm uppercase tracking-wider mb-4" data-i18n="staff_jenn_role">Athletic Development</p>
+                    <p class="text-gray-400 font-light text-sm mb-6" data-i18n="staff_jenn_desc">Expertise em performance esportiva e na rota de transição para o esporte americano de elite.</p>
+                    <div class="flex justify-center space-x-4 mb-5">
+                        <a href="#" class="w-10 h-10 rounded-full bg-brand-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#0A66C2] transition"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/jennhause2" target="_blank" class="w-10 h-10 rounded-full bg-brand-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-gradient-to-tr hover:from-yellow-500 hover:via-pink-500 hover:to-purple-500 transition"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                    <a href="jenn.html" class="block w-full py-3 bg-brand-900 border border-brand-800 text-brand-detail font-bold rounded-xl hover:bg-brand-detail hover:mb-0 hover:text-white transition" data-i18n="staff_btn_profile">Ver Perfil Completo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Contato Section -->
+    <section id="contato" class="py-24 bg-[#1a1b8a]/40 relative border-t border-white/5">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl overflow-hidden max-w-6xl mx-auto flex flex-col lg:flex-row shadow-2xl">
+                
+                <!-- Info Contato -->
+                <div class="lg:w-2/5 relative p-12 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-brand-700 to-brand-detail opacity-60" style="background:linear-gradient(135deg,#242593,#00D4FF);"></div>
+                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')] bg-cover bg-center mix-blend-overlay opacity-30"></div>
+                    
+                    <div class="relative z-10 flex flex-col h-full justify-between">
+                        <div>
+                            <h2 class="text-3xl font-black text-white mb-2" data-i18n="contact_title">Conquiste o seu futuro</h2>
+                            <p class="text-white/80 font-light mb-12" data-i18n="contact_subtitle">Dê o primeiro passo para jogar e estudar nos Estados Unidos.</p>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start bg-black/20 p-4 rounded-xl backdrop-blur-sm border border-white/10">
+                                    <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mr-4 shrink-0">
+                                        <i class="fa-solid fa-location-dot text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-white" data-i18n="contact_base_title">Base BrasiI</h4>
+                                        <p class="text-white/70 text-sm" data-i18n="contact_base_desc">São Paulo, SP</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start bg-black/20 p-4 rounded-xl backdrop-blur-sm border border-white/10">
+                                    <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mr-4 shrink-0">
+                                        <i class="fa-brands fa-whatsapp text-white text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-white" data-i18n="contact_phone_title">Telefone</h4>
+                                        <p class="text-white/70 text-sm">+1 (203) 928-8568</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="lg:w-3/5 p-12 bg-white/5">
+                    <h3 class="text-2xl font-bold text-white mb-8" data-i18n="contact_form_title">Envie uma mensagem</h3>
+                    
+                    <form onsubmit="sendToWhatsApp(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-2" data-i18n="contact_label_name">Nome Completo</label>
+                                <input type="text" id="wa_name" required class="w-full bg-brand-900/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-detail focus:ring-1 focus:ring-brand-detail transition">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-2" data-i18n="contact_label_age">Idade</label>
+                                <input type="number" id="wa_age" required class="w-full bg-brand-900/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-detail focus:ring-1 focus:ring-brand-detail transition">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-2" data-i18n="contact_label_email">E-mail</label>
+                                <input type="email" id="wa_email" required class="w-full bg-brand-900/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-detail focus:ring-1 focus:ring-brand-detail transition">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-2">WhatsApp</label>
+                                <input type="tel" id="wa_phone" required class="w-full bg-brand-900/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-detail focus:ring-1 focus:ring-brand-detail transition">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2" data-i18n="contact_label_msg">Sua Mensagem</label>
+                            <textarea id="wa_msg" rows="4" required class="w-full bg-brand-900/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-detail focus:ring-1 focus:ring-brand-detail transition"></textarea>
+                        </div>
+                        <button type="submit" class="w-full btn-primary text-white font-bold text-lg py-4 rounded-xl" data-i18n="contact_btn_submit">
+                            Enviar Aplicação
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 border-t border-white/10" style="background:#0e0f5c;">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-6 md:gap-0">
+            <div class="flex items-center justify-center md:justify-start">
+                <div class="logo-container w-12 h-12 mr-3 border-2 border-brand-detail shadow-[0_0_10px_rgba(36, 37, 147,0.4)]">
+                    <img src="logo.png" alt="Logo">
+                </div>
+                <span class="font-bold text-white tracking-widest uppercase">Hattrick Academy</span>
+            </div>
+            
+            <p class="text-gray-500 text-sm font-light" data-i18n="footer_copy">&copy; 2026 Hattrick Soccer. Experiência Premium. Todos os direitos reservados.</p>
+            
+            <div class="flex space-x-4 justify-center">
+                <a href="https://www.instagram.com/hattrickacademyusa?igsh=MXI3YXV3aHcxemQwOQ==" target="_blank" class="w-10 h-10 rounded-full bg-brand-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-gradient-to-tr hover:from-yellow-500 hover:via-pink-500 hover:to-purple-500 hover:scale-110 shadow-lg transition duration-300">
+                    <i class="fa-brands fa-instagram text-lg"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+            const name = document.getElementById('wa_name').value;
+            const age = document.getElementById('wa_age').value;
+            const email = document.getElementById('wa_email').value;
+            const phone = document.getElementById('wa_phone').value;
+            const msg = document.getElementById('wa_msg').value;
+
+            // Número do WhatsApp da Hattrick (Formato: DDI+DDD+Numero) - Somente números!
+            const companyPhone = "12039288568"; 
+
+            const isEnglish = localStorage.getItem('preferredLang') === 'en';
+
+            let text = "";
+            if (isEnglish) {
+                text = `Hello Hattrick! My name is ${name}, I am ${age} years old.\n\n` +
+                       `Email: ${email}\n` +
+                       `Phone: ${phone}\n\n` +
+                       `Message:\n${msg}`;
+            } else {
+                text = `Olá equipe Hattrick! Meu nome é ${name}, tenho ${age} anos.\n\n` +
+                       `E-mail: ${email}\n` +
+                       `WhatsApp: ${phone}\n\n` +
+                       `Mensagem:\n${msg}`;
+            }
+
+            const encodedText = encodeURIComponent(text);
+            const waUrl = `https://wa.me/${companyPhone}?text=${encodedText}`;
+            
+            window.open(waUrl, '_blank');
+            e.target.reset(); // Limpa o formulário após abrir o link
+        }
+    </script>
+    <!-- Translation Engine -->
+    <script src="i18n.js"></script>
+</body>
+</html>
