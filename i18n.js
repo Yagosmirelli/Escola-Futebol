@@ -353,25 +353,34 @@ function toggleLanguage(lang) {
     // Update storage
     localStorage.setItem('preferredLang', lang);
     
-    // Update UI buttons across the site
-    const btnPts = document.querySelectorAll('.lang-btn-pt');
-    const btnEns = document.querySelectorAll('.lang-btn-en');
-    
-    btnPts.forEach(btnPt => {
-        if(lang === 'pt') {
-            btnPt.className = "lang-btn-pt px-3 py-1 text-[10px] font-bold rounded-full transition-all duration-300 bg-brand-detail text-brand-900 shadow-[0_0_10px_rgba(0,212,255,0.5)]";
-        } else {
-            btnPt.className = "lang-btn-pt px-3 py-1 text-[10px] font-bold rounded-full transition-all duration-300 text-gray-400 hover:text-white";
-        }
-    });
+    // Helper to update button styles
+    const updateBtnStyles = (btns, isActive) => {
+        btns.forEach(btn => {
+            const isMob = btn.classList.contains('lang-btn-pt-mob') || btn.classList.contains('lang-btn-en-mob');
+            
+            if (isActive) {
+                // Active Styles
+                btn.classList.add('bg-brand-detail', 'text-brand-900', 'shadow-[0_0_10px_rgba(0,212,255,0.5)]');
+                btn.classList.remove('text-gray-400', 'text-white', 'border', 'border-white/20');
+            } else {
+                // Inactive Styles
+                btn.classList.remove('bg-brand-detail', 'text-brand-900', 'shadow-[0_0_10px_rgba(0,212,255,0.5)]');
+                btn.classList.add('text-gray-400', 'hover:text-white');
+                if (isMob) btn.classList.add('border', 'border-white/20', 'text-white/60');
+            }
+        });
+    };
 
-    btnEns.forEach(btnEn => {
-        if(lang === 'pt') {
-            btnEn.className = "lang-btn-en px-3 py-1 text-[10px] font-bold rounded-full transition-all duration-300 text-gray-400 hover:text-white";
-        } else {
-            btnEn.className = "lang-btn-en px-3 py-1 text-[10px] font-bold rounded-full transition-all duration-300 bg-brand-detail text-brand-900 shadow-[0_0_10px_rgba(0,212,255,0.5)]";
-        }
-    });
+    const btnPts = document.querySelectorAll('.lang-btn-pt, .lang-btn-pt-mob');
+    const btnEns = document.querySelectorAll('.lang-btn-en, .lang-btn-en-mob');
+
+    if (lang === 'pt') {
+        updateBtnStyles(btnPts, true);
+        updateBtnStyles(btnEns, false);
+    } else {
+        updateBtnStyles(btnPts, false);
+        updateBtnStyles(btnEns, true);
+    }
 
     // Update Text
     document.querySelectorAll('[data-i18n]').forEach(el => {
