@@ -21,17 +21,64 @@
     <!-- Fundo de Imagem Estilizado -->
     <div class="fixed inset-0 z-[-1] min-h-screen bg-cover bg-center opacity-5 mix-blend-screen" style="background-image: url('https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?ixlib=rb-4.0.3');"></div>
 
-    <header class="w-full z-50 backdrop-blur-md border-b border-brand-detail/20 sticky top-0" style="background:rgba(18,19,107,0.85);">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="index.html#staff" class="text-white hover:text-brand-detail flex items-center font-bold" data-i18n="estrutura_back">
-                <i class="fa-solid fa-arrow-left mr-2"></i> Voltar ao Menu Principal
-            </a>
-            <div class="flex items-center gap-4">
-                <span class="font-black text-xl tracking-widest text-white uppercase drop-shadow-md" data-i18n="estrutura_header">Nossa Estrutura</span>
-                <!-- Language Switcher -->
-                <div class="flex items-center bg-white/5 backdrop-blur-md rounded-full p-1 border border-white/10">
-                    <button onclick="toggleLanguage('pt')" class="lang-btn-pt px-3 py-1 text-[10px] font-bold rounded-full transition-all duration-300 bg-brand-detail text-brand-900 shadow-[0_0_10px_rgba(0,212,255,0.5)]">PT</button>
-                    <button onclick="toggleLanguage('en')" class="lang-btn-en px-3 py-1 text-[10px] font-bold rounded-full transition-all duration-300 text-gray-400 hover:text-white">EN</button>
+    <header class="fixed w-full z-50 transition-all duration-300 glass" id="navbar">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex-shrink-0 flex items-center cursor-pointer group" onclick="window.location.href='index.html'">
+                    <div class="logo-container w-16 h-16 md:w-20 md:h-20 transition-transform duration-300 group-hover:scale-110" style="image-rendering: high-quality;">
+                        <img src="logo.png" alt="Hattrick Academy Logo">
+                    </div>
+                    <div class="ml-3 hidden sm:block">
+                        <h1 class="font-black text-xl md:text-2xl tracking-widest uppercase leading-none text-white drop-shadow-md">Hattrick</h1>
+                        <span class="text-[10px] md:text-xs text-brand-detail font-bold tracking-[0.3em] uppercase">Academy</span>
+                    </div>
+                </div>
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="sobre.html" class="text-sm font-semibold text-gray-300 hover:text-white transition duration-300" data-i18n="nav_sobre">Sobre</a>
+                    <a href="camps.html" class="text-sm font-semibold text-gray-300 hover:text-white transition duration-300" data-i18n="nav_camp">Soccer Camp</a>
+                    <a href="index.html#staff" class="text-sm font-semibold text-gray-300 hover:text-white transition duration-300" data-i18n="nav_staff">Staff</a>
+                    <a href="estrutura.html" class="text-sm font-semibold text-brand-detail hover:text-white transition duration-300" data-i18n="nav_estrutura">Estrutura</a>
+                    <a href="portfolio.html" class="text-sm font-semibold text-gray-300 hover:text-white transition duration-300" data-i18n="nav_portfolio">Portfólio</a>
+                    <div class="flex items-center bg-white/5 backdrop-blur-md rounded-full p-1 border border-white/10 ml-2">
+                        <button onclick="toggleLanguage('pt')" class="lang-btn-pt px-3 py-1 text-[10px] font-bold rounded-full transition-all duration-300 bg-brand-detail text-brand-900 shadow-[0_0_10px_rgba(0,212,255,0.5)]">PT</button>
+                        <button onclick="toggleLanguage('en')" class="lang-btn-en px-3 py-1 text-[10px] font-bold rounded-full transition-all duration-300 text-gray-400 hover:text-white">EN</button>
+                    </div>
+                    <a href="login.html" class="text-sm font-bold text-gray-300 hover:text-brand-detailLight transition flex items-center"><i class="fa-solid fa-lock mr-2 text-brand-detail"></i> Login</a>
+                    <a href="index.html#contato" class="btn-primary text-sm font-bold py-2 px-6 rounded-full text-white" data-i18n="nav_contact">Contato</a>
+                </nav>
+                <!-- Botão Menu Mobile e Language Switcher -->
+                <div class="md:hidden flex items-center space-x-4">
+                    <div class="flex items-center bg-white/5 backdrop-blur-md rounded-full p-1 border border-white/10">
+                        <button onclick="toggleLanguage('pt')" class="lang-btn-pt-mob px-3 py-1 text-[10px] font-bold rounded-full transition-all duration-300 bg-brand-detail text-brand-900 shadow-[0_0_10px_rgba(0,212,255,0.5)]">PT</button>
+                        <button onclick="toggleLanguage('en')" class="lang-btn-en-mob px-3 py-1 text-[10px] font-bold rounded-full transition-all duration-300 text-gray-400 hover:text-white">EN</button>
+                    </div>
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars-staggered text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar Overlay -->
+        <div id="sidebar-overlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-40 hidden transition-opacity duration-300"></div>
+
+        <!-- Menu Mobile (Sidebar) -->
+        <div id="mobile-menu" class="fixed inset-y-0 right-0 w-72 bg-[#12136b] z-50 transform translate-x-full transition-transform duration-300 ease-in-out shadow-[-10px_0_30px_rgba(0,0,0,0.5)] flex flex-col pt-24 px-8 border-l border-white/10 mt-0">
+            <!-- Close Button Inside Sidebar -->
+            <button id="close-menu-btn" class="absolute top-8 right-8 text-gray-400 hover:text-white transition">
+                <i class="fa-solid fa-xmark text-3xl"></i>
+            </button>
+
+            <div class="flex flex-col space-y-6">
+                <a href="index.html" class="text-sm uppercase tracking-widest text-gray-400 font-bold border-b border-white/5 pb-2">Navigation</a>
+                <a href="sobre.html" class="text-xl font-bold text-white hover:text-brand-detail transition">Sobre</a>
+                <a href="camps.html" class="text-xl font-bold text-white hover:text-brand-detail transition">Soccer Camp</a>
+                <a href="index.html#staff" class="text-xl font-bold text-white hover:text-brand-detail transition" onclick="toggleMenu()">Staff</a>
+                <a href="estrutura.html" class="text-xl font-bold text-brand-detail transition">Estrutura</a>
+                <a href="portfolio.html" class="text-xl font-bold text-white hover:text-brand-detail transition">Portfólio</a>
+                <a href="login.html" class="text-xl font-bold text-white hover:text-brand-detail transition flex items-center"><i class="fa-solid fa-lock mr-3 text-brand-detail"></i> Login</a>
+                <div class="pt-8">
+                    <a href="index.html#contato" class="btn-primary block text-center text-white font-bold py-4 rounded-xl shadow-lg" onclick="toggleMenu()">Contato</a>
                 </div>
             </div>
         </div>
@@ -116,6 +163,22 @@
         </div>
     </section>
 
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const overlay = document.getElementById('sidebar-overlay');
+
+        function toggleMenu() {
+            menu.classList.toggle('translate-x-full');
+            overlay.classList.toggle('hidden');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        btn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+    </script>
     <script src="i18n.js"></script>
 </body>
 </html>

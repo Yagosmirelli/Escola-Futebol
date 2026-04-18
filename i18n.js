@@ -15,6 +15,7 @@ const translations = {
         hero_subtitle: "A ponte definitiva entre o talento do futebol brasileiro e as bolsas de estudo universitárias de elite nos Estados Unidos.",
         hero_btn_camp: "Conheça os Camps",
         hero_btn_contact: "Fale Conosco",
+        hero_scroll: "Explorar",
         
         // escolaFut.html - Sobre Section
         sobre_badge: "A Nossa História",
@@ -189,6 +190,7 @@ const translations = {
         hero_subtitle: "The definitive bridge between Brazilian soccer talent and elite university scholarships in the United States.",
         hero_btn_camp: "Explore Camps",
         hero_btn_contact: "Contact Us",
+        hero_scroll: "Explore",
 
         // escolaFut.html - Sobre Section
         sobre_badge: "Our Story",

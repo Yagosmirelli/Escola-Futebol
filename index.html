@@ -212,10 +212,10 @@
         </div>
 
         <!-- Sidebar Overlay -->
-        <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden transition-opacity duration-300"></div>
+        <div id="sidebar-overlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-40 hidden transition-opacity duration-300"></div>
 
         <!-- Menu Mobile (Sidebar) -->
-        <div id="mobile-menu" class="fixed inset-y-0 right-0 w-72 bg-brand-900 z-50 transform translate-x-full transition-transform duration-300 ease-in-out shadow-[-10px_0_30px_rgba(0,0,0,0.5)] flex flex-col pt-24 px-8 border-l border-white/10 mt-0">
+        <div id="mobile-menu" class="fixed inset-y-0 right-0 w-72 bg-[#12136b] z-50 transform translate-x-full transition-transform duration-300 ease-in-out shadow-[-10px_0_30px_rgba(0,0,0,0.5)] flex flex-col pt-24 px-8 border-l border-white/10 mt-0">
             <!-- Close Button Inside Sidebar -->
             <button id="close-menu-btn" class="absolute top-8 right-8 text-gray-400 hover:text-white transition">
                 <i class="fa-solid fa-xmark text-3xl"></i>
@@ -225,7 +225,7 @@
                 <a href="index.html" class="text-sm uppercase tracking-widest text-gray-400 font-bold border-b border-white/5 pb-2">Navigation</a>
                 <a href="sobre.html" class="text-xl font-bold text-white hover:text-brand-detail transition">Sobre</a>
                 <a href="camps.html" class="text-xl font-bold text-white hover:text-brand-detail transition">Soccer Camp</a>
-                <a href="#staff" class="text-xl font-bold text-white hover:text-brand-detail transition" onclick="toggleMenu()">Staff</a>
+                <a href="index.html#staff" class="text-xl font-bold text-white hover:text-brand-detail transition" onclick="toggleMenu()">Staff</a>
                 <a href="estrutura.html" class="text-xl font-bold text-white hover:text-brand-detail transition">Estrutura</a>
                 <a href="portfolio.html" class="text-xl font-bold text-white hover:text-brand-detail transition">Portfólio</a>
                 <a href="login.html" class="text-xl font-bold text-white hover:text-brand-detail transition flex items-center"><i class="fa-solid fa-lock mr-3 text-brand-detail"></i> Login</a>
@@ -272,11 +272,15 @@
             </div>
         </div>
         
-        <!-- Indicador de Scroll -->
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-float z-10 hidden md:block">
-            <div class="w-[30px] h-[50px] rounded-full border-2 border-white/30 flex justify-center pt-2">
-                <div class="w-1 h-3 bg-brand-detail rounded-full animate-pulse"></div>
+        <!-- Scroll Indicator (Modernized) -->
+        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 hidden md:flex flex-col items-center group cursor-pointer z-10" onclick="document.getElementById('sobre').scrollIntoView({behavior: 'smooth'})">
+            <div class="relative flex items-center justify-center">
+                <!-- Glowing Circle -->
+                <div class="absolute w-12 h-12 bg-brand-detail/20 rounded-full animate-ping opacity-20"></div>
+                <!-- Minimalist Arrow -->
+                <i class="fa-solid fa-chevron-down text-brand-detail text-2xl animate-bounce drop-shadow-[0_0_10px_rgba(0,212,255,0.8)]"></i>
             </div>
+            <span class="text-[10px] text-brand-detail/60 mt-4 uppercase tracking-[0.4em] font-black group-hover:text-brand-detail transition-colors" data-i18n="hero_scroll">Explore</span>
         </div>
     </section>
 

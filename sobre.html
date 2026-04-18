@@ -98,6 +98,7 @@
                         <a href="index.html#contato" class="btn-primary text-sm font-bold py-2 px-6 rounded-full text-white" data-i18n="nav_contact">Contato</a>
                     </div>
                 </nav>
+
                 <!-- Botão Menu Mobile e Language Switcher -->
                 <div class="md:hidden flex items-center space-x-4">
                     <!-- Language Switcher Mobile -->
@@ -112,11 +113,12 @@
                 </div>
             </div>
         </div>
+
         <!-- Sidebar Overlay -->
-        <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden transition-opacity duration-300"></div>
+        <div id="sidebar-overlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-40 hidden transition-opacity duration-300"></div>
 
         <!-- Menu Mobile (Sidebar) -->
-        <div id="mobile-menu" class="fixed inset-y-0 right-0 w-72 bg-brand-900 z-50 transform translate-x-full transition-transform duration-300 ease-in-out shadow-[-10px_0_30px_rgba(0,0,0,0.5)] flex flex-col pt-24 px-8 border-l border-white/10 mt-0">
+        <div id="mobile-menu" class="fixed inset-y-0 right-0 w-72 bg-[#12136b] z-50 transform translate-x-full transition-transform duration-300 ease-in-out shadow-[-10px_0_30px_rgba(0,0,0,0.5)] flex flex-col pt-24 px-8 border-l border-white/10 mt-0">
             <!-- Close Button Inside Sidebar -->
             <button id="close-menu-btn" class="absolute top-8 right-8 text-gray-400 hover:text-white transition">
                 <i class="fa-solid fa-xmark text-3xl"></i>
@@ -124,14 +126,14 @@
 
             <div class="flex flex-col space-y-6">
                 <a href="index.html" class="text-sm uppercase tracking-widest text-gray-400 font-bold border-b border-white/5 pb-2">Navigation</a>
-                <a href="sobre.html" class="text-xl font-bold text-brand-detail transition">Sobre</a>
+                <a href="sobre.html" class="text-xl font-bold text-white hover:text-brand-detail transition">Sobre</a>
                 <a href="camps.html" class="text-xl font-bold text-white hover:text-brand-detail transition">Soccer Camp</a>
-                <a href="index.html#staff" class="text-xl font-bold text-white hover:text-brand-detail transition">Staff</a>
+                <a href="index.html#staff" class="text-xl font-bold text-white hover:text-brand-detail transition" onclick="toggleMenu()">Staff</a>
                 <a href="estrutura.html" class="text-xl font-bold text-white hover:text-brand-detail transition">Estrutura</a>
                 <a href="portfolio.html" class="text-xl font-bold text-white hover:text-brand-detail transition">Portfólio</a>
                 <a href="login.html" class="text-xl font-bold text-white hover:text-brand-detail transition flex items-center"><i class="fa-solid fa-lock mr-3 text-brand-detail"></i> Login</a>
                 <div class="pt-8">
-                    <a href="index.html#contato" class="btn-primary block text-center text-white font-bold py-4 rounded-xl shadow-lg">Contato</a>
+                    <a href="index.html#contato" class="btn-primary block text-center text-white font-bold py-4 rounded-xl shadow-lg" onclick="toggleMenu()">Contato</a>
                 </div>
             </div>
         </div>
