@@ -1,6 +1,8 @@
 const translations = {
     pt: {
         // Navbar
+        nav_menu: "Menu",
+        nav_home: "Início",
         nav_sobre: "Sobre",
         nav_camp: "Soccer Camp",
         nav_staff: "Staff",
@@ -13,7 +15,7 @@ const translations = {
         hero_badge: "<span class='text-gray-400'>Rumo aos</span> EUA",
         hero_title: "A Ginga Brasileira,<br><span class='text-gradient'>Oportunidade Global.</span>",
         hero_subtitle: "A ponte definitiva entre o talento do futebol brasileiro e as bolsas de estudo universitárias de elite nos Estados Unidos.",
-        hero_btn_camp: "Conheça os Camps",
+        hero_btn_camp: "Conheça os Programas",
         hero_btn_contact: "Fale Conosco",
         hero_scroll: "Explorar",
         
@@ -176,6 +178,8 @@ const translations = {
     },
     en: {
         // Navbar
+        nav_menu: "Menu",
+        nav_home: "Home",
         nav_sobre: "About",
         nav_camp: "Soccer Camp",
         nav_staff: "Staff",
