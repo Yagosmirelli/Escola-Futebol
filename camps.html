@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hattrick Camps | EUA & Brasil</title>
+    <title>Programas | Hattrick Academy</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,13 +31,18 @@
         body { background-color: #12136b; color: #f3f4f6; overflow-x: hidden; }
         .glass { background: rgba(26, 27, 138, 0.50); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.07); }
         .glass-card { background: linear-gradient(145deg, rgba(36, 37, 147, 0.45) 0%, rgba(18, 19, 107, 0.85) 100%); backdrop-filter: blur(10px); border: 1px solid rgba(0, 212, 255, 0.15); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4); transition: all 0.4s ease; }
-        .glass-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2); border-color: rgba(0, 212, 255, 0.5); }
+        .glass-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2); border-color: rgba(0, 212, 255, 0.5); }
         .text-gradient { background: linear-gradient(135deg, #00D4FF, #66E8FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .btn-primary { background: linear-gradient(90deg, #242593, #00D4FF); box-shadow: 0 0 15px rgba(0, 212, 255, 0.3); transition: all 0.3s ease; cursor: pointer; }
         .btn-primary:hover { box-shadow: 0 0 30px rgba(0, 212, 255, 0.7); transform: translateY(-2px); }
+        .btn-secondary { border: 2px solid rgba(0, 212, 255, 0.4); background: transparent; transition: all 0.3s ease; }
+        .btn-secondary:hover { background: rgba(0, 212, 255, 0.1); border-color: #00D4FF; }
         .logo-container { position: relative; border-radius: 50%; overflow: hidden; border: 2px solid rgba(0, 212, 255, 0.7); box-shadow: 0 0 15px rgba(0, 212, 255, 0.4); background: #fff; display: flex; align-items: center; justify-content: center; }
         .logo-container img { position: absolute; width: 100%; height: 100%; object-fit: cover; transform: scale(1.18); }
         .page-header-bg { background-image: url('https://images.unsplash.com/photo-1518605368461-1ee7e149f1db?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center 40%; }
+        .program-icon { width: 64px; height: 64px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 28px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .price-tag { background: rgba(0, 212, 255, 0.08); border: 1px solid rgba(0, 212, 255, 0.25); border-radius: 16px; padding: 16px 24px; }
+        .featured-badge { position: absolute; top: -1px; right: 24px; background: linear-gradient(135deg, #00D4FF, #242593); color: white; font-size: 10px; font-weight: 900; padding: 6px 16px; border-radius: 0 0 12px 12px; text-transform: uppercase; letter-spacing: 0.15em; box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4); }
         ::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-track { background: #12136b; } ::-webkit-scrollbar-thumb { background: #242593; border-radius: 4px; } ::-webkit-scrollbar-thumb:hover { background: #00D4FF; }
     </style>
 </head>
@@ -48,7 +53,6 @@
     <header class="fixed w-full z-50 transition-all duration-300 glass" id="navbar">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-nowrap justify-between items-center h-24 w-full">
-                <!-- Logo (Esquerda) -->
                 <div class="flex-shrink-0 flex items-center cursor-pointer group" onclick="window.location.href='index.html'">
                     <div class="logo-container w-14 h-14 md:w-20 md:h-20 transition-transform duration-300 group-hover:scale-110" style="image-rendering: high-quality;">
                         <img src="logo.png" alt="Hattrick Academy Logo">
@@ -59,10 +63,9 @@
                     </div>
                 </div>
 
-                <!-- Navegação Desktop (Direita) -->
                 <nav class="hidden md:flex space-x-8 items-center ml-auto">
                     <a href="sobre.html" class="text-sm font-semibold text-gray-300 hover:text-white transition duration-300" data-i18n="nav_sobre">Sobre</a>
-                    <a href="camps.html" class="text-sm font-semibold text-brand-detail transition duration-300" data-i18n="nav_camp">Soccer Camp</a>
+                    <a href="camps.html" class="text-sm font-semibold text-brand-detail transition duration-300" data-i18n="nav_camp">Programas</a>
                     <a href="index.html#staff" class="text-sm font-semibold text-gray-300 hover:text-white transition duration-300" data-i18n="nav_staff">Staff</a>
                     <div class="flex items-center bg-white/5 backdrop-blur-md rounded-full p-1 border border-white/10 mx-2">
                         <button onclick="toggleLanguage('pt')" class="lang-btn-pt px-3 py-1 text-[10px] font-bold rounded-full transition-all duration-300 bg-brand-detail text-brand-900 shadow-[0_0_10px_rgba(0,212,255,0.5)]">PT</button>
@@ -72,21 +75,17 @@
                     <a href="index.html#contato" class="btn-primary text-sm font-bold py-2 px-6 rounded-full text-white ml-2" data-i18n="nav_contact">Contato</a>
                 </nav>
 
-                <!-- Botão Menu Mobile e Language Switcher (Mobile Only) -->
                 <div class="md:hidden flex items-center space-x-2 ml-auto">
-                    <!-- Language Switcher Mobile -->
                     <div class="flex items-center bg-white/10 backdrop-blur-md rounded-full p-1 border border-white/20">
                         <button onclick="toggleLanguage('pt')" class="lang-btn-pt-mob px-2 py-1 text-[10px] font-bold rounded-full transition-all duration-300 bg-brand-detail text-brand-900 shadow-[0_0_10px_rgba(0,212,255,0.5)]">PT</button>
                         <button onclick="toggleLanguage('en')" class="lang-btn-en-mob px-2 py-1 text-[10px] font-bold rounded-full transition-all duration-300 text-gray-400 hover:text-white text-white/70">EN</button>
                     </div>
-                    
                     <button id="mobile-menu-btn" class="text-white focus:outline-none w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-white/5 rounded-full border border-white/10 hover:bg-brand-detail/20 hover:border-brand-detail/50 transition-all duration-300 group">
                         <i class="fa-solid fa-bars text-xl group-hover:scale-110 transition-transform"></i>
                     </button>
                 </div>
             </div>
         </div>
-
     </header>
 
     <!-- Sidebar Overlay -->
@@ -94,18 +93,16 @@
 
     <!-- Menu Mobile (Sidebar) -->
     <div id="mobile-menu" class="fixed inset-y-0 right-0 w-[280px] z-50 transform translate-x-full transition-transform duration-300 ease-in-out shadow-[-20px_0_50px_rgba(0,0,0,0.8)] flex flex-col pt-24 px-8 border-l border-white/10" style="background-color: #12136b !important; background-image: none !important;">
-        <!-- Close Button Inside Sidebar -->
         <button id="close-menu-btn" class="absolute top-8 right-8 text-gray-400 hover:text-white transition">
             <i class="fa-solid fa-xmark text-4xl"></i>
         </button>
-
         <nav class="flex flex-col space-y-6">
             <span class="text-[10px] uppercase tracking-[0.4em] text-gray-500 font-black border-b border-white/5 pb-2" data-i18n="nav_menu">Menu</span>
-            <a href="index.html" class="text-xl font-bold text-white hover:text-brand-detail transition" onclick="toggleMenu()" data-i18n="nav_home">InÃ­cio</a>
+            <a href="index.html" class="text-xl font-bold text-white hover:text-brand-detail transition" onclick="toggleMenu()" data-i18n="nav_home">Início</a>
             <a href="sobre.html" class="text-xl font-bold text-white hover:text-brand-detail transition" data-i18n="nav_sobre">Sobre</a>
-            <a href="camps.html" class="text-xl font-bold text-brand-detail transition" data-i18n="nav_camp">Soccer Camp</a>
+            <a href="camps.html" class="text-xl font-bold text-brand-detail transition" data-i18n="nav_camp">Programas</a>
             <a href="index.html#staff" class="text-xl font-bold text-white hover:text-brand-detail transition" onclick="toggleMenu()" data-i18n="nav_staff">Staff</a>
-            <a href="login.html" class="text-xl font-bold text-white hover:text-brand-detail transition flex items-center"><i class="fa-solid fa-lock mr-3 text-brand-detail"></i> <span data-i18n="nav_login">Ãrea do Atleta</span></a>
+            <a href="login.html" class="text-xl font-bold text-white hover:text-brand-detail transition flex items-center"><i class="fa-solid fa-lock mr-3 text-brand-detail"></i> <span data-i18n="nav_login">Área do Atleta</span></a>
             <div class="pt-8">
                 <a href="index.html#contato" class="btn-primary block text-center text-white font-bold py-4 rounded-xl shadow-lg" onclick="toggleMenu()" data-i18n="nav_contact">Contato</a>
             </div>
@@ -122,99 +119,124 @@
             <div class="inline-block bg-brand-detail/10 border border-brand-detail/30 px-4 py-1 rounded-full mb-6">
                 <span class="text-brand-detail font-bold text-xs uppercase tracking-widest" data-i18n="camps_page_badge">Nossos Programas</span>
             </div>
-            <h1 class="text-5xl md:text-7xl font-black text-white mb-4 drop-shadow-lg" data-i18n="camps_page_title">Camps <span class="text-gradient">Intensivos</span></h1>
+            <h1 class="text-5xl md:text-7xl font-black text-white mb-4 drop-shadow-lg" data-i18n="camps_page_title">Nossos <span class="text-gradient">Programas</span></h1>
             <p class="text-xl text-gray-300 max-w-2xl mx-auto font-light" data-i18n="camps_page_subtitle">
-                Mergulhe no mais alto nível de exigência competitiva. A sua porta de entrada para vivenciar como um atleta global se prepara para grandes desafios.
+                Desenvolva confiança, habilidade e amor pelo jogo com nossos programas de treinamento especializados.
             </p>
         </div>
     </section>
 
-    <!-- Camp Panels -->
+    <!-- Programs Section -->
     <section class="py-24 relative" style="background:#12136b;">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-6xl">
-            <div class="grid md:grid-cols-2 gap-12">
-                
-                <!-- Box Brasil (Draft Camp) -->
-                <div class="glass-card rounded-3xl p-10 relative overflow-hidden group border border-white/5 hover:border-brand-detail transition-all duration-500">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-green-500 blur-[80px] opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                    <div class="mb-6 flex justify-between items-center relative z-10">
-                        <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-green-400 text-2xl shadow-lg">
-                            <i class="fa-solid fa-flag"></i>
-                        </div>
-                        <img src="https://flagcdn.com/w40/br.png" alt="Brasil" class="rounded opacity-60 block">
-                    </div>
-                    
-                    <h3 class="text-3xl font-black text-white mb-2 relative z-10" data-i18n="camps_draft_title">Draft Camp - Brasil</h3>
-                    <p class="text-gray-400 mb-8 font-light h-16 relative z-10" data-i18n="camps_draft_desc">Imersão de 7 dias nas bases do Brasil. Rotina diária focada 100% em tática, vídeos e dinâmicas preparatórias para olheiros.</p>
-                    
-                    <div class="bg-brand-detail/5 p-6 rounded-2xl border border-brand-detail/20 mb-8 relative z-10 group-hover:bg-brand-detail/10 transition">
-                        <div class="text-white text-4xl font-black flex items-end drop-shadow-md">
-                            R$ 1.990<span class="text-sm text-brand-detailLight font-bold ml-2 mb-1 uppercase tracking-wider" data-i18n="camps_draft_price_unit">/ vaga</span>
-                        </div>
-                    </div>
-                    
-                    <ul class="space-y-4 mb-10 relative z-10">
-                        <li class="flex items-start">
-                            <div class="w-6 h-6 rounded-full bg-brand-detail/60 flex items-center justify-center mr-3 mt-0.5 shrink-0"><i class="fa-solid fa-check text-white text-xs"></i></div>
-                            <span class="text-gray-300 font-light text-sm" data-i18n="camps_draft_feat1">Alojamento completo e Alimentação em hotel 4 estrelas.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="w-6 h-6 rounded-full bg-brand-detail/60 flex items-center justify-center mr-3 mt-0.5 shrink-0"><i class="fa-solid fa-check text-white text-xs"></i></div>
-                            <span class="text-gray-300 font-light text-sm" data-i18n="camps_draft_feat2">Gravação Tática e cobertura completa por Drones de alta resolução.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="w-6 h-6 rounded-full bg-brand-detail/60 flex items-center justify-center mr-3 mt-0.5 shrink-0"><i class="fa-solid fa-check text-white text-xs"></i></div>
-                            <span class="text-gray-300 font-light text-sm" data-i18n="camps_draft_feat3">Aulas imersivas de Inglês com foco no nivelamento (ESL).</span>
-                        </li>
-                    </ul>
-                    <button onclick="startCheckout('draft')" class="w-full btn-primary text-white font-bold py-4 rounded-xl relative z-10 text-lg uppercase tracking-wider" data-i18n="camps_draft_btn">
-                        Aplicar para Vaga
-                    </button>
-                </div>
 
-                <!-- Box US (Showcase Tour) -->
-                <div class="glass-card rounded-3xl p-10 relative overflow-hidden group border border-brand-detail transition-all duration-500">
-                    <div class="absolute -top-6 -right-6 flex z-20">
-                        <div class="bg-brand-detail text-white text-xs font-black px-6 pt-8 pb-2 rounded-full uppercase tracking-widest transform rotate-12 shadow-lg w-28 h-28 flex items-center justify-center text-center">
-                            Elite<br>Tour
+            <!-- 1. Futsal Lab at UNF — FEATURED -->
+            <div class="glass-card rounded-3xl p-10 md:p-12 relative overflow-hidden group border border-brand-detail/40 mb-12">
+                <div class="featured-badge" data-i18n="prog_featured">Destaque</div>
+                <div class="absolute top-0 right-0 w-64 h-64 bg-brand-detail blur-[100px] opacity-15 group-hover:opacity-30 transition duration-500"></div>
+
+                <div class="flex flex-col lg:flex-row gap-10 items-start relative z-10">
+                    <div class="lg:w-2/3">
+                        <div class="program-icon text-brand-detail mb-6">
+                            <i class="fa-solid fa-futbol"></i>
                         </div>
+                        <h3 class="text-3xl md:text-4xl font-black text-white mb-2" data-i18n="prog_futsal_title">Hattrick Futsal Lab na UNF</h3>
+                        <p class="text-brand-detail font-bold text-sm uppercase tracking-wider mb-4" data-i18n="prog_futsal_duration">Programa de Desenvolvimento de Jogadores de 8 Semanas</p>
+                        <p class="text-gray-300 font-light text-lg leading-relaxed" data-i18n="prog_futsal_desc">Um programa estruturado de futsal focado em domínio de bola, primeiro toque, ataque 1v1, criatividade, finalização e tomada de decisão rápida em espaços reduzidos.</p>
                     </div>
-                    <div class="absolute bottom-0 left-0 w-32 h-32 bg-blue-500 blur-[80px] opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                    <div class="mb-6 flex justify-between items-center relative z-10">
-                        <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-blue-400 text-2xl shadow-lg">
-                            <i class="fa-solid fa-plane-departure"></i>
+                    <div class="lg:w-1/3 w-full space-y-4">
+                        <div class="price-tag">
+                            <p class="text-xs text-gray-400 uppercase tracking-wider font-bold mb-1" data-i18n="prog_futsal_full_label">Programa Completo</p>
+                            <p class="text-3xl font-black text-white">$300</p>
                         </div>
-                        <img src="https://flagcdn.com/w40/us.png" alt="EUA" class="rounded opacity-60 block mr-12">
-                    </div>
-                    
-                    <h3 class="text-3xl font-black text-white mb-2 relative z-10" data-i18n="camps_showcase_title">Showcase Tour - EUA</h3>
-                    <p class="text-gray-400 mb-8 font-light h-16 relative z-10" data-i18n="camps_showcase_desc">A experiência definitiva: viajar em grupo para jogar torneios de vitrine diante dos principais "College Coaches" universitários nos EUA.</p>
-                    
-                    <div class="bg-brand-detail/10 p-6 rounded-2xl border border-brand-detail/30 mb-8 relative z-10 group-hover:bg-brand-detail/20 transition">
-                        <div class="text-white text-4xl font-black flex items-end drop-shadow-md">
-                            US$ 3.500<span class="text-sm text-brand-detailLight font-bold ml-2 mb-1 uppercase tracking-wider" data-i18n="camps_showcase_price_unit">/ tour</span>
+                        <div class="price-tag">
+                            <p class="text-xs text-gray-400 uppercase tracking-wider font-bold mb-1" data-i18n="prog_futsal_drop_label">Sessão Avulsa</p>
+                            <p class="text-2xl font-black text-white">$45 <span class="text-sm text-gray-400 font-light" data-i18n="prog_futsal_drop_unit">por sessão</span></p>
                         </div>
+                        <a href="index.html#contato" class="block w-full btn-primary text-white font-bold py-4 rounded-xl text-center text-lg uppercase tracking-wider mt-4" data-i18n="prog_btn_contact">Entrar em Contato</a>
                     </div>
-                    
-                    <ul class="space-y-4 mb-10 relative z-10">
-                        <li class="flex items-start">
-                            <div class="w-6 h-6 rounded-full bg-brand-detail/60 flex items-center justify-center mr-3 mt-0.5 shrink-0"><i class="fa-solid fa-check text-white text-xs"></i></div>
-                            <span class="text-gray-300 font-light text-sm" data-i18n="camps_showcase_feat1">Aéreo Internacional, Hospedagem VIP, Traslados e Seguros inclusos.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="w-6 h-6 rounded-full bg-brand-detail/60 flex items-center justify-center mr-3 mt-0.5 shrink-0"><i class="fa-solid fa-check text-white text-xs"></i></div>
-                            <span class="text-gray-300 font-light text-sm" data-i18n="camps_showcase_feat2">Mínimo de 3 Jogos Oficiais In-Loco contra academias e colegiais americanos.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="w-6 h-6 rounded-full bg-brand-detail/60 flex items-center justify-center mr-3 mt-0.5 shrink-0"><i class="fa-solid fa-check text-white text-xs"></i></div>
-                            <span class="text-gray-300 font-light text-sm" data-i18n="camps_showcase_feat3">Assessoria Jurídica especializada para a tiragem dos Vistos correspondentes (ex: F1, I-20).</span>
-                        </li>
-                    </ul>
-                    <button onclick="startCheckout('showcase')" class="w-full btn-primary text-white font-bold py-4 rounded-xl relative z-10 text-lg uppercase tracking-wider" data-i18n="camps_showcase_btn">
-                        Aplicar para Vaga
-                    </button>
                 </div>
             </div>
+
+            <!-- Grid 2x2 for other programs -->
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+
+                <!-- 2. Individual Training -->
+                <div class="glass-card rounded-3xl p-8 relative overflow-hidden group border border-white/5 hover:border-brand-detail/50 transition-all duration-500">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500 blur-[80px] opacity-15 group-hover:opacity-30 transition duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="program-icon text-purple-400 mb-5">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-white mb-3" data-i18n="prog_individual_title">Treinamento Individual</h3>
+                        <p class="text-gray-400 font-light text-sm leading-relaxed mb-6" data-i18n="prog_individual_desc">Treinamento particular desenvolvido para ajudar jogadores a melhorarem áreas específicas do seu jogo, incluindo controle de bola, domínio, finalização, passe, 1 contra 1, velocidade e confiança para tomar decisões.</p>
+                        <div class="space-y-3 mb-6">
+                            <div class="price-tag">
+                                <p class="text-xs text-gray-400 uppercase tracking-wider font-bold mb-1" data-i18n="prog_individual_single_label">Sessão Avulsa</p>
+                                <p class="text-2xl font-black text-white">$80 <span class="text-sm text-gray-400 font-light" data-i18n="prog_individual_single_unit">por hora</span></p>
+                            </div>
+                            <div class="price-tag">
+                                <p class="text-xs text-gray-400 uppercase tracking-wider font-bold mb-1" data-i18n="prog_individual_pack_label">Pacote</p>
+                                <p class="text-2xl font-black text-white">$280 <span class="text-sm text-gray-400 font-light" data-i18n="prog_individual_pack_unit">4 sessões</span></p>
+                            </div>
+                        </div>
+                        <a href="index.html#contato" class="block w-full btn-secondary text-brand-detail font-bold py-3 rounded-xl text-center uppercase tracking-wider" data-i18n="prog_btn_contact">Entrar em Contato</a>
+                    </div>
+                </div>
+
+                <!-- 3. Small-Group Training -->
+                <div class="glass-card rounded-3xl p-8 relative overflow-hidden group border border-white/5 hover:border-brand-detail/50 transition-all duration-500">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-green-500 blur-[80px] opacity-15 group-hover:opacity-30 transition duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="program-icon text-green-400 mb-5">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-white mb-3" data-i18n="prog_group_title">Treinamento em Grupo</h3>
+                        <p class="text-gray-400 font-light text-sm leading-relaxed mb-6" data-i18n="prog_group_desc">Sessões em pequenos grupos que oferecem aos jogadores os benefícios de uma atenção mais individualizada, ao mesmo tempo em que adicionam situações reais de jogo, competição e tomada de decisão. Os atletas treinam em um ambiente competitivo, mas positivo e de apoio, onde podem evoluir tecnicamente e taticamente.</p>
+                        <div class="price-tag mb-6">
+                            <p class="text-xs text-gray-400 uppercase tracking-wider font-bold mb-1" data-i18n="prog_group_price_label">Preço</p>
+                            <p class="text-lg font-bold text-white" data-i18n="prog_group_price_info">Varia de acordo com o número de jogadores e a duração da sessão.</p>
+                        </div>
+                        <a href="index.html#contato" class="block w-full btn-secondary text-brand-detail font-bold py-3 rounded-xl text-center uppercase tracking-wider" data-i18n="prog_btn_contact">Entrar em Contato</a>
+                    </div>
+                </div>
+
+                <!-- 4. 1v1 Clinic -->
+                <div class="glass-card rounded-3xl p-8 relative overflow-hidden group border border-white/5 hover:border-brand-detail/50 transition-all duration-500">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-orange-500 blur-[80px] opacity-15 group-hover:opacity-30 transition duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="program-icon text-orange-400 mb-5">
+                            <i class="fa-solid fa-person-running"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-white mb-3" data-i18n="prog_1v1_title">Clínica de 1v1</h3>
+                        <p class="text-gray-400 font-light text-sm leading-relaxed mb-6" data-i18n="prog_1v1_desc">Uma clínica especializada para ajudar jogadores a se tornarem mais confiantes e eficientes ao atacar defensores. Os atletas irão trabalhar mudança de velocidade, mudança de direção, fintas corporais, criatividade, proteção de bola, finalização após superar o defensor e tomada de decisão em momentos ofensivos.</p>
+                        <div class="price-tag mb-6">
+                            <p class="text-xs text-gray-400 uppercase tracking-wider font-bold mb-1" data-i18n="prog_1v1_price_label">Preço</p>
+                            <p class="text-2xl font-black text-white">$45 <span class="text-sm text-gray-400 font-light" data-i18n="prog_1v1_price_unit">por sessão</span></p>
+                        </div>
+                        <a href="index.html#contato" class="block w-full btn-secondary text-brand-detail font-bold py-3 rounded-xl text-center uppercase tracking-wider" data-i18n="prog_btn_contact">Entrar em Contato</a>
+                    </div>
+                </div>
+
+                <!-- 5. Soccer Camps (placeholder for future details) -->
+                <div class="glass-card rounded-3xl p-8 relative overflow-hidden group border border-white/5 hover:border-brand-detail/50 transition-all duration-500">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500 blur-[80px] opacity-15 group-hover:opacity-30 transition duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="program-icon text-blue-400 mb-5">
+                            <i class="fa-solid fa-campground"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-white mb-3" data-i18n="prog_camps_title">Soccer Camps</h3>
+                        <p class="text-gray-400 font-light text-sm leading-relaxed mb-6" data-i18n="prog_camps_desc">Camps intensivos de futebol com imersão completa. Fique ligado para mais informações sobre datas, locais e inscrições.</p>
+                        <div class="price-tag mb-6">
+                            <p class="text-xs text-gray-400 uppercase tracking-wider font-bold mb-1" data-i18n="prog_camps_price_label">Informações</p>
+                            <p class="text-lg font-bold text-brand-detail" data-i18n="prog_camps_price_info">Em breve</p>
+                        </div>
+                        <a href="index.html#contato" class="block w-full btn-secondary text-brand-detail font-bold py-3 rounded-xl text-center uppercase tracking-wider" data-i18n="prog_btn_contact">Entrar em Contato</a>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </section>
 
@@ -251,40 +273,7 @@
         btn.addEventListener('click', toggleMenu);
         closeBtn.addEventListener('click', toggleMenu);
         overlay.addEventListener('click', toggleMenu);
-
-        // Checkout Logic for Stripe
-        function startCheckout(campType) {
-            const modal = document.getElementById('checkout-modal');
-            modal.classList.remove('hidden');
-            
-            // Simulação de processamento para ambiente Stripe
-            setTimeout(() => {
-                const stripeLinks = {
-                    'draft': 'https://buy.stripe.com/test_link_draft',
-                    'showcase': 'https://buy.stripe.com/test_link_showcase'
-                };
-                
-                // Em produção, usaríamos window.location.href = stripeLinks[campType];
-                alert("Checkout simulação finalizada!\nNo futuro, o cliente seria levado para a Stripe:\n" + stripeLinks[campType]);
-                modal.classList.add('hidden');
-            }, 2500);
-        }
     </script>
-
-    <!-- Stripe Processing Modal -->
-    <div id="checkout-modal" class="fixed inset-0 bg-brand-900/90 backdrop-blur-md z-[100] hidden flex items-center justify-center transition-all duration-300">
-        <div class="text-center p-8 bg-brand-800/80 rounded-3xl border border-brand-detail/30 shadow-[0_0_50px_rgba(0,212,255,0.15)] max-w-sm mx-auto transform scale-100 animate-slide-up">
-            <div class="w-16 h-16 border-4 border-brand-detail border-t-transparent rounded-full animate-spin mx-auto mb-6 shadow-[0_0_15px_rgba(0,212,255,0.5)]"></div>
-            <h3 class="text-xl font-bold text-white mb-2">Processando Segurança...</h3>
-            <p class="text-gray-400 font-light text-sm mb-6">Conectando ao ambiente de pagamento criptografado (Stripe).</p>
-            <div class="flex justify-center space-x-4">
-                <i class="fa-brands fa-cc-stripe text-4xl text-[#635BFF] bg-white rounded-md px-1 shadow-md"></i>
-                <i class="fa-brands fa-cc-visa text-4xl text-gray-300 opacity-70"></i>
-                <i class="fa-brands fa-cc-mastercard text-4xl text-gray-300 opacity-70"></i>
-                <i class="fa-brands fa-apple-pay text-4xl text-white opacity-90"></i>
-            </div>
-        </div>
-    </div>
 
     <script src="i18n.js"></script>
 </body>
