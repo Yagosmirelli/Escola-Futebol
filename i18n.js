@@ -13,8 +13,8 @@ const translations = {
         
         // escolaFut.html - Hero
         hero_badge: "<span class='text-gray-400'>Rumo aos</span> EUA",
-        hero_title: "A Ginga Brasileira,<br><span class='text-gradient'>Oportunidade Global.</span>",
-        hero_subtitle: "A ponte definitiva entre o talento do futebol brasileiro e as bolsas de estudo universitárias de elite nos Estados Unidos.",
+        hero_title: "Desenvolvendo jogadores,<br><span class='text-gradient'>Criando oportunidades.</span>",
+        hero_subtitle: "Desenvolvimento de atletas com criatividade brasileira, metodologia moderna e um caminho para oportunidades maiores.",
         hero_btn_camp: "Conheça os Programas",
         hero_btn_contact: "Fale Conosco",
         hero_scroll: "Explorar",
@@ -50,6 +50,19 @@ const translations = {
         camp_us_desc: "A experiência definitiva. Levamos talentos para os Estados Unidos para jogar torneios de vitrine diante dos olheiros (College Coaches).",
         camp_us_btn: "Saiba Mais <i class='fa-solid fa-arrow-right ml-2 transform group-hover/btn:translate-x-2 transition'></i>",
 
+        // Homepage - Programs Showcase
+        home_prog_badge: "Nossos Programas",
+        home_prog_title: "Treine com a <span class='text-gradient'>Hattrick</span>",
+        home_prog_subtitle: "Programas especializados para desenvolver confiança, habilidade e amor pelo jogo.",
+        home_prog_futsal_short: "Futsal focado em domínio de bola, criatividade e decisão rápida em espaços reduzidos.",
+        home_prog_individual_tag: "Sessões Particulares",
+        home_prog_individual_short: "Treinamento 1-a-1 para melhorar controle de bola, finalização, passe e confiança.",
+        home_prog_1v1_tag: "Ataque & Criatividade",
+        home_prog_1v1_short: "Fintas, mudança de direção, proteção de bola e finalização após superar o defensor.",
+        home_prog_or: "ou",
+        home_prog_per_session: " /sessão",
+        home_prog_btn: "Ver Todos os Programas <i class='fa-solid fa-arrow-right ml-3 transform group-hover:translate-x-2 transition'></i>",
+
         // escolaFut.html - Staff Section
         staff_badge: "Nossa Equipe",
         staff_title: "Coach Staff",
@@ -63,9 +76,10 @@ const translations = {
         // Contact Section (Global)
         contact_title: "Conquiste o seu futuro",
         contact_subtitle: "Dê o primeiro passo para jogar e estudar nos Estados Unidos.",
-        contact_base_title: "Base Brasil",
-        contact_base_desc: "São Paulo, SP",
+        contact_base_title: "Localização",
+        contact_base_desc: "Jacksonville, FL",
         contact_phone_title: "Telefone",
+        contact_email_title: "E-mail",
         contact_form_title: "Envie uma mensagem",
         contact_label_name: "Nome Completo",
         contact_label_age: "Idade",
@@ -206,8 +220,8 @@ const translations = {
 
         // escolaFut.html - Hero
         hero_badge: "<span class='text-gray-400'>Headed to the</span> USA",
-        hero_title: "Brazilian Flair,<br><span class='text-gradient'>Global Opportunity.</span>",
-        hero_subtitle: "The definitive bridge between Brazilian soccer talent and elite university scholarships in the United States.",
+        hero_title: "Developing Players,<br><span class='text-gradient'>Creating Opportunities.</span>",
+        hero_subtitle: "Soccer development with Brazilian creativity, modern methodology, and a pathway to bigger opportunities.",
         hero_btn_camp: "Explore Camps",
         hero_btn_contact: "Contact Us",
         hero_scroll: "Explore",
@@ -243,6 +257,19 @@ const translations = {
         camp_us_desc: "The ultimate experience. We take talent to the United States to play in showcase tournaments in front of College Coaches.",
         camp_us_btn: "Learn More <i class='fa-solid fa-arrow-right ml-2 transform group-hover/btn:translate-x-2 transition'></i>",
 
+        // Homepage - Programs Showcase
+        home_prog_badge: "Our Programs",
+        home_prog_title: "Train with <span class='text-gradient'>Hattrick</span>",
+        home_prog_subtitle: "Specialized programs to develop confidence, skill, and love for the game.",
+        home_prog_futsal_short: "Futsal focused on ball mastery, creativity, and fast decision-making in tight spaces.",
+        home_prog_individual_tag: "Private Sessions",
+        home_prog_individual_short: "One-on-one training to improve ball control, finishing, passing, and confidence.",
+        home_prog_1v1_tag: "Attack & Creativity",
+        home_prog_1v1_short: "Feints, change of direction, shielding, and finishing after beating a defender.",
+        home_prog_or: "or",
+        home_prog_per_session: " /session",
+        home_prog_btn: "View All Programs <i class='fa-solid fa-arrow-right ml-3 transform group-hover:translate-x-2 transition'></i>",
+
         // escolaFut.html - Staff Section
         staff_badge: "Our Team",
         staff_title: "Coach Staff",
@@ -256,9 +283,10 @@ const translations = {
         // Contact Section (Global)
         contact_title: "Conquer your future",
         contact_subtitle: "Take the first step to play and study in the United States.",
-        contact_base_title: "Brazil Base",
-        contact_base_desc: "São Paulo, SP",
+        contact_base_title: "Location",
+        contact_base_desc: "Jacksonville, FL",
         contact_phone_title: "Phone",
+        contact_email_title: "Email",
         contact_form_title: "Send a message",
         contact_label_name: "Full Name",
         contact_label_age: "Age",

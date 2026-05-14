@@ -70,10 +70,10 @@
 
         /* Hero com Overlay Dinâmico */
         .hero-bg {
-            background-image: url('https://images.unsplash.com/photo-1518605368461-1ee7e149f1db?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            /* background-image: url('https://images.unsplash.com/photo-1574629810360-7efbb1925536?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            background-attachment: fixed; */
         }
 
         /* Efeito de Vidro (Glassmorphism) */
@@ -233,7 +233,7 @@
     <!-- Hero Section -->
     <section class="hero-bg min-h-screen flex items-center justify-center text-center px-4 relative overflow-hidden">
         <!-- Overlays para escurecer e colorir a imagem de fundo -->
-        <div class="absolute inset-0 bg-brand-900/80 z-0"></div>
+        <div class="absolute inset-0 bg-brand-900/40 z-0"></div>
         <div class="absolute inset-0 bg-gradient-to-br from-brand-800/60 via-transparent to-brand-detail/30 z-0 mix-blend-multiply"></div>
         
         <!-- Animated Blobs (Decoração ao fundo) -->
@@ -247,12 +247,12 @@
             </div>
             
             <h2 class="text-5xl md:text-7xl font-black mb-6 leading-tight text-white drop-shadow-xl" data-i18n="hero_title">
-                A Ginga Brasileira,<br>
-                <span class="text-gradient">Oportunidade Global.</span>
+                Desenvolvendo jogadores,<br>
+                <span class="text-gradient">Criando oportunidades.</span>
             </h2>
             
             <p class="text-lg md:text-2xl text-gray-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed" data-i18n="hero_subtitle">
-                A ponte definitiva entre o talento do futebol brasileiro e as bolsas de estudo universitárias de elite nos Estados Unidos.
+                Desenvolvimento de atletas com criatividade brasileira, metodologia moderna e um caminho para oportunidades maiores.
             </p>
             
             <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
@@ -346,6 +346,81 @@
         </div>
     </section>
 
+    <!-- Programs Showcase Section -->
+    <section id="programas" class="py-24 relative overflow-hidden" style="background: linear-gradient(180deg, #12136b 0%, #0e0f5c 50%, #12136b 100%);">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand-detail rounded-full blur-[200px] opacity-10 pointer-events-none"></div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-6xl">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-block bg-brand-detail/10 border border-brand-detail/30 px-4 py-1 rounded-full mb-4">
+                    <span class="text-brand-detail font-bold text-xs uppercase tracking-widest" data-i18n="home_prog_badge">Nossos Programas</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-6" data-i18n="home_prog_title">Treine com a <span class="text-gradient">Hattrick</span></h2>
+                <p class="text-gray-400 font-light text-lg" data-i18n="home_prog_subtitle">Programas especializados para desenvolver confiança, habilidade e amor pelo jogo.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Futsal Lab -->
+                <div class="group relative glass-card rounded-2xl p-6 border border-white/5 hover:border-brand-detail/50 transition-all duration-500 hover:-translate-y-2">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-brand-detail blur-[60px] opacity-0 group-hover:opacity-20 transition duration-500"></div>
+                    <div class="w-12 h-12 rounded-xl bg-brand-detail/10 border border-brand-detail/30 flex items-center justify-center text-brand-detail text-xl mb-4">
+                        <i class="fa-solid fa-futbol"></i>
+                    </div>
+                    <h3 class="text-lg font-black text-white mb-1" data-i18n="prog_futsal_title">Hattrick Futsal Lab na UNF</h3>
+                    <p class="text-brand-detail text-xs font-bold uppercase tracking-wider mb-3" data-i18n="prog_futsal_duration">Programa de Desenvolvimento de Jogadores de 8 Semanas</p>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed mb-4" data-i18n="home_prog_futsal_short">Futsal focado em domínio de bola, criatividade e decisão rápida em espaços reduzidos.</p>
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-2xl font-black text-white">$300</span>
+                        <span class="text-xs text-gray-500" data-i18n="home_prog_or">ou</span>
+                        <span class="text-sm text-gray-400">$45<span class="text-xs" data-i18n="home_prog_per_session"> /sessão</span></span>
+                    </div>
+                </div>
+
+                <!-- Individual Training -->
+                <div class="group relative glass-card rounded-2xl p-6 border border-white/5 hover:border-brand-detail/50 transition-all duration-500 hover:-translate-y-2">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-purple-500 blur-[60px] opacity-0 group-hover:opacity-20 transition duration-500"></div>
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-xl mb-4">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <h3 class="text-lg font-black text-white mb-1" data-i18n="prog_individual_title">Treinamento Individual</h3>
+                    <p class="text-purple-400 text-xs font-bold uppercase tracking-wider mb-3" data-i18n="home_prog_individual_tag">Sessões Particulares</p>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed mb-4" data-i18n="home_prog_individual_short">Treinamento 1-a-1 para melhorar controle de bola, finalização, passe e confiança.</p>
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-2xl font-black text-white">$80</span>
+                        <span class="text-xs text-gray-500">/hr</span>
+                        <span class="text-xs text-gray-500 mx-1">|</span>
+                        <span class="text-sm text-gray-400">4x $280</span>
+                    </div>
+                </div>
+
+                <!-- 1v1 Clinic -->
+                <div class="group relative glass-card rounded-2xl p-6 border border-white/5 hover:border-brand-detail/50 transition-all duration-500 hover:-translate-y-2">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-orange-500 blur-[60px] opacity-0 group-hover:opacity-20 transition duration-500"></div>
+                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-400 text-xl mb-4">
+                        <i class="fa-solid fa-person-running"></i>
+                    </div>
+                    <h3 class="text-lg font-black text-white mb-1" data-i18n="prog_1v1_title">Clínica de 1v1</h3>
+                    <p class="text-orange-400 text-xs font-bold uppercase tracking-wider mb-3" data-i18n="home_prog_1v1_tag">Ataque & Criatividade</p>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed mb-4" data-i18n="home_prog_1v1_short">Fintas, mudança de direção, proteção de bola e finalização após superar o defensor.</p>
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-2xl font-black text-white">$45</span>
+                        <span class="text-xs text-gray-500" data-i18n="home_prog_per_session"> /sessão</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center mt-12">
+                <a href="camps.html" class="inline-flex items-center btn-primary text-white font-bold py-4 px-10 rounded-full text-lg group shadow-lg" data-i18n="home_prog_btn">
+                    Ver Todos os Programas
+                    <i class="fa-solid fa-arrow-right ml-3 transform group-hover:translate-x-2 transition"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Coach Staff Section -->
     <section id="staff" class="py-24 bg-[#12136b] relative border-t border-brand-700/50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -395,25 +470,43 @@
                             <h2 class="text-3xl font-black text-white mb-2" data-i18n="contact_title">Conquiste o seu futuro</h2>
                             <p class="text-white/80 font-light mb-12" data-i18n="contact_subtitle">Dê o primeiro passo para jogar e estudar nos Estados Unidos.</p>
                             
-                            <div class="space-y-6">
-                                <div class="flex items-start bg-black/20 p-4 rounded-xl backdrop-blur-sm border border-white/10">
+                            <div class="space-y-4">
+                                <div class="flex items-start bg-black/20 p-3 rounded-xl backdrop-blur-sm border border-white/10">
                                     <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mr-4 shrink-0">
                                         <i class="fa-solid fa-location-dot text-white"></i>
                                     </div>
                                     <div>
-                                        <h4 class="font-bold text-white" data-i18n="contact_base_title">Base BrasiI</h4>
-                                        <p class="text-white/70 text-sm" data-i18n="contact_base_desc">São Paulo, SP</p>
+                                        <h4 class="font-bold text-white text-sm" data-i18n="contact_base_title">Localização</h4>
+                                        <p class="text-white/70 text-sm" data-i18n="contact_base_desc">Jacksonville, FL</p>
                                     </div>
                                 </div>
-                                <div class="flex items-start bg-black/20 p-4 rounded-xl backdrop-blur-sm border border-white/10">
+                                <div class="flex items-start bg-black/20 p-3 rounded-xl backdrop-blur-sm border border-white/10">
                                     <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mr-4 shrink-0">
                                         <i class="fa-brands fa-whatsapp text-white text-lg"></i>
                                     </div>
                                     <div>
-                                        <h4 class="font-bold text-white" data-i18n="contact_phone_title">Telefone</h4>
+                                        <h4 class="font-bold text-white text-sm" data-i18n="contact_phone_title">Telefone</h4>
                                         <p class="text-white/70 text-sm">+1 (203) 928-8568</p>
                                     </div>
                                 </div>
+                                <div class="flex items-start bg-black/20 p-3 rounded-xl backdrop-blur-sm border border-white/10">
+                                    <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mr-4 shrink-0">
+                                        <i class="fa-solid fa-envelope text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-white text-sm" data-i18n="contact_email_title">E-mail</h4>
+                                        <p class="text-white/70 text-sm">hattricksp@outlook.com</p>
+                                    </div>
+                                </div>
+                                <div class="flex justify-center space-x-4 pt-2">
+                                    <a href="https://www.facebook.com/profile.php?id=61588839731330" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#1877F2] transition shadow-lg" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="https://www.instagram.com/hattrickacademyusa?igsh=MXI3YXV3aHcxemQwOQ==" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-gradient-to-tr hover:from-yellow-500 hover:via-pink-500 hover:to-purple-500 transition shadow-lg"><i class="fa-brands fa-instagram"></i></a>
+                                </div>
+                            </div>
+                            
+                            <!-- Google Maps - Jacksonville, FL -->
+                            <div class="mt-6 h-48 w-full rounded-xl overflow-hidden border border-white/10 relative shadow-inner">
+                                <iframe src="https://maps.google.com/maps?q=Jacksonville,%20FL&t=&z=11&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" frameborder="0" style="border:0; filter: invert(90%) hue-rotate(180deg) brightness(85%) contrast(120%);" allowfullscreen="" loading="lazy" class="absolute inset-0 transition duration-500 hover:opacity-100 opacity-80 mix-blend-screen"></iframe>
                             </div>
                         </div>
                     </div>
@@ -470,6 +563,12 @@
             <p class="text-gray-500 text-sm font-light" data-i18n="footer_copy">&copy; 2026 Hattrick Soccer. Experiência Premium. Todos os direitos reservados.</p>
             
             <div class="flex space-x-4 justify-center">
+                <a href="mailto:hattricksp@outlook.com" class="w-10 h-10 rounded-full bg-brand-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-600 hover:scale-110 shadow-lg transition duration-300">
+                    <i class="fa-solid fa-envelope text-lg"></i>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61588839731330" target="_blank" class="w-10 h-10 rounded-full bg-brand-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#1877F2] hover:scale-110 shadow-lg transition duration-300">
+                    <i class="fa-brands fa-facebook-f text-lg"></i>
+                </a>
                 <a href="https://www.instagram.com/hattrickacademyusa?igsh=MXI3YXV3aHcxemQwOQ==" target="_blank" class="w-10 h-10 rounded-full bg-brand-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-gradient-to-tr hover:from-yellow-500 hover:via-pink-500 hover:to-purple-500 hover:scale-110 shadow-lg transition duration-300">
                     <i class="fa-brands fa-instagram text-lg"></i>
                 </a>
