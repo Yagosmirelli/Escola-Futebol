@@ -155,40 +155,166 @@
         </div>
     </section>
 
-    <!-- Nossa História Section -->
-    <section id="historia" class="py-24 bg-brand-900 relative" style="background:#12136b;">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="flex flex-col lg:flex-row items-center gap-16">
-                <div class="lg:w-1/2">
-                    <div class="relative group">
-                        <div class="absolute inset-0 bg-brand-detail filter blur-3xl opacity-20 group-hover:opacity-40 transition duration-500 rounded-full"></div>
-                        <img src="imagem.lucas.perfil1.jpeg"
-                            alt="Lucas Sousa" class="rounded-2xl shadow-2xl relative z-10 border border-white/10 grayscale group-hover:grayscale-0 transition duration-700 w-full object-cover" style="max-height: 600px; object-position: top;">
-                    </div>
+    <!-- Timeline Section -->
+    <section id="historia" class="py-24 relative" style="background: linear-gradient(180deg, #12136b 0%, #0e0f5c 100%);">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-5xl">
+            <div class="text-center mb-16">
+                <div class="inline-block bg-brand-detail/10 border border-brand-detail/30 px-4 py-1 rounded-full mb-4">
+                    <span class="text-brand-detail font-bold text-xs uppercase tracking-widest" data-i18n="timeline_badge">História</span>
                 </div>
-                <div class="lg:w-1/2">
-                    <div class="inline-block bg-brand-detail/10 border border-brand-detail/30 px-4 py-1 rounded-full mb-4">
-                        <span class="text-brand-detail font-bold text-xs uppercase tracking-widest" data-i18n="sobre_badge">A Nossa História</span>
-                    </div>
-                    <h2 class="text-4xl md:text-5xl font-black text-white mb-4 leading-tight" data-i18n="sobre_title">Lucas Sousa</h2>
-                    
-                    <div class="mb-6 text-lg" data-i18n="sobre_subtitle_roles">
-                        <span class="block text-brand-detail font-bold mb-1">Fundador e Proprietário</span>
-                        <span class="block text-gray-300">Assistente Técnico, University of North Florida</span>
-                        <span class="block text-gray-400 text-sm">Ex-Jogador Profissional de Futebol</span>
-                    </div>
-                    
-                    <div class="space-y-4 text-lg text-gray-300 mb-8 font-light leading-relaxed">
-                        <p data-i18n="sobre_p1">Lucas Sousa é o fundador e proprietário da Hattrick Academy e atualmente atua como assistente técnico na University of North Florida.</p>
-                        <p data-i18n="sobre_p2">Antes de se tornar treinador, Lucas jogou por mais de sete anos no Brasil, incluindo sua passagem pelo Grêmio Foot-Ball Porto Alegrense, um dos clubes profissionais mais respeitados da América do Sul.</p>
-                        <p data-i18n="sobre_p3">Após se mudar para os Estados Unidos, Lucas continuou sua carreira como jogador no Elm City Express, onde fez parte de uma equipe campeã nacional. Ele também teve uma carreira de destaque no futebol universitário pela University of Bridgeport, onde foi eleito Jogador do Ano e reconhecido como um dos melhores jogadores da liga durante seus quatro anos.</p>
-                        <p data-i18n="sobre_p4">Lucas traz uma grande experiência dentro e fora de campo. Sua metodologia combina criatividade brasileira, influência do futsal, detalhe técnico, mentalidade competitiva e inteligência de jogo. Seu objetivo é ajudar jovens jogadores a desenvolverem confiança, habilidade, personalidade e amor pelo jogo.</p>
+                <h2 class="text-4xl md:text-5xl font-black text-white" data-i18n="timeline_title">A Trajetória de Lucas Sousa</h2>
+            </div>
+
+            <!-- Timeline Container -->
+            <div class="relative wrap overflow-hidden p-4 md:p-10 h-full">
+                <!-- Linha central -->
+                <div class="border-2-2 absolute border-opacity-20 border-white h-full border" style="left: 50%;"></div>
+                
+                <!-- Helper classes for left/right alignment in tailwind -->
+                <style>
+                    @media (min-width: 768px) {
+                        .timeline-item:nth-child(odd) { flex-direction: row-reverse; }
+                        .timeline-item:nth-child(odd) .timeline-content { text-align: right; }
+                        .timeline-item:nth-child(odd) .timeline-content { margin-right: 2.5rem; margin-left: 0; }
+                        .timeline-item:nth-child(even) .timeline-content { margin-left: 2.5rem; margin-right: 0; }
+                    }
+                    @media (max-width: 767px) {
+                        .timeline-container .border-2-2 { left: 20px !important; }
+                        .timeline-item { flex-direction: row !important; }
+                        .timeline-item .timeline-icon { margin-left: 0 !important; margin-right: 0 !important; position: absolute; left: 8px; }
+                        .timeline-item .timeline-content { margin-left: 3rem !important; margin-right: 0 !important; width: 100% !important; }
+                    }
+                </style>
+
+                <div class="timeline-container relative">
+                    <!-- Item 1: Childhood -->
+                    <div class="mb-12 flex justify-between items-center w-full right-timeline timeline-item relative">
+                        <div class="order-1 w-5/12 hidden md:block"></div>
+                        <div class="z-20 flex items-center order-1 bg-brand-800 border-4 border-brand-detail shadow-xl w-8 h-8 rounded-full timeline-icon mx-auto relative md:absolute md:left-1/2 md:-translate-x-1/2"></div>
+                        <div class="order-1 glass-card rounded-2xl shadow-xl w-full md:w-5/12 px-6 py-6 timeline-content hover:-translate-y-2 transition duration-300">
+                            <h3 class="mb-3 font-bold text-white text-xl" data-i18n="tl_childhood_title">Infância</h3>
+                            <p class="text-sm leading-snug tracking-wide text-gray-400 font-light" data-i18n="tl_childhood_text">O amor de Lucas pelo futebol começou cedo. O que começou como uma paixão de infância rapidamente se tornou um sonho sério.</p>
+                            <!-- Placeholder Image -->
+                            <div class="mt-4 h-32 w-full bg-brand-900/50 rounded-xl border border-white/5 flex items-center justify-center text-gray-500 overflow-hidden">
+                                <i class="fa-regular fa-image text-2xl"></i>
+                            </div>
+                        </div>
                     </div>
 
-                    <a href="#missao" class="inline-flex items-center btn-secondary text-white font-bold py-3 px-8 rounded-full mb-8 group transition-all duration-300 hover:bg-brand-detail hover:border-brand-detail" data-i18n="sobre_btn">
-                        Conheça Nossa Missão Completa
-                        <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-2 transition"></i>
-                    </a>
+                    <!-- Item 2: 2007-2008 -->
+                    <div class="mb-12 flex justify-between items-center w-full left-timeline timeline-item relative">
+                        <div class="order-1 w-5/12 hidden md:block"></div>
+                        <div class="z-20 flex items-center order-1 bg-brand-800 border-4 border-brand-detail shadow-xl w-8 h-8 rounded-full timeline-icon mx-auto relative md:absolute md:left-1/2 md:-translate-x-1/2"></div>
+                        <div class="order-1 border border-brand-detail/50 bg-gradient-to-br from-brand-800/80 to-[#1a1b8a]/50 backdrop-blur-md rounded-2xl shadow-[0_0_30px_rgba(0,212,255,0.2)] w-full md:w-5/12 px-6 py-6 timeline-content hover:-translate-y-2 transition duration-300">
+                            <h3 class="mb-3 font-bold text-white text-xl" data-i18n="tl_2007_title">2007–2008 — Guarani FC</h3>
+                            <p class="text-sm font-light leading-snug tracking-wide text-gray-400 text-opacity-100" data-i18n="tl_2007_text">Lucas começou sua jornada no Guarani FC, onde jogou nas categorias Sub-13 e Sub-14.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3: 2009 -->
+                    <div class="mb-12 flex justify-between items-center w-full right-timeline timeline-item relative">
+                        <div class="order-1 w-5/12 hidden md:block"></div>
+                        <div class="z-20 flex items-center order-1 bg-brand-800 border-4 border-brand-detail shadow-xl w-8 h-8 rounded-full timeline-icon mx-auto relative md:absolute md:left-1/2 md:-translate-x-1/2"></div>
+                        <div class="order-1 border border-brand-detail/50 bg-gradient-to-br from-brand-800/80 to-[#1a1b8a]/50 backdrop-blur-md rounded-2xl shadow-[0_0_30px_rgba(0,212,255,0.2)] w-full md:w-5/12 px-6 py-6 timeline-content hover:-translate-y-2 transition duration-300">
+                            <h3 class="mb-3 font-bold text-white text-xl" data-i18n="tl_2009_title">2009 — Paulínia FC</h3>
+                            <p class="text-sm font-light leading-snug tracking-wide text-gray-400 text-opacity-100" data-i18n="tl_2009_text">Em 2009, Lucas mudou-se para o Paulínia FC para disputar o Campeonato Paulista, um dos ambientes de futebol de base mais competitivos do Brasil. Nesse período, destacou-se pela criatividade, controle de bola e capacidade de drible.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 4: 2011 -->
+                    <div class="mb-12 flex justify-between items-center w-full left-timeline timeline-item relative">
+                        <div class="order-1 w-5/12 hidden md:block"></div>
+                        <div class="z-20 flex items-center order-1 bg-brand-800 border-4 border-brand-detail shadow-xl w-8 h-8 rounded-full timeline-icon mx-auto relative md:absolute md:left-1/2 md:-translate-x-1/2"></div>
+                        <div class="order-1 border border-brand-detail/50 bg-gradient-to-br from-brand-800/80 to-[#1a1b8a]/50 backdrop-blur-md rounded-2xl shadow-[0_0_30px_rgba(0,212,255,0.2)] w-full md:w-5/12 px-6 py-6 timeline-content hover:-translate-y-2 transition duration-300">
+                            <h3 class="mb-3 font-bold text-white text-xl" data-i18n="tl_2011_title">2011 — Grêmio FBPA</h3>
+                            <p class="text-sm font-light leading-snug tracking-wide text-gray-400 text-opacity-100" data-i18n="tl_2011_text">Aos 17 anos, Lucas assinou com o Grêmio Foot-Ball Porto Alegrense para jogar pelas equipes Sub-17 e Sub-20. Entrar em um dos maiores clubes do Brasil foi um sonho realizado e um passo importante no seu desenvolvimento como jogador.</p>
+                            <div class="mt-4 h-32 w-full bg-brand-900/50 rounded-xl border border-white/5 flex items-center justify-center text-gray-500 overflow-hidden">
+                                <i class="fa-regular fa-image text-2xl"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 5: 2013 -->
+                    <div class="mb-12 flex justify-between items-center w-full right-timeline timeline-item relative">
+                        <div class="order-1 w-5/12 hidden md:block"></div>
+                        <div class="z-20 flex items-center order-1 bg-brand-800 border-4 border-brand-detail shadow-xl w-8 h-8 rounded-full timeline-icon mx-auto relative md:absolute md:left-1/2 md:-translate-x-1/2"></div>
+                        <div class="order-1 border border-brand-detail/50 bg-gradient-to-br from-brand-800/80 to-[#1a1b8a]/50 backdrop-blur-md rounded-2xl shadow-[0_0_30px_rgba(0,212,255,0.2)] w-full md:w-5/12 px-6 py-6 timeline-content hover:-translate-y-2 transition duration-300">
+                            <h3 class="mb-3 font-bold text-white text-xl" data-i18n="tl_2013_title">2013 — Estreia no Profissional</h3>
+                            <p class="text-sm font-light leading-snug tracking-wide text-gray-400 text-opacity-100" data-i18n="tl_2013_text">Em 2013, Lucas estreou no time principal do Grêmio no Campeonato Gaúcho contra o Ijuí, marcando um marco importante em sua jornada profissional.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 6: 2017a -->
+                    <div class="mb-12 flex justify-between items-center w-full left-timeline timeline-item relative">
+                        <div class="order-1 w-5/12 hidden md:block"></div>
+                        <div class="z-20 flex items-center order-1 bg-brand-800 border-4 border-brand-detail shadow-xl w-8 h-8 rounded-full timeline-icon mx-auto relative md:absolute md:left-1/2 md:-translate-x-1/2"></div>
+                        <div class="order-1 border border-brand-detail/50 bg-gradient-to-br from-brand-800/80 to-[#1a1b8a]/50 backdrop-blur-md rounded-2xl shadow-[0_0_30px_rgba(0,212,255,0.2)] w-full md:w-5/12 px-6 py-6 timeline-content hover:-translate-y-2 transition duration-300">
+                            <h3 class="mb-3 font-bold text-white text-xl" data-i18n="tl_2017a_title">2017 — Elm City Express</h3>
+                            <p class="text-sm font-light leading-snug tracking-wide text-gray-400 text-opacity-100" data-i18n="tl_2017a_text">Após dar continuidade à carreira em outros clubes do Brasil, como o CA Tubarão, Lucas mudou-se para os Estados Unidos em 2017 para jogar no Elm City Express, onde conquistou um título nacional.</p>
+                            <div class="mt-4 h-32 w-full bg-brand-900/50 rounded-xl border border-white/5 flex items-center justify-center text-gray-500 overflow-hidden">
+                                <i class="fa-regular fa-image text-2xl"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 7: 2021 -->
+                    <div class="mb-12 flex justify-between items-center w-full right-timeline timeline-item relative">
+                        <div class="order-1 w-5/12 hidden md:block"></div>
+                        <div class="z-20 flex items-center order-1 bg-brand-800 border-4 border-brand-detail shadow-xl w-8 h-8 rounded-full timeline-icon mx-auto relative md:absolute md:left-1/2 md:-translate-x-1/2"></div>
+                        <div class="order-1 border border-brand-detail/50 bg-gradient-to-br from-brand-800/80 to-[#1a1b8a]/50 backdrop-blur-md rounded-2xl shadow-[0_0_30px_rgba(0,212,255,0.2)] w-full md:w-5/12 px-6 py-6 timeline-content hover:-translate-y-2 transition duration-300">
+                            <h3 class="mb-3 font-bold text-white text-xl" data-i18n="tl_2021_title">2021 — University of Bridgeport</h3>
+                            <p class="text-sm font-light leading-snug tracking-wide text-gray-400 text-opacity-100" data-i18n="tl_2021_text">Pensando no seu futuro além dos gramados, Lucas ingressou na University of Bridgeport em 2021. Lá, combinou o futebol universitário com a trajetória acadêmica em Administração de Empresas.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 8: 2022 -->
+                    <div class="mb-12 flex justify-between items-center w-full left-timeline timeline-item relative">
+                        <div class="order-1 w-5/12 hidden md:block"></div>
+                        <div class="z-20 flex items-center order-1 bg-brand-800 border-4 border-brand-detail shadow-xl w-8 h-8 rounded-full timeline-icon mx-auto relative md:absolute md:left-1/2 md:-translate-x-1/2"></div>
+                        <div class="order-1 border border-brand-detail/50 bg-gradient-to-br from-brand-800/80 to-[#1a1b8a]/50 backdrop-blur-md rounded-2xl shadow-[0_0_30px_rgba(0,212,255,0.2)] w-full md:w-5/12 px-6 py-6 timeline-content hover:-translate-y-2 transition duration-300">
+                            <h3 class="mb-3 font-bold text-white text-xl text-brand-detail" data-i18n="tl_2022_title">2022 — Jogador do Ano</h3>
+                            <p class="text-sm font-light leading-snug tracking-wide text-gray-400 text-opacity-100" data-i18n="tl_2022_text">Em Bridgeport, Lucas se destacou tanto academicamente quanto esportivamente. Recebeu vários prêmios individuais e foi eleito o Jogador de Futebol Masculino do Ano da CACC em 2022.</p>
+                            <div class="mt-4 h-32 w-full bg-brand-900/50 rounded-xl border border-white/5 flex items-center justify-center text-gray-500 overflow-hidden">
+                                <i class="fa-regular fa-image text-2xl"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 9: 2017b Ginga -->
+                    <div class="mb-12 flex justify-between items-center w-full right-timeline timeline-item relative">
+                        <div class="order-1 w-5/12 hidden md:block"></div>
+                        <div class="z-20 flex items-center order-1 bg-brand-800 border-4 border-brand-detail shadow-xl w-8 h-8 rounded-full timeline-icon mx-auto relative md:absolute md:left-1/2 md:-translate-x-1/2"></div>
+                        <div class="order-1 border border-brand-detail/50 bg-gradient-to-br from-brand-800/80 to-[#1a1b8a]/50 backdrop-blur-md rounded-2xl shadow-[0_0_30px_rgba(0,212,255,0.2)] w-full md:w-5/12 px-6 py-6 timeline-content hover:-translate-y-2 transition duration-300">
+                            <h3 class="mb-3 font-bold text-white text-xl" data-i18n="tl_2017b_title">2017–2026 — Ginga FC</h3>
+                            <p class="text-sm font-light leading-snug tracking-wide text-gray-400 text-opacity-100" data-i18n="tl_2017b_text">Paralelamente à sua jornada como jogador e acadêmico, Lucas atuou como treinador no Ginga FC de 2017 a 2026. Trabalhou com meninos e meninas do Sub-10 ao Sub-17 e tornou-se respeitado pelo seu trabalho de desenvolvimento de atletas, detalhes técnicos e influência do futsal.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 10: Futsal -->
+                    <div class="mb-12 flex justify-between items-center w-full left-timeline timeline-item relative">
+                        <div class="order-1 w-5/12 hidden md:block"></div>
+                        <div class="z-20 flex items-center order-1 bg-brand-800 border-4 border-brand-detail shadow-xl w-8 h-8 rounded-full timeline-icon mx-auto relative md:absolute md:left-1/2 md:-translate-x-1/2"></div>
+                        <div class="order-1 border border-brand-detail/50 bg-gradient-to-br from-brand-800/80 to-[#1a1b8a]/50 backdrop-blur-md rounded-2xl shadow-[0_0_30px_rgba(0,212,255,0.2)] w-full md:w-5/12 px-6 py-6 timeline-content hover:-translate-y-2 transition duration-300">
+                            <h3 class="mb-3 font-bold text-white text-xl text-brand-detail" data-i18n="tl_futsal_title">Sucesso no Futsal</h3>
+                            <p class="text-sm font-light leading-snug tracking-wide text-gray-400 text-opacity-100" data-i18n="tl_futsal_text">Lucas também ficou conhecido pelo seu trabalho como treinador de futsal, com destaque para a conquista do Atlantic City Futsal Regionals.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 11: Now -->
+                    <div class="mb-12 flex justify-between items-center w-full right-timeline timeline-item relative">
+                        <div class="order-1 w-5/12 hidden md:block"></div>
+                        <div class="z-20 flex items-center order-1 bg-brand-detail shadow-xl w-10 h-10 rounded-full timeline-icon mx-auto relative md:absolute md:left-1/2 md:-translate-x-1/2 flex items-center justify-center">
+                            <i class="fa-solid fa-star text-brand-900"></i>
+                        </div>
+                        <div class="order-1 border border-brand-detail/50 bg-gradient-to-br from-brand-800/80 to-[#1a1b8a]/50 backdrop-blur-md rounded-2xl shadow-[0_0_30px_rgba(0,212,255,0.2)] w-full md:w-5/12 px-6 py-6 timeline-content hover:-translate-y-2 transition duration-300">
+                            <h3 class="mb-3 font-black text-white text-2xl" data-i18n="tl_now_title">Atualmente — University of North Florida</h3>
+                            <p class="text-sm font-light leading-snug tracking-wide text-gray-300 text-opacity-100" data-i18n="tl_now_text">Hoje, Lucas continua sua jornada como Assistant Coach na University of North Florida, reunindo experiência profissional, sucesso universitário e anos de dedicação como treinador para ajudar a desenvolver a próxima geração de jogadores.</p>
+                            <div class="mt-4 h-40 w-full bg-brand-900/50 rounded-xl border border-brand-detail/30 flex items-center justify-center text-brand-detail overflow-hidden">
+                                <i class="fa-solid fa-camera text-3xl"></i>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
