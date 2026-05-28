@@ -229,7 +229,42 @@ const translations = {
         estrutura_cta_p1: "Estamos aqui para ajudar você a começar sua jornada no <strong class='text-brand-detail font-black tracking-wide bg-white/5 px-2 py-1 rounded'>HATTRICK SOCCER ACADEMY!</strong> Clique aqui para agendar uma chamada e saiba mais sobre nossos programas de treinamento de futebol em inglês.",
         estrutura_cta_p2: "Estamos prontos para responder suas perguntas e fornecer todas as informações necessárias para que seus filhos possam <strong class='text-white font-bold border-b-2 border-brand-detail'>crescer como atletas e aprender a língua inglesa</strong> de maneira natural.",
         estrutura_cta_btn: "<i class='fa-solid fa-calendar-plus mr-4 text-3xl'></i> Agendar Agora",
-        estrutura_cta_btn_sub: "100% Gratuito"
+        estrutura_cta_btn_sub: "100% Gratuito",
+        
+        // Grêmio 2011 Page & Bridgeport 2021 Page
+        tl_2011_more: "Ver mais <i class='fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition'></i>",
+        tl_2021_more: "Ver mais <i class='fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition'></i>",
+        gremio_page_title: "A Era no <span class='text-gradient'>Grêmio FBPA</span>",
+        gremio_page_subtitle: "A trajetória de Lucas no clube gaúcho, da base ao time profissional.",
+        gremio_badge: "2011–2014",
+        gremio_back_btn: "<i class='fa-solid fa-arrow-left mr-2'></i> Voltar para Nossa História",
+        gremio_intro_title: "Sonho Realizado no Olímpico e Arena",
+        gremio_intro_text: "Chegar ao Grêmio Foot-Ball Porto Alegrense aos 17 anos foi um marco definitivo na vida de Lucas. Jogar nas categorias Sub-17 e Sub-20 de um gigante do futebol sul-americano lapidou não apenas sua técnica refinada e visão de jogo, mas também sua mentalidade de garra e dedicação. O Olímpico Monumental e a moderna Arena do Grêmio foram palcos de um aprendizado intenso sob a exigência de uma das torcidas mais apaixonadas do Brasil.",
+        gremio_h1_title: "2011–2012 — Formação e Base",
+        gremio_h1_text: "Lucas integrou os elencos Sub-17 e Sub-20 do Grêmio, disputando competições de base de altíssimo nível, como a Copa São Paulo de Futebol Júnior e o Campeonato Brasileiro Sub-20. Enfrentou as principais promessas do futebol nacional, consolidando-se como um meio-campista criativo e de muita técnica.",
+        gremio_h2_title: "2013 — Estreia no Profissional",
+        gremio_h2_text: "O momento mais aguardado ocorreu no Campeonato Gaúcho de 2013, quando Lucas fez sua estreia na equipe principal do tricolor gaúcho em partida contra o São Luiz de Ijuí. Sentir a pressão do futebol profissional foi a coroação de anos de dedicação na base.",
+        gremio_h3_title: "2014 — Campeão Gaúcho Júnior",
+        gremio_h3_text: "Em 2014, coroando seu ciclo na base gremista, Lucas ajudou a equipe a conquistar o título do Campeonato Gaúcho Júnior. Levantar essa taça em um dos maiores clubes do país consolidou sua passagem vitoriosa pelo Sul do Brasil.",
+        gremio_quote: "\"Vestir a camisa do Grêmio me ensinou o real significado de raça e dedicação no futebol. Essa mentalidade de buscar sempre a vitória é o que eu levo para a vida e transmito aos meus alunos hoje na Hattrick.\"",
+        gremio_stat1: "Anos no Clube",
+        gremio_stat2: "Estreia Profissional",
+        
+        bridgeport_page_title: "A Era na <span class='text-gradient'>University of Bridgeport</span>",
+        bridgeport_page_subtitle: "Destaque acadêmico e esportivo no futebol universitário americano.",
+        bridgeport_badge: "2021–2022",
+        bridgeport_back_btn: "<i class='fa-solid fa-arrow-left mr-2'></i> Voltar para Nossa História",
+        bridgeport_intro_title: "Transição para o High Performance nos EUA",
+        bridgeport_intro_text: "Em 2021, Lucas deu um passo decisivo pensando no seu futuro pós-carreira e ingressou na University of Bridgeport, em Connecticut. Lá, ele aliou a busca pelo diploma acadêmico em Business Administration com o futebol universitário americano de alta performance. Sua liderança, maturidade e técnica refinada rapidamente o destacaram na liga, tornando-o uma referência no time.",
+        bridgeport_h1_title: "2021 — Chegada e Adaptação",
+        bridgeport_h1_text: "A transição para os EUA exigiu rápida adaptação ao estilo de jogo físico e rápido do futebol colegial americano. Em pouco tempo, Lucas conquistou a titularidade no meio-campista do Bridgeport Purple Knights, sendo peça fundamental na criação de jogadas.",
+        bridgeport_h2_title: "2022 — O Ano do Reconhecimento",
+        bridgeport_h2_text: "O ápice em Bridgeport aconteceu em 2022. Com atuações memoráveis, gols e assistências decisivas, Lucas liderou a equipe e foi eleito o Jogador do Ano da CACC (CACC Men's Soccer Player of the Year), além de receber diversos prêmios individuais de prestígio.",
+        bridgeport_h3_title: "Graduação e Formação",
+        bridgeport_h3_text: "Mais do que as glórias em campo, Bridgeport proporcionou a formação acadêmica em Administração de Empresas. Essa bagagem de negócios e a vivência completa do sistema de bolsas (NLI) formaram a base para a criação da Hattrick Academy.",
+        bridgeport_quote: "\"Bridgeport foi onde entendi o poder da combinação entre educação e esporte. Ser eleito Jogador do Ano foi inesquecível, mas a maior conquista foi a bagagem para ajudar outros jovens a trilharem o mesmo caminho.\"",
+        bridgeport_stat1: "Jogador do Ano",
+        bridgeport_stat2: "Formação Acadêmica"
     },
     en: {
         // Navbar
@@ -462,8 +497,43 @@ const translations = {
         tl_futsal_title: "Futsal Success",
         tl_futsal_text: "Lucas also became known for his futsal coaching, highlighted by winning the Atlantic City Futsal Regionals.",
         tl_now_title: "Now — University of North Florida",
-        tl_now_text: "Today, Lucas continues his journey as an Assistant Coach at the University of North Florida, bringing together professional experience, college success, and years of coaching to help develop the next generation of players."
-    }
+        tl_now_text: "Today, Lucas continues his journey as an Assistant Coach at the University of North Florida, bringing together professional experience, college success, and years of coaching to help develop the next generation of players.",
+        
+        // Grêmio 2011 Page & Bridgeport 2021 Page
+        tl_2011_more: "Read more <i class='fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition'></i>",
+        tl_2021_more: "Read more <i class='fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition'></i>",
+        gremio_page_title: "The Era at <span class='text-gradient'>Grêmio FBPA</span>",
+        gremio_page_subtitle: "Lucas's journey at the southern Brazilian club, from the youth academy to the first team.",
+        gremio_badge: "2011–2014",
+        gremio_back_btn: "<i class='fa-solid fa-arrow-left mr-2'></i> Back to Our Story",
+        gremio_intro_title: "A Dream Realized at Olímpico and Arena",
+        gremio_intro_text: "Joining Grêmio Foot-Ball Porto Alegrense at the age of 17 was a defining milestone in Lucas's life. Playing in the U-17 and U-20 categories of a South American football giant refined not only his technique and game vision but also his competitive mentality. The historic Olímpico Monumental and the modern Arena do Grêmio were the stages for intense learning under the demanding standards of one of Brazil's most passionate fanbases.",
+        gremio_h1_title: "2011–2012 — Youth Development",
+        gremio_h1_text: "Lucas joined Grêmio's U-17 and U-20 squads, competing in elite youth tournaments such as the Copa São Paulo de Futebol Júnior and the Brazilian U-20 Championship. Facing the country's top prospects, he established himself as a highly technical and creative midfielder.",
+        gremio_h2_title: "2013 — First-Team Debut",
+        gremio_h2_text: "The highly anticipated moment arrived during the 2013 Campeonato Gaúcho, when Lucas made his official debut for Grêmio's first team in a match against São Luiz de Ijuí. Experiencing the pressure of professional football was the crowning achievement of years of dedication in the youth academy.",
+        gremio_h3_title: "2014 — State Youth Champion",
+        gremio_h3_text: "In 2014, crowning his journey in Grêmio's academy, Lucas helped the U-20 team secure the Campeonato Gaúcho Júnior title. Lifting the trophy at one of the country's biggest clubs solidified his successful spell in Southern Brazil.",
+        gremio_quote: "\"Wearing the Grêmio jersey taught me the true meaning of grit and dedication in football. This winner's mentality is what I carry for life and pass on to my students today at Hattrick.\"",
+        gremio_stat1: "Years at the Club",
+        gremio_stat2: "Pro Debut",
+        
+        bridgeport_page_title: "The Era at the <span class='text-gradient'>University of Bridgeport</span>",
+        bridgeport_page_subtitle: "Academic and athletic excellence in American college soccer.",
+        bridgeport_badge: "2021–2022",
+        bridgeport_back_btn: "<i class='fa-solid fa-arrow-left mr-2'></i> Back to Our Story",
+        bridgeport_intro_title: "Transition to High-Performance Soccer in the US",
+        bridgeport_intro_text: "In 2021, thinking of his future beyond his playing days, Lucas took a major step and joined the University of Bridgeport in Connecticut. There, he successfully balanced his pursuit of a Business Administration degree with high-performance college soccer. His leadership, maturity, and refined technique quickly set him apart in the league, making him a cornerstone of the team.",
+        bridgeport_h1_title: "2021 — Arrival and Adaptation",
+        bridgeport_h1_text: "Transitioning to the US required quick adaptation to the fast and physical style of American college soccer. In a short time, Lucas earned a starting spot in the Bridgeport Purple Knights' midfield, becoming a key playmaker for the squad.",
+        bridgeport_h2_title: "2022 — The Year of Recognition",
+        bridgeport_h2_text: "The pinnacle at Bridgeport came in 2022. With memorable performances, goals, and decisive assists, Lucas led the team and was named the CACC Men's Soccer Player of the Year, alongside multiple prestigious individual honors.",
+        bridgeport_h3_title: "Graduation and Foundation",
+        bridgeport_h3_text: "More than just glory on the field, Bridgeport provided him with a valuable Business Administration degree. This business background and first-hand experience with the scholarship system (NLI) formed the foundation for creating Hattrick Academy.",
+        bridgeport_quote: "\"Bridgeport was where I truly understood the power of combining education and sports. Being named Player of the Year was unforgettable, but the greatest achievement was the experience to help other young athletes follow the same path.\"",
+        bridgeport_stat1: "Player of the Year Award",
+        bridgeport_stat2: "Academic Background"
+    },
 };
 
 function toggleLanguage(lang) {
