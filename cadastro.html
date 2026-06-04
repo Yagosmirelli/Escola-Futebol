@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Responsável | Hattrick Academy</title>
+    <meta name="description" content="Crie sua conta para inscrever seu atleta na Hattrick Soccer Academy.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            900: '#12136b',
+                            800: '#1a1b8a',
+                            700: '#242593',
+                            600: '#2d2eab',
+                            detail: '#00D4FF',
+                            detailLight: '#66E8FF',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    animation: {
+                        'blob': 'blob 10s infinite',
+                        'fade-in': 'fadeIn 0.6s ease-out forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #12136b; }
+        .logo-container {
+            position: relative;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid rgba(0, 212, 255, 0.7);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-container img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.18);
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, #242593, #00D4FF);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.7);
+            transform: translateY(-2px);
+        }
+        .spinner { border: 3px solid rgba(255,255,255,0.3); border-top: 3px solid #fff; border-radius: 50%; width: 20px; height: 20px; animation: spin 0.8s linear infinite; display: inline-block; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body class="text-gray-300 font-sans antialiased min-h-screen flex flex-col justify-center items-center relative overflow-hidden py-10">
+
+    <!-- Background -->
+    <div class="absolute inset-0" style="background-image: url('https://images.unsplash.com/photo-1518605368461-1ee7e149f1db?ixlib=rb-4.0.3'); background-size: cover; background-position: center;"></div>
+    <div class="absolute inset-0 backdrop-blur-md" style="background:rgba(18,19,107,0.92);"></div>
+
+    <!-- Animated Blobs -->
+    <div class="absolute top-20 left-10 w-72 h-72 bg-brand-detail rounded-full mix-blend-multiply filter blur-[100px] opacity-20 animate-blob"></div>
+    <div class="absolute bottom-20 right-10 w-72 h-72 bg-brand-600 rounded-full mix-blend-multiply filter blur-[100px] opacity-20 animate-blob" style="animation-delay: 2s;"></div>
+
+    <!-- Register Card -->
+    <div class="relative z-10 w-full max-w-lg mx-4 p-8 bg-brand-800/80 backdrop-blur-xl border border-white/10 rounded-3xl shadow-[0_0_50px_rgba(18,19,107,0.5)] animate-fade-in" id="register-card">
+
+        <!-- Logo -->
+        <div class="flex justify-center mb-6">
+            <a href="index.html" class="logo-container w-20 h-20 hover:scale-110 transition-transform duration-300">
+                <img src="logo.png" alt="Hattrick Academy Logo">
+            </a>
+        </div>
+
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-black text-white" data-i18n="reg_title">Criar Conta</h1>
+            <p class="text-sm mt-2 font-light" data-i18n="reg_subtitle">Cadastre-se para inscrever seu atleta na Hattrick Academy.</p>
+        </div>
+
+        <!-- Error Message -->
+        <div id="reg-error" class="hidden mb-4 p-3 bg-red-500/20 border border-red-500/40 rounded-xl text-red-300 text-sm flex items-center">
+            <i class="fa-solid fa-circle-exclamation mr-2 text-red-400"></i>
+            <span id="reg-error-text"></span>
+        </div>
+
+        <!-- Success Message -->
+        <div id="reg-success" class="hidden mb-4 p-3 bg-green-500/20 border border-green-500/40 rounded-xl text-green-300 text-sm flex items-center">
+            <i class="fa-solid fa-circle-check mr-2 text-green-400"></i>
+            <span id="reg-success-text"></span>
+        </div>
+
+        <!-- Registration Form -->
+        <form id="register-form" class="space-y-4">
+            <div>
+                <label class="block text-sm font-bold text-gray-400 mb-1" data-i18n="reg_label_name">Nome Completo do Responsável</label>
+                <div class="relative">
+                    <i class="fa-solid fa-user absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
+                    <input type="text" id="reg-name" required class="w-full bg-brand-900/50 border border-white/10 rounded-xl py-3 pl-10 pr-4 text-white placeholder-gray-600 focus:border-brand-detail focus:outline-none transition" placeholder="Nome Completo">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-bold text-gray-400 mb-1" data-i18n="reg_label_email">E-mail</label>
+                <div class="relative">
+                    <i class="fa-solid fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
+                    <input type="email" id="reg-email" required class="w-full bg-brand-900/50 border border-white/10 rounded-xl py-3 pl-10 pr-4 text-white placeholder-gray-600 focus:border-brand-detail focus:outline-none transition" placeholder="seu@email.com">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-bold text-gray-400 mb-1" data-i18n="reg_label_phone">WhatsApp (com DDD)</label>
+                <div class="relative">
+                    <i class="fa-solid fa-phone absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
+                    <input type="tel" id="reg-phone" required class="w-full bg-brand-900/50 border border-white/10 rounded-xl py-3 pl-10 pr-4 text-white placeholder-gray-600 focus:border-brand-detail focus:outline-none transition" placeholder="(11) 99999-9999">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-bold text-gray-400 mb-1" data-i18n="reg_label_password">Senha</label>
+                    <div class="relative">
+                        <i class="fa-solid fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
+                        <input type="password" id="reg-password" required minlength="6" class="w-full bg-brand-900/50 border border-white/10 rounded-xl py-3 pl-10 pr-4 text-white placeholder-gray-600 focus:border-brand-detail focus:outline-none transition" placeholder="Mín. 6 dígitos">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-gray-400 mb-1" data-i18n="reg_label_confirm">Confirmar Senha</label>
+                    <div class="relative">
+                        <i class="fa-solid fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
+                        <input type="password" id="reg-password-confirm" required minlength="6" class="w-full bg-brand-900/50 border border-white/10 rounded-xl py-3 pl-10 pr-4 text-white placeholder-gray-600 focus:border-brand-detail focus:outline-none transition" placeholder="Mín. 6 dígitos">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terms and Conditions Accordion -->
+            <div class="pt-2">
+                <label class="flex items-start cursor-pointer">
+                    <input type="checkbox" id="reg-terms" required class="mt-1 mr-2 rounded border-white/20 bg-transparent accent-[#00D4FF]">
+                    <span class="text-xs font-light text-gray-400 leading-normal">
+                        Li e aceito os <button type="button" id="terms-toggle" class="text-brand-detail hover:underline font-bold">Termos e Condições</button> de inscrição da Hattrick Academy.
+                    </span>
+                </label>
+
+                <!-- Expandable terms text -->
+                <div id="terms-content" class="hidden mt-3 max-h-40 overflow-y-auto p-4 bg-brand-900/60 border border-white/5 rounded-xl text-[11px] leading-relaxed text-gray-400 space-y-2">
+                    <p class="font-bold text-white text-xs">TERMOS E CONDIÇÕES DE INSCRIÇÃO</p>
+                    <p><strong>1. OBJETO:</strong> Este termo regula a inscrição e participação do atleta sob a responsabilidade do declarante nas atividades esportivas e educacionais promovidas pela Hattrick Academy.</p>
+                    <p><strong>2. OBRIGAÇÕES FINANCEIRAS:</strong> O responsável compromete-se a efetuar o pagamento das taxas estipuladas conforme o programa escolhido. O atraso poderá acarretar a suspensão das atividades do aluno.</p>
+                    <p><strong>3. SAÚDE DO ATLETA:</strong> O responsável declara que o atleta está em perfeitas condições de saúde física e mental para a prática de atividades físicas de alta intensidade, isentando a Hattrick Academy de qualquer responsabilidade sobre lesões preexistentes ou acidentes comuns decorrentes da prática esportiva.</p>
+                    <p><strong>4. USO DE IMAGEM:</strong> Fica expressamente autorizado o uso da imagem e voz do atleta em fotos, vídeos e publicações para divulgação institucional da Hattrick Academy, sem fins comerciais diretos, sem necessidade de pagamento de contraprestação financeira.</p>
+                    <p><strong>5. LEI GERAL DE PROTEÇÃO DE DADOS (LGPD):</strong> Os dados cadastrados serão mantidos em sigilo e utilizados exclusivamente para gestão das matrículas, contatos oficiais e acompanhamento esportivo do aluno.</p>
+                </div>
+            </div>
+
+            <button type="submit" id="reg-submit" class="w-full btn-primary text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 mt-4">
+                <span id="reg-btn-text" data-i18n="reg_btn">Criar Minha Conta</span>
+                <span id="reg-spinner" class="spinner hidden"></span>
+            </button>
+        </form>
+
+        <!-- Links -->
+        <div class="mt-8 text-center space-y-3">
+            <p class="text-sm">
+                <span class="text-gray-400" data-i18n="reg_has_account">Já tem conta?</span>
+                <a href="login.html" class="text-brand-detail hover:text-white font-bold transition ml-1" data-i18n="reg_login_link">Faça Login</a>
+            </p>
+            <a href="index.html" class="block text-sm text-gray-500 hover:text-white transition">
+                <i class="fa-solid fa-arrow-left mr-1"></i> <span data-i18n="reg_back_site">Voltar pro site principal</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="db.js"></script>
+    <script>
+        // Auto-redirect if already logged in
+        (async () => {
+            const user = await hattrickGetUser();
+            if (user) window.location.href = 'dashboard.html';
+        })();
+
+        const registerForm = document.getElementById('register-form');
+        const termsToggle = document.getElementById('terms-toggle');
+        const termsContent = document.getElementById('terms-content');
+        const errorDiv = document.getElementById('reg-error');
+        const errorText = document.getElementById('reg-error-text');
+        const successDiv = document.getElementById('reg-success');
+        const successText = document.getElementById('reg-success-text');
+
+        function showError(msg) {
+            errorText.textContent = msg;
+            errorDiv.classList.remove('hidden');
+            successDiv.classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function showSuccess(msg) {
+            successText.textContent = msg;
+            successDiv.classList.remove('hidden');
+            errorDiv.classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function hideMessages() {
+            errorDiv.classList.add('hidden');
+            successDiv.classList.add('hidden');
+        }
+
+        // Toggle terms view
+        termsToggle.addEventListener('click', () => {
+            termsContent.classList.toggle('hidden');
+        });
+
+        // Submit form
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            hideMessages();
+
+            const name = document.getElementById('reg-name').value.trim();
+            const email = document.getElementById('reg-email').value.trim();
+            const phone = document.getElementById('reg-phone').value.trim();
+            const password = document.getElementById('reg-password').value;
+            const confirmPassword = document.getElementById('reg-password-confirm').value;
+            const termsChecked = document.getElementById('reg-terms').checked;
+
+            // Validations
+            if (password !== confirmPassword) {
+                showError('As senhas digitadas não coincidem.');
+                return;
+            }
+
+            if (!termsChecked) {
+                showError('Você precisa aceitar os Termos e Condições para prosseguir.');
+                return;
+            }
+
+            const btnText = document.getElementById('reg-btn-text');
+            const spinner = document.getElementById('reg-spinner');
+            const submitBtn = document.getElementById('reg-submit');
+
+            submitBtn.disabled = true;
+            btnText.textContent = 'Criando conta...';
+            spinner.classList.remove('hidden');
+
+            const { data, error } = await hattrickSignUp(email, password, {
+                full_name: name,
+                phone: phone
+            });
+
+            if (error) {
+                submitBtn.disabled = false;
+                btnText.textContent = 'Criar Minha Conta';
+                spinner.classList.add('hidden');
+                showError(error.message);
+                return;
+            }
+
+            // O Supabase por padrão exige confirmação de email no fluxo de signup livre.
+            // Avisar o usuário e redirecionar após um tempo curto ou manter instrução.
+            showSuccess('Cadastro realizado! Por favor, verifique o e-mail cadastrado para ativar sua conta e depois faça login.');
+            
+            // Limpa form
+            registerForm.reset();
+            submitBtn.disabled = false;
+            btnText.textContent = 'Criar Minha Conta';
+            spinner.classList.add('hidden');
+
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 6000);
+        });
+    </script>
+    <script src="i18n.js"></script>
+</body>
+</html>

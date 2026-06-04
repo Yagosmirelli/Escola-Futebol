@@ -9,6 +9,7 @@ const translations = {
         nav_estrutura: "Estrutura",
         nav_portfolio: "Portfólio",
         nav_login: "Área do Atleta",
+        nav_dashboard: "Meu Painel",
         nav_contact: "Contato",
         
         // escolaFut.html - Hero
@@ -97,7 +98,7 @@ const translations = {
         // lucas.html
         lucas_role_badge: "Assistant Coach - UNF",
         lucas_subtitle: "Sua atuação conecta Brasil e Estados Unidos na formação de atletas preparados para o cenário global.",
-        lucas_p1: "<strong class='text-white font-bold'>Mentalidade Competitiva:</strong> Formado no ambiente profissional do Grêmio Foot-Ball Porto Alegrense e com experiência nos Estados Unidos pelo Elm City Express, Lucas construiu sua carreira unindo alto rendimento e visão estratégica.",
+        lucas_p1: "Formado no ambiente profissional do Grêmio Foot-Ball Porto Alegrense e com experiência nos Estados Unidos pelo Elm City Express, Lucas construiu sua carreira unindo alto rendimento e visão estratégica.",
         lucas_p2: "Graduado em Business Administration pela University of Bridgeport — onde foi eleito <strong class='text-white font-bold text-brand-detail'>Jogador do Ano e melhor da liga quatro vezes</strong> — hoje atua como Assistant Coach na University of North Florida (UNF), desenvolvendo atletas dentro de um modelo internacional que integra técnica, inteligência de jogo e mentalidade competitiva.",
         lucas_skills_title: "Especialidades do Perfil",
         lucas_skill1: "Inteligência de Jogo",
@@ -276,6 +277,7 @@ const translations = {
         nav_estrutura: "Facilities",
         nav_portfolio: "Portfolio",
         nav_login: "Athlete Area",
+        nav_dashboard: "My Dashboard",
         nav_contact: "Contact",
 
         // escolaFut.html - Hero
@@ -441,7 +443,7 @@ const translations = {
         // lucas.html
         lucas_role_badge: "Assistant Coach - UNF",
         lucas_subtitle: "His work connects Brazil and the United States in training athletes prepared for the global stage.",
-        lucas_p1: "<strong class='text-white font-bold'>Competitive Mentality:</strong> Formed in the professional environment of Grêmio Foot-Ball Porto Alegrense and with experience in the United States with Elm City Express, Lucas built his career by combining high performance and strategic vision.",
+        lucas_p1: "Formed in the professional environment of Grêmio Foot-Ball Porto Alegrense and with experience in the United States with Elm City Express, Lucas built his career by combining high performance and strategic vision.",
         lucas_p2: "Graduated with a degree in Business Administration from the University of Bridgeport — where he was elected <strong class='text-white font-bold text-brand-detail'>Player of the Year and best in the league four times</strong> — today he works as an Assistant Coach at the University of North Florida (UNF), developing athletes within an international model that integrates technique, game intelligence, and competitive mentality.",
         lucas_skills_title: "Profile Specialties",
         lucas_skill1: "Game Intelligence",
@@ -582,8 +584,42 @@ function toggleLanguage(lang) {
     });
 }
 
+// Função para verificar se existe sessão do Supabase no LocalStorage
+function hasSupabaseSession() {
+    try {
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            if (key && key.startsWith('sb-') && key.endsWith('-auth-token')) {
+                const sessionData = JSON.parse(localStorage.getItem(key));
+                if (sessionData && (sessionData.currentSession || sessionData.access_token)) {
+                    return true;
+                }
+            }
+        }
+    } catch (e) {
+        console.error('Erro ao ler sessão do Supabase no localStorage:', e);
+    }
+    return false;
+}
+
 // Initialize from local storage or default to PT
 window.addEventListener('DOMContentLoaded', () => {
+    // Se o usuário estiver logado, altera os links de login.html para dashboard.html
+    if (hasSupabaseSession()) {
+        document.querySelectorAll('a[href="login.html"]').forEach(el => {
+            el.href = 'dashboard.html';
+            // Se tiver o atributo data-i18n, muda para o novo ID de tradução
+            if (el.getAttribute('data-i18n') === 'nav_login') {
+                el.setAttribute('data-i18n', 'nav_dashboard');
+            }
+            // Se tiver algum span interno (como no menu mobile), muda também
+            const innerSpan = el.querySelector('[data-i18n="nav_login"]');
+            if (innerSpan) {
+                innerSpan.setAttribute('data-i18n', 'nav_dashboard');
+            }
+        });
+    }
+
     const savedLang = localStorage.getItem('preferredLang') || 'pt';
     toggleLanguage(savedLang);
 });

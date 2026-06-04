@@ -1,59 +1,296 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Área Restrita | Hattrick Academy</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <meta name="description" content="Acesse sua conta na Hattrick Soccer Academy. Gerencie a inscrição do seu atleta.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = { theme: { extend: { colors: { brand: { 900: '#12136b', 800: '#1a1b8a', 700: '#242593', detail: '#00D4FF'} } }, fontFamily: { sans: ['Outfit'] } } }
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            900: '#12136b',
+                            800: '#1a1b8a',
+                            700: '#242593',
+                            600: '#2d2eab',
+                            detail: '#00D4FF',
+                            detailLight: '#66E8FF',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    animation: {
+                        'blob': 'blob 10s infinite',
+                        'fade-in': 'fadeIn 0.6s ease-out forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
     </script>
+    <style>
+        body { background-color: #12136b; }
+        .logo-container {
+            position: relative;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid rgba(0, 212, 255, 0.7);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-container img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.18);
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, #242593, #00D4FF);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.7);
+            transform: translateY(-2px);
+        }
+        .spinner { border: 3px solid rgba(255,255,255,0.3); border-top: 3px solid #fff; border-radius: 50%; width: 20px; height: 20px; animation: spin 0.8s linear infinite; display: inline-block; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
 </head>
-<body class="bg-brand-900 text-gray-300 font-sans antialiased min-h-screen flex flex-col justify-center items-center relative" style="background-image: url('https://images.unsplash.com/photo-1518605368461-1ee7e149f1db?ixlib=rb-4.0.3'); background-size: cover;">
-    
+<body class="text-gray-300 font-sans antialiased min-h-screen flex flex-col justify-center items-center relative overflow-hidden">
+
+    <!-- Background -->
+    <div class="absolute inset-0" style="background-image: url('https://images.unsplash.com/photo-1518605368461-1ee7e149f1db?ixlib=rb-4.0.3'); background-size: cover; background-position: center;"></div>
     <div class="absolute inset-0 backdrop-blur-md" style="background:rgba(18,19,107,0.92);"></div>
 
-    <div class="relative z-10 w-full max-w-md p-8 bg-brand-800/80 backdrop-blur-xl border border-white/10 rounded-3xl shadow-[0_0_50px_rgba(36, 37, 147,0.2)]">
-        
-        <div class="text-center mb-8">
-            <h2 class="text-3xl font-black text-white">Login do Atleta</h2>
-            <p class="text-sm mt-2 font-light">Acesse seus Highlights, Avaliações e Progresso de Inglês.</p>
+    <!-- Animated Blobs -->
+    <div class="absolute top-20 left-10 w-72 h-72 bg-brand-detail rounded-full mix-blend-multiply filter blur-[100px] opacity-20 animate-blob"></div>
+    <div class="absolute bottom-20 right-10 w-72 h-72 bg-brand-600 rounded-full mix-blend-multiply filter blur-[100px] opacity-20 animate-blob" style="animation-delay: 2s;"></div>
+
+    <!-- Login Card -->
+    <div class="relative z-10 w-full max-w-md mx-4 p-8 bg-brand-800/80 backdrop-blur-xl border border-white/10 rounded-3xl shadow-[0_0_50px_rgba(18,19,107,0.5)] animate-fade-in" id="login-card">
+
+        <!-- Logo -->
+        <div class="flex justify-center mb-6">
+            <a href="index.html" class="logo-container w-20 h-20 hover:scale-110 transition-transform duration-300">
+                <img src="logo.png" alt="Hattrick Academy Logo">
+            </a>
         </div>
 
-        <form onsubmit="event.preventDefault();" class="space-y-6">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-black text-white" data-i18n="login_title">Área do Responsável</h1>
+            <p class="text-sm mt-2 font-light" data-i18n="login_subtitle">Acesse o painel para gerenciar a inscrição do seu atleta.</p>
+        </div>
+
+        <!-- Error Message -->
+        <div id="login-error" class="hidden mb-4 p-3 bg-red-500/20 border border-red-500/40 rounded-xl text-red-300 text-sm flex items-center">
+            <i class="fa-solid fa-circle-exclamation mr-2 text-red-400"></i>
+            <span id="login-error-text"></span>
+        </div>
+
+        <!-- Success Message -->
+        <div id="login-success" class="hidden mb-4 p-3 bg-green-500/20 border border-green-500/40 rounded-xl text-green-300 text-sm flex items-center">
+            <i class="fa-solid fa-circle-check mr-2 text-green-400"></i>
+            <span id="login-success-text"></span>
+        </div>
+
+        <!-- Login Form -->
+        <form id="login-form" class="space-y-5">
             <div>
-                <label class="block text-sm font-bold text-gray-400 mb-2">Email do Aluno</label>
+                <label class="block text-sm font-bold text-gray-400 mb-2" data-i18n="login_label_email">E-mail</label>
                 <div class="relative">
                     <i class="fa-solid fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
-                    <input type="email" class="w-full bg-brand-900/50 border border-white/10 rounded-xl py-3 pl-10 pr-4 text-white focus:border-brand-detail focus:outline-none transition">
+                    <input type="email" id="login-email" required class="w-full bg-brand-900/50 border border-white/10 rounded-xl py-3 pl-10 pr-4 text-white placeholder-gray-600 focus:border-brand-detail focus:outline-none transition" placeholder="seu@email.com">
                 </div>
             </div>
             <div>
-                <label class="block text-sm font-bold text-gray-400 mb-2">Senha</label>
+                <label class="block text-sm font-bold text-gray-400 mb-2" data-i18n="login_label_password">Senha</label>
                 <div class="relative">
                     <i class="fa-solid fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
-                    <input type="password" class="w-full bg-brand-900/50 border border-white/10 rounded-xl py-3 pl-10 pr-4 text-white focus:border-brand-detail focus:outline-none transition">
+                    <input type="password" id="login-password" required class="w-full bg-brand-900/50 border border-white/10 rounded-xl py-3 pl-10 pr-4 text-white placeholder-gray-600 focus:border-brand-detail focus:outline-none transition" placeholder="••••••••">
                 </div>
             </div>
-            
+
             <div class="flex justify-between items-center text-sm">
                 <label class="flex items-center cursor-pointer">
-                    <input type="checkbox" class="mr-2 rounded border-white/20 bg-transparent text-brand-detail focus:ring-0">
-                    <span class="font-light">Lembrar-me</span>
+                    <input type="checkbox" class="mr-2 rounded border-white/20 bg-transparent accent-[#00D4FF]">
+                    <span class="font-light" data-i18n="login_remember">Lembrar-me</span>
                 </label>
-                <a href="#" class="text-brand-detail hover:text-white font-bold transition">Esqueci a Senha</a>
+                <button type="button" id="forgot-btn" class="text-brand-detail hover:text-white font-bold transition" data-i18n="login_forgot">Esqueci a Senha</button>
             </div>
 
-            <button type="submit" class="w-full text-white font-bold py-4 rounded-xl transition transform hover:-translate-y-1" style="background:linear-gradient(90deg,#242593,#00D4FF); box-shadow:0 0 15px rgba(0,212,255,0.4);">
-                Entrar no Portal
+            <button type="submit" id="login-submit" class="w-full btn-primary text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2">
+                <span id="login-btn-text" data-i18n="login_btn">Entrar no Portal</span>
+                <span id="login-spinner" class="spinner hidden"></span>
             </button>
         </form>
 
-        <div class="mt-8 text-center text-sm">
-            <a href="index.html" class="text-gray-400 hover:text-white"><i class="fa-solid fa-arrow-left"></i> Voltar pro site principal</a>
+        <!-- Forgot Password Form (hidden by default) -->
+        <form id="forgot-form" class="space-y-5 hidden">
+            <div>
+                <label class="block text-sm font-bold text-gray-400 mb-2" data-i18n="login_forgot_label">Digite seu e-mail para recuperar a senha</label>
+                <div class="relative">
+                    <i class="fa-solid fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
+                    <input type="email" id="forgot-email" required class="w-full bg-brand-900/50 border border-white/10 rounded-xl py-3 pl-10 pr-4 text-white placeholder-gray-600 focus:border-brand-detail focus:outline-none transition" placeholder="seu@email.com">
+                </div>
+            </div>
+            <button type="submit" id="forgot-submit" class="w-full btn-primary text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2">
+                <span id="forgot-btn-text" data-i18n="login_forgot_btn">Enviar Link de Recuperação</span>
+                <span id="forgot-spinner" class="spinner hidden"></span>
+            </button>
+            <button type="button" id="back-to-login" class="w-full text-center text-sm text-gray-400 hover:text-white transition" data-i18n="login_back_to_login">
+                <i class="fa-solid fa-arrow-left mr-1"></i> Voltar ao login
+            </button>
+        </form>
+
+        <!-- Links -->
+        <div class="mt-8 text-center space-y-3">
+            <p class="text-sm">
+                <span class="text-gray-400" data-i18n="login_no_account">Não tem conta?</span>
+                <a href="cadastro.html" class="text-brand-detail hover:text-white font-bold transition ml-1" data-i18n="login_register_link">Cadastre-se</a>
+            </p>
+            <a href="index.html" class="block text-sm text-gray-500 hover:text-white transition">
+                <i class="fa-solid fa-arrow-left mr-1"></i> <span data-i18n="login_back_site">Voltar pro site principal</span>
+            </a>
         </div>
     </div>
+
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="db.js"></script>
+    <script>
+        // Auto-redirect if already logged in
+        (async () => {
+            const user = await hattrickGetUser();
+            if (user) window.location.href = 'dashboard.html';
+        })();
+
+        const loginForm = document.getElementById('login-form');
+        const forgotForm = document.getElementById('forgot-form');
+        const forgotBtn = document.getElementById('forgot-btn');
+        const backToLogin = document.getElementById('back-to-login');
+        const errorDiv = document.getElementById('login-error');
+        const errorText = document.getElementById('login-error-text');
+        const successDiv = document.getElementById('login-success');
+        const successText = document.getElementById('login-success-text');
+
+        function showError(msg) {
+            errorText.textContent = msg;
+            errorDiv.classList.remove('hidden');
+            successDiv.classList.add('hidden');
+        }
+        function showSuccess(msg) {
+            successText.textContent = msg;
+            successDiv.classList.remove('hidden');
+            errorDiv.classList.add('hidden');
+        }
+        function hideMessages() {
+            errorDiv.classList.add('hidden');
+            successDiv.classList.add('hidden');
+        }
+
+        // Toggle forgot password view
+        forgotBtn.addEventListener('click', () => {
+            loginForm.classList.add('hidden');
+            forgotForm.classList.remove('hidden');
+            hideMessages();
+        });
+        backToLogin.addEventListener('click', () => {
+            forgotForm.classList.add('hidden');
+            loginForm.classList.remove('hidden');
+            hideMessages();
+        });
+
+        // Login submit
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            hideMessages();
+
+            const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-password').value;
+            const btnText = document.getElementById('login-btn-text');
+            const spinner = document.getElementById('login-spinner');
+            const submitBtn = document.getElementById('login-submit');
+
+            submitBtn.disabled = true;
+            btnText.textContent = 'Entrando...';
+            spinner.classList.remove('hidden');
+
+            const { data, error } = await hattrickSignIn(email, password);
+
+            if (error) {
+                submitBtn.disabled = false;
+                btnText.textContent = 'Entrar no Portal';
+                spinner.classList.add('hidden');
+
+                if (error.message.includes('Invalid login credentials')) {
+                    showError('E-mail ou senha incorretos. Tente novamente.');
+                } else if (error.message.includes('Email not confirmed')) {
+                    showError('Confirme seu e-mail antes de fazer login. Verifique sua caixa de entrada.');
+                } else {
+                    showError(error.message);
+                }
+                return;
+            }
+
+            showSuccess('Login realizado com sucesso! Redirecionando...');
+            setTimeout(() => {
+                window.location.href = 'dashboard.html';
+            }, 800);
+        });
+
+        // Forgot password submit
+        forgotForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            hideMessages();
+
+            const email = document.getElementById('forgot-email').value.trim();
+            const btnText = document.getElementById('forgot-btn-text');
+            const spinner = document.getElementById('forgot-spinner');
+            const submitBtn = document.getElementById('forgot-submit');
+
+            submitBtn.disabled = true;
+            btnText.textContent = 'Enviando...';
+            spinner.classList.remove('hidden');
+
+            const { data, error } = await hattrickResetPassword(email);
+
+            submitBtn.disabled = false;
+            btnText.textContent = 'Enviar Link de Recuperação';
+            spinner.classList.add('hidden');
+
+            if (error) {
+                showError(error.message);
+                return;
+            }
+
+            showSuccess('Link de recuperação enviado! Verifique seu e-mail.');
+        });
+    </script>
+    <script src="i18n.js"></script>
 </body>
 </html>
