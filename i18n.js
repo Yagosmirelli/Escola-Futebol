@@ -186,6 +186,21 @@ const translations = {
         camps_page_subtitle: "Desenvolva confiança, habilidade e amor pelo jogo com nossos programas de treinamento especializados.",
         prog_featured: "Destaque",
         prog_btn_contact: "Entrar em Contato",
+
+        // Futsal Clinic (NEW)
+        prog_clinic_title: "Hattrick Futsal Clinic",
+        prog_clinic_partner: "Em parceria com First Coast Futsal e UNF",
+        prog_clinic_desc: "Temos o prazer de trazer a primeira clínica de futsal da Hattrick Academy para Jacksonville! Esta clínica foi projetada para ajudar jovens jogadores a desenvolver técnica, criatividade, tomada de decisão e confiança com a bola.",
+        prog_clinic_dates: "15–18 de Junho",
+        prog_clinic_times: "17h30 e 18h30",
+        prog_clinic_ages: "Meninos de 7 a 14 anos",
+        prog_clinic_closing: "Inscrições encerrando em breve!",
+        prog_clinic_spots: "Vagas limitadas — garanta a sua!",
+        prog_clinic_btn: "Inscreva-se Agora",
+        prog_badge_new: "🔥 NOVO",
+        home_prog_clinic_tag: "15-18 de Junho | Jacksonville",
+        home_prog_clinic_short: "Técnica, criatividade e decisão para meninos de 7 a 14 anos.",
+
         prog_futsal_title: "Hattrick Futsal Lab na UNF",
         prog_futsal_duration: "Programa de Desenvolvimento de Jogadores de 8 Semanas",
         prog_futsal_desc: "Um programa estruturado de futsal focado em domínio de bola, primeiro toque, ataque 1v1, criatividade, finalização e tomada de decisão rápida em espaços reduzidos.",
@@ -390,6 +405,21 @@ const translations = {
         camps_page_subtitle: "Develop confidence, skill, and love for the game with our specialized training programs.",
         prog_featured: "Featured",
         prog_btn_contact: "Get in Touch",
+
+        // Futsal Clinic (NEW)
+        prog_clinic_title: "Hattrick Futsal Clinic",
+        prog_clinic_partner: "In partnership with First Coast Futsal and UNF",
+        prog_clinic_desc: "We are very excited to bring Hattrick Academy's first futsal clinic to Jacksonville. This clinic is designed to help young players develop their technique, creativity, decision-making, and confidence on the ball.",
+        prog_clinic_dates: "June 15-18",
+        prog_clinic_times: "5:30 PM and 6:30 PM",
+        prog_clinic_ages: "Boys ages 7-14",
+        prog_clinic_closing: "Registration will be closing soon.",
+        prog_clinic_spots: "Limited spots available — secure yours!",
+        prog_clinic_btn: "Register Now",
+        prog_badge_new: "🔥 NEW",
+        home_prog_clinic_tag: "June 15-18 | Jacksonville",
+        home_prog_clinic_short: "Technique, creativity, and decision-making for boys ages 7-14.",
+
         prog_futsal_title: "Hattrick Futsal Lab at UNF",
         prog_futsal_duration: "8-Week Player Development Program",
         prog_futsal_desc: "A structured futsal program focused on ball mastery, first touch, 1v1 attacking, creativity, finishing, and fast decision-making in tight spaces.",
