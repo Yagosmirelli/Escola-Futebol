@@ -197,6 +197,7 @@ const translations = {
         prog_clinic_closing: "Inscrições encerrando em breve!",
         prog_clinic_spots: "Vagas limitadas — garanta a sua!",
         prog_clinic_btn: "Inscreva-se Agora",
+        prog_clinic_btn_more: "Saiba Mais",
         prog_badge_new: "🔥 NOVO",
         home_prog_clinic_tag: "15-18 de Junho | Jacksonville",
         home_prog_clinic_short: "Técnica, criatividade e decisão para meninos de 7 a 14 anos.",
@@ -416,6 +417,7 @@ const translations = {
         prog_clinic_closing: "Registration will be closing soon.",
         prog_clinic_spots: "Limited spots available — secure yours!",
         prog_clinic_btn: "Register Now",
+        prog_clinic_btn_more: "Learn More",
         prog_badge_new: "🔥 NEW",
         home_prog_clinic_tag: "June 15-18 | Jacksonville",
         home_prog_clinic_short: "Technique, creativity, and decision-making for boys ages 7-14.",
@@ -572,6 +574,9 @@ function toggleLanguage(lang) {
     // Update storage
     localStorage.setItem('preferredLang', lang);
     
+    // Update HTML lang attribute
+    document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
+    
     // Helper to update button styles
     const updateBtnStyles = (btns, isActive) => {
         btns.forEach(btn => {
@@ -650,6 +655,6 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    const savedLang = localStorage.getItem('preferredLang') || 'pt';
+    const savedLang = localStorage.getItem('preferredLang') || 'en';
     toggleLanguage(savedLang);
 });

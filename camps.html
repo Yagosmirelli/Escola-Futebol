@@ -68,8 +68,8 @@
                     <a href="camps.html" class="text-sm font-semibold text-brand-detail transition duration-300" data-i18n="nav_camp">Programas</a>
                     <a href="index.html#staff" class="text-sm font-semibold text-gray-300 hover:text-white transition duration-300" data-i18n="nav_staff">Staff</a>
                     <div class="flex items-center bg-white/5 backdrop-blur-md rounded-full p-1 border border-white/10 mx-2">
-                        <button onclick="toggleLanguage('pt')" class="lang-btn-pt px-3 py-1 text-[10px] font-bold rounded-full transition-all duration-300 bg-brand-detail text-brand-900 shadow-[0_0_10px_rgba(0,212,255,0.5)]">PT</button>
                         <button onclick="toggleLanguage('en')" class="lang-btn-en px-3 py-1 text-[10px] font-bold rounded-full transition-all duration-300 text-gray-400 hover:text-white">EN</button>
+                        <button onclick="toggleLanguage('pt')" class="lang-btn-pt px-3 py-1 text-[10px] font-bold rounded-full transition-all duration-300 bg-brand-detail text-brand-900 shadow-[0_0_10px_rgba(0,212,255,0.5)]">PT</button>
                     </div>
                     <a href="login.html" class="text-sm font-bold text-gray-300 hover:text-brand-detailLight transition flex items-center ml-2"><i class="fa-solid fa-lock mr-2 text-brand-detail"></i> Login</a>
                     <a href="index.html#contato" class="btn-primary text-sm font-bold py-2 px-6 rounded-full text-white ml-2" data-i18n="nav_contact">Contato</a>
@@ -77,8 +77,8 @@
 
                 <div class="md:hidden flex items-center space-x-2 ml-auto">
                     <div class="flex items-center bg-white/10 backdrop-blur-md rounded-full p-1 border border-white/20">
-                        <button onclick="toggleLanguage('pt')" class="lang-btn-pt-mob px-2 py-1 text-[10px] font-bold rounded-full transition-all duration-300 bg-brand-detail text-brand-900 shadow-[0_0_10px_rgba(0,212,255,0.5)]">PT</button>
                         <button onclick="toggleLanguage('en')" class="lang-btn-en-mob px-2 py-1 text-[10px] font-bold rounded-full transition-all duration-300 text-gray-400 hover:text-white text-white/70">EN</button>
+                        <button onclick="toggleLanguage('pt')" class="lang-btn-pt-mob px-2 py-1 text-[10px] font-bold rounded-full transition-all duration-300 bg-brand-detail text-brand-900 shadow-[0_0_10px_rgba(0,212,255,0.5)]">PT</button>
                     </div>
                     <button id="mobile-menu-btn" class="text-white focus:outline-none w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-white/5 rounded-full border border-white/10 hover:bg-brand-detail/20 hover:border-brand-detail/50 transition-all duration-300 group">
                         <i class="fa-solid fa-bars text-xl group-hover:scale-110 transition-transform"></i>
@@ -131,46 +131,50 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-6xl">
 
             <!-- 0. FUTSAL CLINIC — NEW FEATURED EVENT -->
-            <div class="glass-card rounded-3xl p-10 md:p-12 relative overflow-hidden group border border-emerald-400/40 mb-12 mt-4">
-                <div class="featured-badge" style="background: linear-gradient(135deg, #10b981, #00D4FF);" data-i18n="prog_badge_new">🔥 NOVO</div>
+            <div class="glass-card rounded-3xl relative overflow-hidden group border border-emerald-400/40 mb-12 mt-4 lg:h-[350px] flex flex-col lg:flex-row items-center gap-6 p-2 lg:p-4">
+                <div class="featured-badge z-20 absolute top-0 right-0" style="background: linear-gradient(135deg, #10b981, #00D4FF);" data-i18n="prog_badge_new">🔥 NOVO</div>
                 <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-400 blur-[100px] opacity-15 group-hover:opacity-30 transition duration-500"></div>
 
-                <div class="flex flex-col lg:flex-row gap-10 items-start relative z-10">
-                    <div class="lg:w-2/3">
-                        <div class="program-icon text-emerald-400 mb-6" style="border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.08);">
-                            <i class="fa-solid fa-futbol"></i>
-                        </div>
-                        <h3 class="text-3xl md:text-4xl font-black text-white mb-2" data-i18n="prog_clinic_title">Hattrick Futsal Clinic</h3>
-                        <p class="text-emerald-400 font-bold text-sm uppercase tracking-wider mb-4" data-i18n="prog_clinic_partner">Em parceria com First Coast Futsal e UNF</p>
-                        <p class="text-gray-300 font-light text-lg leading-relaxed mb-6" data-i18n="prog_clinic_desc">Temos o prazer de trazer a primeira clínica de futsal da Hattrick Academy para Jacksonville! Esta clínica foi projetada para ajudar jovens jogadores a desenvolver técnica, criatividade, tomada de decisão e confiança com a bola.</p>
-
-                        <div class="flex flex-wrap gap-4 mb-2">
-                            <div class="flex items-center gap-2 bg-white/5 rounded-full px-4 py-2 border border-white/10">
-                                <i class="fa-solid fa-calendar-days text-brand-detail"></i>
-                                <span class="text-white font-bold text-sm" data-i18n="prog_clinic_dates">15–18 de Junho</span>
-                            </div>
-                            <div class="flex items-center gap-2 bg-white/5 rounded-full px-4 py-2 border border-white/10">
-                                <i class="fa-solid fa-clock text-brand-detail"></i>
-                                <span class="text-white font-bold text-sm" data-i18n="prog_clinic_times">17h30 e 18h30</span>
-                            </div>
-                            <div class="flex items-center gap-2 bg-white/5 rounded-full px-4 py-2 border border-white/10">
-                                <i class="fa-solid fa-child text-brand-detail"></i>
-                                <span class="text-white font-bold text-sm" data-i18n="prog_clinic_ages">Meninos de 7 a 14 anos</span>
-                            </div>
-                        </div>
+                <div class="flex flex-col lg:flex-row gap-8 items-center relative z-10 w-full h-full">
+                    <!-- Image Side -->
+                    <div class="lg:w-1/2 w-full flex justify-center items-center h-full">
+                        <img src="Banner.novo.programa.png" alt="Hattrick Futsal Clinic" class="rounded-2xl shadow-[0_10px_30px_rgba(16,185,129,0.3)] border border-white/10 hover:scale-[1.02] transition-transform duration-500 object-contain h-[335px] w-auto bg-black/20">
                     </div>
-                    <div class="lg:w-1/3 w-full space-y-4">
-                        <div class="p-4 rounded-2xl text-center" style="background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25);">
-                            <div class="flex items-center justify-center gap-2 mb-2">
-                                <span class="relative flex h-3 w-3">
-                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                                    <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
-                                </span>
-                                <p class="text-xs text-red-400 uppercase tracking-wider font-black" data-i18n="prog_clinic_closing">Inscrições encerrando em breve!</p>
+                    
+                    <!-- Text Side -->
+                    <div class="lg:w-1/2 w-full h-full flex flex-col justify-center pr-4 lg:pr-6 py-2 overflow-y-auto custom-scrollbar">
+                        <h3 class="text-2xl md:text-3xl font-black text-white mb-1" data-i18n="prog_clinic_title">Hattrick Futsal Clinic</h3>
+                        <p class="text-emerald-400 font-bold text-xs md:text-sm uppercase tracking-wider mb-2" data-i18n="prog_clinic_partner">Em parceria com First Coast Futsal e UNF</p>
+                        <p class="text-gray-300 font-light text-sm md:text-base leading-relaxed mb-4" data-i18n="prog_clinic_desc">Temos o prazer de trazer a primeira clínica de futsal da Hattrick Academy para Jacksonville! Esta clínica foi projetada para ajudar jovens jogadores a desenvolver técnica, criatividade, tomada de decisão e confiança com a bola.</p>
+
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <div class="flex items-center gap-2 bg-white/5 rounded-full px-3 py-1 border border-white/10">
+                                <i class="fa-solid fa-calendar-days text-brand-detail text-sm"></i>
+                                <span class="text-white font-bold text-xs" data-i18n="prog_clinic_dates">15–18 de Junho</span>
                             </div>
-                            <p class="text-sm text-gray-400 font-light" data-i18n="prog_clinic_spots">Vagas limitadas — garanta a sua!</p>
+                            <div class="flex items-center gap-2 bg-white/5 rounded-full px-3 py-1 border border-white/10">
+                                <i class="fa-solid fa-clock text-brand-detail text-sm"></i>
+                                <span class="text-white font-bold text-xs" data-i18n="prog_clinic_times">17h30 e 18h30</span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-white/5 rounded-full px-3 py-1 border border-white/10">
+                                <i class="fa-solid fa-child text-brand-detail text-sm"></i>
+                                <span class="text-white font-bold text-xs" data-i18n="prog_clinic_ages">Meninos de 7 a 14 anos</span>
+                            </div>
                         </div>
-                        <a href="index.html#contato" class="block w-full text-white font-bold py-4 rounded-xl text-center text-lg uppercase tracking-wider mt-4 transition transform hover:-translate-y-1" style="background: linear-gradient(90deg, #10b981, #00D4FF); box-shadow: 0 0 15px rgba(16,185,129,0.4);" data-i18n="prog_clinic_btn">Inscreva-se Agora</a>
+
+                        <div class="flex flex-col sm:flex-row gap-4 items-center mt-auto">
+                            <div class="bg-red-500/10 border border-red-500/30 px-4 py-2 rounded-xl w-full sm:w-auto">
+                                <div class="flex items-center justify-center gap-2 mb-1">
+                                    <span class="relative flex h-2 w-2">
+                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                                    </span>
+                                    <p class="text-[10px] text-red-400 uppercase tracking-wider font-black" data-i18n="prog_clinic_closing">Inscrições encerrando em breve!</p>
+                                </div>
+                                <p class="text-[10px] text-center text-gray-400 font-light" data-i18n="prog_clinic_spots">Vagas limitadas — garanta a sua!</p>
+                            </div>
+                            <a href="index.html#contato" class="flex-1 w-full text-white font-bold py-3 rounded-xl text-center text-sm md:text-base uppercase tracking-wider transition transform hover:-translate-y-1 shadow-[0_0_15px_rgba(16,185,129,0.4)]" style="background: linear-gradient(90deg, #10b981, #00D4FF);" data-i18n="prog_clinic_btn">Inscreva-se Agora</a>
+                        </div>
                     </div>
                 </div>
             </div>
