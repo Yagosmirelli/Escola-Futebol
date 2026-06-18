@@ -265,6 +265,36 @@
                 </div>
             </div>
         </div>
+
+        <!-- My Enrollments Section -->
+        <div class="mt-10">
+            <div class="mb-6 flex items-center justify-between">
+                <h2 class="text-2xl font-black text-white flex items-center gap-3">
+                    <i class="fa-solid fa-clipboard-list text-brand-detail"></i>
+                    <span data-i18n="dash_enrollments_title">My Program Enrollments</span>
+                </h2>
+                <a href="camps.html" class="text-xs text-brand-detail font-bold hover:text-white transition flex items-center gap-1">
+                    <i class="fa-solid fa-plus"></i>
+                    <span data-i18n="dash_enrollments_add">Enroll in a Program</span>
+                </a>
+            </div>
+            <div id="enrollments-container">
+                <div id="enrollments-loading" class="glass-card rounded-3xl p-8 text-center text-gray-500">
+                    <i class="fa-solid fa-circle-notch fa-spin text-brand-detail text-2xl mb-3"></i>
+                    <p class="text-sm" data-i18n="dash_enrollments_loading">Loading enrollments...</p>
+                </div>
+                <div id="enrollments-empty" class="hidden glass-card rounded-3xl p-8 text-center">
+                    <i class="fa-solid fa-futbol text-brand-detail/30 text-5xl mb-4"></i>
+                    <p class="text-white font-bold mb-1" data-i18n="dash_enrollments_none">No enrollments yet</p>
+                    <p class="text-gray-400 text-sm" data-i18n="dash_enrollments_none_sub">Browse our programs and register your athlete!</p>
+                    <a href="camps.html" class="mt-4 inline-flex items-center gap-2 btn-primary text-white font-bold py-2.5 px-6 rounded-xl text-sm">
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <span data-i18n="dash_enrollments_browse">Browse Programs</span>
+                    </a>
+                </div>
+                <div id="enrollments-list" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+            </div>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -304,6 +334,7 @@
 
                 // Load student data if exists
                 await loadStudentData();
+                await loadEnrollments();
             }
         })();
 
@@ -406,6 +437,66 @@
             // Refresh local loaded data
             await loadStudentData();
         });
+
+        // Load enrollments
+        async function loadEnrollments() {
+            const { data, error } = await getMyEnrollments();
+            const loading = document.getElementById('enrollments-loading');
+            const empty   = document.getElementById('enrollments-empty');
+            const list    = document.getElementById('enrollments-list');
+            const lang    = localStorage.getItem('preferredLang') || 'en';
+            const isEN    = lang !== 'pt';
+
+            loading.classList.add('hidden');
+
+            if (error || !data || data.length === 0) {
+                empty.classList.remove('hidden');
+                return;
+            }
+
+            list.classList.remove('hidden');
+            list.innerHTML = '';
+
+            data.forEach(enrollment => {
+                const athleteCount = Array.isArray(enrollment.athletes) ? enrollment.athletes.length : 1;
+                const athleteNames = Array.isArray(enrollment.athletes)
+                    ? enrollment.athletes.map(a => a.name).join(', ')
+                    : (enrollment.athletes?.name || '—');
+
+                const isPaid = enrollment.payment_status === 'paid';
+                const badgeClass = isPaid
+                    ? 'bg-green-500/20 border-green-500/40 text-green-300'
+                    : 'bg-amber-500/20 border-amber-500/40 text-amber-300';
+                const badgeText = isPaid
+                    ? (isEN ? 'Paid' : 'Pago')
+                    : (isEN ? 'Pending' : 'Pendente');
+
+                const date = new Date(enrollment.created_at).toLocaleDateString(isEN ? 'en-US' : 'pt-BR', { year: 'numeric', month: 'short', day: 'numeric' });
+
+                const card = document.createElement('div');
+                card.className = 'glass-card rounded-2xl p-5 flex flex-col gap-3';
+                card.innerHTML = `
+                    <div class="flex items-start justify-between gap-2">
+                        <div>
+                            <p class="text-[10px] text-brand-detail font-bold uppercase tracking-widest mb-1">${isEN ? 'Program' : 'Programa'}</p>
+                            <h3 class="font-black text-white text-sm leading-tight">${enrollment.program_name}</h3>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-full border text-xs font-bold whitespace-nowrap ${badgeClass}">${badgeText}</span>
+                    </div>
+                    <div class="border-t border-white/5 pt-3 space-y-1.5">
+                        <p class="text-xs text-gray-400 flex items-center gap-2">
+                            <i class="fa-solid fa-person-running text-brand-detail/60 w-3"></i>
+                            <span class="font-medium text-gray-300">${athleteCount} ${athleteCount > 1 ? (isEN ? 'Athletes' : 'Atletas') : (isEN ? 'Athlete' : 'Atleta')}:</span> ${athleteNames}
+                        </p>
+                        <p class="text-xs text-gray-500 flex items-center gap-2">
+                            <i class="fa-solid fa-calendar text-brand-detail/60 w-3"></i>
+                            ${isEN ? 'Registered on' : 'Inscrito em'} ${date}
+                        </p>
+                    </div>
+                `;
+                list.appendChild(card);
+            });
+        }
     </script>
     <script src="i18n.js"></script>
 </body>

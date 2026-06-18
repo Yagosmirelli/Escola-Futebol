@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Enrollment | Hattrick Academy</title>
+    <meta name="description" content="Register your athlete for a Hattrick Soccer Academy program. Fill out the enrollment form and review our policies.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            900: '#12136b',
+                            800: '#1a1b8a',
+                            700: '#242593',
+                            600: '#2d2eab',
+                            detail: '#00D4FF',
+                            detailLight: '#66E8FF',
+                        }
+                    },
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    animation: { 'fade-in': 'fadeIn 0.5s ease-out forwards' },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(15px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #12136b; color: #f3f4f6; overflow-x: hidden; }
+        .glass-nav {
+            background: rgba(26, 27, 138, 0.70);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+        .glass-card {
+            background: linear-gradient(145deg, rgba(36,37,147,0.45) 0%, rgba(18,19,107,0.85) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0,212,255,0.15);
+            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.4);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #00D4FF, #66E8FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .logo-container {
+            position: relative; border-radius: 50%; overflow: hidden;
+            border: 2px solid rgba(0,212,255,0.7); box-shadow: 0 0 15px rgba(0,212,255,0.4);
+            background: #fff; display: flex; align-items: center; justify-content: center;
+        }
+        .logo-container img { position: absolute; width: 100%; height: 100%; object-fit: cover; transform: scale(1.18); }
+        .btn-primary {
+            background: linear-gradient(90deg, #242593, #00D4FF);
+            box-shadow: 0 0 15px rgba(0,212,255,0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover { box-shadow: 0 0 30px rgba(0,212,255,0.7); transform: translateY(-2px); }
+        .input-field {
+            width: 100%; background: rgba(18,19,107,0.5); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px; padding: 12px 16px; color: #fff;
+            transition: border-color 0.2s; outline: none; font-family: 'Outfit', sans-serif;
+        }
+        .input-field:focus { border-color: #00D4FF; }
+        .input-field option { background: #1a1b8a; }
+        .terms-box {
+            background: rgba(18,19,107,0.6);
+            border: 1px solid rgba(0,212,255,0.1);
+            border-radius: 12px;
+            padding: 20px;
+            max-height: 200px;
+            overflow-y: auto;
+            font-size: 0.75rem;
+            line-height: 1.6;
+            color: #9ca3af;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0,212,255,0.3) transparent;
+        }
+        .terms-box::-webkit-scrollbar { width: 4px; }
+        .terms-box::-webkit-scrollbar-track { background: transparent; }
+        .terms-box::-webkit-scrollbar-thumb { background: rgba(0,212,255,0.3); border-radius: 4px; }
+        .athlete-card {
+            background: rgba(18,19,107,0.4);
+            border: 1px solid rgba(0,212,255,0.1);
+            border-radius: 16px;
+            padding: 20px;
+            position: relative;
+        }
+        .step-badge {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 32px; height: 32px; border-radius: 50%;
+            background: linear-gradient(135deg, #242593, #00D4FF);
+            font-weight: 900; font-size: 0.85rem; color: #fff;
+            flex-shrink: 0;
+        }
+        .spinner { border: 3px solid rgba(255,255,255,0.3); border-top: 3px solid #fff; border-radius: 50%; width: 20px; height: 20px; animation: spin 0.8s linear infinite; display: inline-block; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .custom-checkbox { appearance: none; width: 18px; height: 18px; border: 2px solid rgba(0,212,255,0.4); border-radius: 4px; background: rgba(18,19,107,0.6); cursor: pointer; flex-shrink: 0; transition: all 0.2s; }
+        .custom-checkbox:checked { background: #00D4FF; border-color: #00D4FF; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23fff' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'/%3E%3C/svg%3E"); background-size: contain; }
+        .program-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.3);
+            border-radius: 99px; padding: 6px 16px;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col opacity-0 transition-opacity duration-300" id="enrollment-body">
+
+    <!-- Navigation -->
+    <header class="fixed w-full z-50 glass-nav">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20 w-full">
+                <div class="flex items-center cursor-pointer group" onclick="window.location.href='index.html'">
+                    <div class="logo-container w-12 h-12 transition-transform duration-300 group-hover:scale-105">
+                        <img src="logo.png" alt="Hattrick Academy Logo">
+                    </div>
+                    <div class="ml-3">
+                        <span class="font-black text-lg tracking-widest uppercase text-white block">Hattrick</span>
+                        <span class="text-[9px] text-brand-detail font-bold tracking-[0.3em] uppercase block -mt-1">Academy</span>
+                    </div>
+                </div>
+                <a href="camps.html" class="flex items-center text-sm text-gray-400 hover:text-white transition">
+                    <i class="fa-solid fa-arrow-left mr-2"></i>
+                    <span data-i18n="enroll_back_programs">Back to Programs</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main class="container mx-auto px-4 pt-28 pb-16 max-w-3xl flex-grow">
+
+        <!-- Header -->
+        <div class="mb-8 text-center">
+            <div id="program-badge-wrapper" class="mb-4 flex justify-center">
+                <div class="program-badge">
+                    <i class="fa-solid fa-futbol text-brand-detail text-sm"></i>
+                    <span id="program-badge-text" class="text-brand-detail font-bold text-sm uppercase tracking-wider">Loading program...</span>
+                </div>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-black text-white leading-tight" data-i18n="enroll_title">
+                Program <span class="text-gradient">Registration</span>
+            </h1>
+            <p class="text-gray-400 font-light mt-2" data-i18n="enroll_subtitle">
+                Complete the form below to register your athlete. Please review all policies carefully before submitting.
+            </p>
+        </div>
+
+        <!-- Alert Messages -->
+        <div id="form-error" class="hidden mb-6 p-4 bg-red-500/20 border border-red-500/40 rounded-2xl text-red-300 text-sm flex items-start gap-3">
+            <i class="fa-solid fa-circle-exclamation text-red-400 mt-0.5 flex-shrink-0"></i>
+            <span id="form-error-text"></span>
+        </div>
+        <div id="form-success" class="hidden mb-6 p-4 bg-green-500/20 border border-green-500/40 rounded-2xl text-green-300 text-sm flex items-start gap-3">
+            <i class="fa-solid fa-circle-check text-green-400 mt-0.5 flex-shrink-0"></i>
+            <span data-i18n="enroll_success_msg">Registration submitted successfully! Redirecting to your dashboard...</span>
+        </div>
+
+        <form id="enrollment-form" class="space-y-8" novalidate>
+
+            <!-- STEP 1: Athletes -->
+            <div class="glass-card rounded-3xl p-6 md:p-8">
+                <h2 class="text-xl font-black text-white mb-6 flex items-center gap-3">
+                    <span class="step-badge">1</span>
+                    <span data-i18n="enroll_step1_title">Athlete Information</span>
+                </h2>
+
+                <!-- Athletes container -->
+                <div id="athletes-container" class="space-y-4">
+                    <!-- Athlete cards injected here -->
+                </div>
+
+                <button type="button" id="add-athlete-btn" class="mt-4 w-full flex items-center justify-center gap-2 py-3 border border-dashed border-brand-detail/40 rounded-2xl text-brand-detail font-bold text-sm hover:border-brand-detail hover:bg-brand-detail/5 transition">
+                    <i class="fa-solid fa-plus"></i>
+                    <span data-i18n="enroll_add_athlete">+ Add Another Athlete</span>
+                </button>
+            </div>
+
+            <!-- STEP 2: Contact & Address -->
+            <div class="glass-card rounded-3xl p-6 md:p-8">
+                <h2 class="text-xl font-black text-white mb-6 flex items-center gap-3">
+                    <span class="step-badge">2</span>
+                    <span data-i18n="enroll_step2_title">Family Information</span>
+                </h2>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2" data-i18n="enroll_label_address">Street Address</label>
+                        <input type="text" id="address" required class="input-field" placeholder="123 Main St" data-i18n-placeholder="enroll_ph_address">
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="sm:col-span-1">
+                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2" data-i18n="enroll_label_city">City</label>
+                            <input type="text" id="city" required class="input-field" placeholder="Jacksonville" data-i18n-placeholder="enroll_ph_city">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2" data-i18n="enroll_label_state">State</label>
+                            <input type="text" id="state" required class="input-field" placeholder="FL" maxlength="2">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2" data-i18n="enroll_label_zip">ZIP Code</label>
+                            <input type="text" id="zip" required class="input-field" placeholder="32099" maxlength="10">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2" data-i18n="enroll_label_club">Current Club / Team <span class="text-gray-500 font-normal normal-case">(optional)</span></label>
+                        <input type="text" id="current-club" class="input-field" placeholder="e.g., Jacksonville FC, School Team, None" data-i18n-placeholder="enroll_ph_club">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2" data-i18n="enroll_label_medical">Medical Conditions / Allergies <span class="text-gray-500 font-normal normal-case">(optional)</span></label>
+                        <textarea id="medical-notes" rows="3" class="input-field resize-none" placeholder="e.g., mild asthma, peanut allergy, no restrictions..." data-i18n-placeholder="enroll_ph_medical"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 3: Refund Policy -->
+            <div class="glass-card rounded-3xl p-6 md:p-8">
+                <h2 class="text-xl font-black text-white mb-2 flex items-center gap-3">
+                    <span class="step-badge">3</span>
+                    <span data-i18n="enroll_step3_title">Refund Policy</span>
+                </h2>
+                <p class="text-xs text-gray-500 mb-4 ml-11" data-i18n="enroll_read_scroll">Please read the full policy below before agreeing.</p>
+
+                <div class="terms-box mb-4">
+                    <p class="font-bold text-gray-300 mb-2 uppercase tracking-wide text-xs">Camp / Program Refund Policy</p>
+                    <p class="font-semibold text-gray-300 mt-3 mb-1">Injury</p>
+                    <ol class="list-decimal list-inside space-y-2">
+                        <li>If injury occurs prior to the first session, you may apply for a full refund. An injury report and Doctor's note along with the refund request should be submitted to <span class="text-brand-detail">hattricksp@outlook.com</span></li>
+                        <li>If injury occurs during the off season camp/program a refund may apply prorated on the remaining sessions. An injury report and Doctor's note along with the refund request should be submitted to <span class="text-brand-detail">hattricksp@outlook.com</span></li>
+                        <li>If approved, refunds will be processed as a credit to be used in a future program.</li>
+                    </ol>
+                    <p class="font-semibold text-gray-300 mt-3 mb-1">Relocation</p>
+                    <ol class="list-decimal list-inside space-y-2">
+                        <li>Should the family of the registered player relocate directly prior to or during the session, a refund will be provided prior to session or prorated during session. Refund request along with date of departure will be submitted to <span class="text-brand-detail">hattricksp@outlook.com</span></li>
+                    </ol>
+                    <p class="font-semibold text-gray-300 mt-3 mb-1">Non Attendance</p>
+                    <ol class="list-decimal list-inside space-y-2">
+                        <li>Refunds will NOT be considered should a player not attend the camp/program for which they were registered.</li>
+                    </ol>
+                    <p class="font-semibold text-gray-300 mt-3 mb-1">Cancellation</p>
+                    <p>A refund may be provided, less the processing fee, should a registered player request cancellation from the program two (2) weeks prior to the first scheduled session. The processing fee of $25 will NOT be refunded except as noted above, unless the session is cancelled due to low enrollment.</p>
+                </div>
+
+                <label class="flex items-start gap-3 cursor-pointer group">
+                    <input type="checkbox" id="agree-refund" class="custom-checkbox mt-0.5" required>
+                    <span class="text-sm text-gray-300 group-hover:text-white transition" data-i18n="enroll_agree_refund">
+                        I have read and agree to the <strong class="text-brand-detail">Refund Policy</strong> stated above.
+                    </span>
+                </label>
+            </div>
+
+            <!-- STEP 4: Waiver of Liability -->
+            <div class="glass-card rounded-3xl p-6 md:p-8">
+                <h2 class="text-xl font-black text-white mb-2 flex items-center gap-3">
+                    <span class="step-badge">4</span>
+                    <span data-i18n="enroll_step4_title">Waiver of Liability</span>
+                </h2>
+                <p class="text-xs text-gray-500 mb-4 ml-11" data-i18n="enroll_read_scroll">Please read the full policy below before agreeing.</p>
+
+                <div class="terms-box mb-4">
+                    <p class="font-bold text-gray-300 mb-2 uppercase tracking-wide text-xs">Release / Waiver of Liability, Assumption of Risk, and Indemnity & Parental Consent Agreement</p>
+                    <p class="mb-3">Must be signed before the 1st day of the clinic. IN CONSIDERATION of being permitted to participate in any way in the "Hattrick Academy" ("Activity") I, for myself, my personal representatives, assigns, heirs, and next of kin:</p>
+                    <ol class="list-decimal list-inside space-y-3">
+                        <li>ACKNOWLEDGE, agree, and represent that I understand the nature of Soccer Activities and that I am qualified, in good health, and in proper physical condition to participate in such Activity. I further agree and warrant that if at any time I believe conditions to be unsafe, I will immediately discontinue further participation in the Activity.</li>
+                        <li>FULLY UNDERSTAND THAT: (a) SOCCER ACTIVITIES INVOLVE RISKS AND DANGERS OF SERIOUS BODILY INJURY, INCLUDING PERMANENT DISABILITY, PARALYSIS, AND DEATH ("RISKS"); (b) these Risks and dangers may be caused by my own actions or inactions, the actions or inactions of others participating in the Activity, the condition in which the Activity takes place, or THE NEGLIGENCE OF THE "RELEASEES" NAMED BELOW; (c) there may be OTHER RISKS AND SOCIAL AND ECONOMIC LOSSES either not known to me or not readily foreseeable at this time; and I FULLY ACCEPT AND ASSUME ALL SUCH RISKS AND ALL RESPONSIBILITY FOR LOSSES, COSTS, AND DAMAGES I incur as a result of my participation or that of the minor in the Activity.</li>
+                        <li>HEREBY RELEASE, DISCHARGE, AND COVENANT NOT TO SUE Hattrick Academy (Hattrick Soccer Performance LLC), their respective administrators, directors, agents, officers, members, volunteers, and employees, other participants, any sponsors, advertisers, and, if applicable, owner and lessors of premises on which the Activity takes place, (each considered one of the "RELEASEES" herein) FROM ALL LIABILITY, CLAIMS, DEMANDS, LOSSES, OR DAMAGES ON MY ACCOUNT CAUSED OR ALLEGED TO BE CAUSED IN WHOLE OR IN PART BY THE NEGLIGENCE OF THE "RELEASEES" OR OTHERWISE, INCLUDING NEGLIGENT RESCUE OPERATIONS. I FURTHER AGREE that if, despite this RELEASE AND WAIVER, I or anyone on my behalf makes a claim against any of the Releasees, I WILL INDEMNIFY, SAVE, AND HOLD HARMLESS EACH OF THE RELEASEES from any litigation expenses, attorney fees, loss, liability, damage, or cost which may incur as the result of such claim.</li>
+                    </ol>
+                    <p class="font-semibold text-gray-300 mt-4 mb-2 uppercase text-xs">Minor Release</p>
+                    <p>I, THE MINOR'S PARENT AND/OR LEGAL GUARDIAN, UNDERSTAND THE NATURE OF SOCCER ACTIVITIES AND THE MINOR'S EXPERIENCE AND CAPABILITIES AND BELIEVE THE MINOR TO BE QUALIFIED, IN GOOD HEALTH, AND IN PROPER PHYSICAL CONDITION TO PARTICIPATE IN SUCH ACTIVITY. I HEREBY RELEASE, DISCHARGE, COVENANT NOT TO SUE, AND AGREE TO INDEMNIFY AND SAVE AND HOLD HARMLESS EACH OF THE RELEASEES FROM ALL LIABILITY, CLAIMS, DEMANDS, LOSSES, OR DAMAGES ON THE MINOR'S ACCOUNT CAUSED OR ALLEGED TO BE CAUSED IN WHOLE OR IN PART BY THE NEGLIGENCE OF THE "RELEASEES" OR OTHERWISE, INCLUDING NEGLIGENT RESCUE OPERATIONS. I FURTHER AGREE THAT IF, DESPITE THIS RELEASE, I, THE MINOR, OR ANYONE ON THE MINOR'S BEHALF MAKES A CLAIM AGAINST ANY OF THE RELEASEES NAMED ABOVE, I WILL INDEMNIFY, SAVE, AND HOLD HARMLESS EACH OF THE RELEASEES FROM ANY LITIGATION EXPENSES, ATTORNEY FEES, LOSS, LIABILITY, DAMAGE, OR COST THAT MAY INCUR AS THE RESULT OF ANY SUCH CLAIM.</p>
+                    <p class="mt-3">In consideration of being allowed to participate:</p>
+                    <ol class="list-decimal list-inside space-y-2 mt-2">
+                        <li>The risk of injury from the activities involved in this program is significant, including the potential for permanent paralysis and death, and while particular rules, equipment, and personal discipline may reduce this risk, the risk of serious injury does exist.</li>
+                        <li>I KNOWINGLY AND FREELY ASSUME ALL SUCH RISKS, both known and unknown, EVEN IF ARISING FROM THE NEGLIGENCE OF THE RELEASEES or others, and assume full responsibility for my participation.</li>
+                        <li>I willingly agree to comply with the stated and customary terms and conditions for participation. If I observe any unusual significant hazard during my presence or participation, I will remove myself from participation and bring such to the attention of the nearest official immediately.</li>
+                        <li>I, for myself and on behalf of my heirs, assigns, personal representatives and next of kin, HEREBY RELEASE AND HOLD HARMLESS the Releasees, their officers, officials, agents, and/or employees, other participants, sponsoring agencies, sponsors, advertisers, and if applicable, owners and lessors of premises used to conduct the event, WITH RESPECT TO ANY AND ALL INJURY, DISABILITY, DEATH, or loss or damage to person or property, WHETHER ARISING FROM THE NEGLIGENCE OF THE RELEASEES OR OTHERWISE, to the fullest extent permitted by law.</li>
+                    </ol>
+                    <p class="mt-3 font-semibold text-gray-300">I HAVE READ THIS RELEASE OF LIABILITY AND ASSUMPTION OF RISK AGREEMENT, FULLY UNDERSTAND ITS TERMS, UNDERSTAND THAT I HAVE GIVEN UP SUBSTANTIAL RIGHTS BY SIGNING IT, AND SIGN IT FREELY AND VOLUNTARILY WITHOUT ANY INDUCEMENT.</p>
+                </div>
+
+                <label class="flex items-start gap-3 cursor-pointer group">
+                    <input type="checkbox" id="agree-waiver" class="custom-checkbox mt-0.5" required>
+                    <span class="text-sm text-gray-300 group-hover:text-white transition" data-i18n="enroll_agree_waiver">
+                        I have read and agree to the <strong class="text-brand-detail">Waiver of Liability, Assumption of Risk, and Indemnity Agreement</strong> stated above.
+                    </span>
+                </label>
+            </div>
+
+            <!-- STEP 5: Media Release -->
+            <div class="glass-card rounded-3xl p-6 md:p-8">
+                <h2 class="text-xl font-black text-white mb-2 flex items-center gap-3">
+                    <span class="step-badge">5</span>
+                    <span data-i18n="enroll_step5_title">Media Release</span>
+                </h2>
+                <p class="text-xs text-gray-500 mb-4 ml-11" data-i18n="enroll_read_scroll">Please read the full policy below before agreeing.</p>
+
+                <div class="terms-box mb-4">
+                    <p class="font-bold text-gray-300 mb-2 uppercase tracking-wide text-xs">Media Release Form</p>
+                    <p class="mb-3">I, for myself, and/or for my child, as their parent/guardian give Hattrick Academy the rights to interview, take photographs, other images, audio, and/or audiovisual recordings of me and/or my child to be used in promotions, education, internal training, website, social media, and/or fundraising materials. This includes, but is not limited to video tapes, pamphlets and brochures.</p>
+                    <p class="mb-3">By signing this media release, I intend to legally bind myself, my minor children, my heirs, executors and administrators. I acknowledge that Hattrick Academy shall have all the rights of copyright in and to such photographs and videotapes and may use such copyright fully.</p>
+                    <p class="mb-3">I, for myself, and/or for my child, as their parent/guardian hereby release Hattrick Academy and its officers, agents and employees from all liability connected with the taking and use of these materials.</p>
+                    <p class="mb-3">I for myself, and/or for my child, as their parent/guardian waive all rights, interests or claims for payment in connection with any exhibition of these materials.</p>
+                    <p class="mb-3">If I do not agree, I must reach out to <span class="text-brand-detail">hattricksp@outlook.com</span> before proceeding to participate.</p>
+                    <p class="mb-3">This consent is voluntary and I, for myself, and/or for my child, as their parent/guardian give it in the interest of public information, education, the furtherance of the goals of these institutions, or other lawful purposes. I acknowledge that I have legal authority to sign this form on behalf of myself, and/or for the minor whose name is mentioned.</p>
+                    <p>In consideration of being allowed to participate in the event or activity referenced above, I acknowledge, appreciate, and agree that: (1) The risk of injury from the activities involved in this program is significant; (2) I KNOWINGLY AND FREELY ASSUME ALL SUCH RISKS; (3) I willingly agree to comply with the stated and customary terms and conditions for participation; (4) I HEREBY RELEASE AND HOLD HARMLESS the Releasees WITH RESPECT TO ANY AND ALL INJURY, DISABILITY, DEATH, or loss or damage to person or property, to the fullest extent permitted by law.</p>
+                </div>
+
+                <label class="flex items-start gap-3 cursor-pointer group">
+                    <input type="checkbox" id="agree-media" class="custom-checkbox mt-0.5" required>
+                    <span class="text-sm text-gray-300 group-hover:text-white transition" data-i18n="enroll_agree_media">
+                        I have read and agree to the <strong class="text-brand-detail">Media Release</strong> and authorize Hattrick Academy to use photographs and recordings of my child for promotional purposes.
+                    </span>
+                </label>
+            </div>
+
+            <!-- STEP 6: Electronic Signature -->
+            <div class="glass-card rounded-3xl p-6 md:p-8">
+                <h2 class="text-xl font-black text-white mb-2 flex items-center gap-3">
+                    <span class="step-badge">6</span>
+                    <span data-i18n="enroll_step6_title">Electronic Signature</span>
+                </h2>
+                <p class="text-sm text-gray-400 mb-6 ml-11" data-i18n="enroll_signature_desc">
+                    By entering your full legal name below, you confirm that you have read and agree to be bound by all agreements and waivers for this program. Your electronic signature is the legal equivalent of your handwritten signature.
+                </p>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2" data-i18n="enroll_label_signature">Full Legal Name (Electronic Signature)</label>
+                    <input type="text" id="e-signature" required class="input-field text-lg font-bold" placeholder="Enter your full name..." data-i18n-placeholder="enroll_ph_signature">
+                    <p class="text-xs text-gray-500 mt-2 flex items-center gap-1">
+                        <i class="fa-solid fa-lock text-brand-detail/60"></i>
+                        <span data-i18n="enroll_signature_note">This electronic signature is legally binding. Timestamp and IP address will be recorded.</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" id="submit-btn" class="w-full btn-primary text-white font-black py-5 rounded-2xl flex items-center justify-center gap-3 text-lg">
+                <i class="fa-solid fa-file-signature"></i>
+                <span id="submit-btn-text" data-i18n="enroll_btn_submit">Submit Registration</span>
+                <span id="submit-spinner" class="spinner hidden"></span>
+            </button>
+
+            <p class="text-center text-xs text-gray-500">
+                <i class="fa-solid fa-shield-halved mr-1 text-brand-detail/60"></i>
+                <span data-i18n="enroll_secure_note">Your information is securely stored and will only be used for program administration.</span>
+            </p>
+
+        </form>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-6 border-t border-white/10" style="background:#0e0f5c;">
+        <div class="container mx-auto px-4 flex flex-col sm:flex-row justify-between items-center text-center sm:text-left gap-4">
+            <div class="flex items-center justify-center sm:justify-start">
+                <div class="logo-container w-8 h-8 mr-2 border border-brand-detail">
+                    <img src="logo.png" alt="Logo">
+                </div>
+                <span class="font-bold text-xs text-white tracking-widest uppercase">Hattrick Academy</span>
+            </div>
+            <p class="text-gray-500 text-xs font-light" data-i18n="footer_copy">&copy; 2026 Hattrick Soccer. Premium Experience. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="db.js"></script>
+    <script>
+        // ── Program map ──────────────────────────────────────────────
+        const PROGRAMS = {
+            'futsal-clinic':       { name: 'Hattrick Futsal Clinic',   name_pt: 'Hattrick Futsal Clinic' },
+            'futsal-lab':          { name: 'Futsal Lab at UNF',         name_pt: 'Futsal Lab na UNF' },
+            'individual-training': { name: 'Individual Training',       name_pt: 'Treinamento Individual' },
+            'group-training':      { name: 'Small-Group Training',      name_pt: 'Treinamento em Grupo' },
+            '1v1-clinic':          { name: '1v1 Clinic',                name_pt: 'Clínica de 1v1' },
+            'soccer-camps':        { name: 'Soccer Camps',              name_pt: 'Soccer Camps' },
+        };
+
+        const params     = new URLSearchParams(window.location.search);
+        const programId  = params.get('program') || 'general';
+        const programInfo = PROGRAMS[programId] || { name: 'Hattrick Program', name_pt: 'Programa Hattrick' };
+
+        let currentUser  = null;
+        let athleteCount = 0;
+
+        // ── Auth guard ────────────────────────────────────────────────
+        (async () => {
+            currentUser = await requireAuth('login.html');
+            if (currentUser) {
+                document.getElementById('enrollment-body').classList.remove('opacity-0');
+                document.getElementById('enrollment-body').classList.add('opacity-100');
+                document.getElementById('program-badge-text').textContent = programInfo.name;
+                addAthleteCard(); // start with one athlete
+            }
+        })();
+
+        // ── Add athlete card ──────────────────────────────────────────
+        function addAthleteCard() {
+            athleteCount++;
+            const idx = athleteCount;
+            const lang = localStorage.getItem('preferredLang') || 'en';
+            const isEN = lang !== 'pt';
+
+            const card = document.createElement('div');
+            card.className = 'athlete-card animate-fade-in';
+            card.id = `athlete-card-${idx}`;
+            card.innerHTML = `
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-person-running text-brand-detail text-sm"></i>
+                        ${isEN ? 'Athlete' : 'Atleta'} ${idx}
+                    </h3>
+                    ${idx > 1 ? `<button type="button" onclick="removeAthleteCard(${idx})" class="text-red-400 hover:text-red-300 text-xs flex items-center gap-1 transition"><i class="fa-solid fa-trash"></i> ${isEN ? 'Remove' : 'Remover'}</button>` : ''}
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="sm:col-span-2">
+                        <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">${isEN ? "Athlete's Full Name" : "Nome Completo do Atleta"} *</label>
+                        <input type="text" id="athlete-name-${idx}" required class="input-field" placeholder="${isEN ? "Athlete's full name" : 'Nome completo do atleta'}">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">${isEN ? 'Date of Birth' : 'Data de Nascimento'} *</label>
+                        <input type="date" id="athlete-dob-${idx}" required class="input-field">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">${isEN ? 'Gender' : 'Gênero'} *</label>
+                        <select id="athlete-gender-${idx}" required class="input-field">
+                            <option value="" disabled selected>${isEN ? 'Select gender' : 'Selecione o gênero'}</option>
+                            <option value="boy">${isEN ? 'Boy' : 'Menino'}</option>
+                            <option value="girl">${isEN ? 'Girl' : 'Menina'}</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">${isEN ? 'Shirt Size' : 'Tamanho da Camiseta'}</label>
+                        <select id="athlete-shirt-${idx}" class="input-field">
+                            <option value="" disabled selected>${isEN ? 'Select size' : 'Selecione o tamanho'}</option>
+                            <option value="YS">Youth Small (YS)</option>
+                            <option value="YM">Youth Medium (YM)</option>
+                            <option value="YL">Youth Large (YL)</option>
+                            <option value="S">Small (S)</option>
+                            <option value="M">Medium (M)</option>
+                            <option value="L">Large (L)</option>
+                            <option value="XL">X-Large (XL)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">${isEN ? 'Experience Level' : 'Nível de Experiência'}</label>
+                        <select id="athlete-level-${idx}" class="input-field">
+                            <option value="" disabled selected>${isEN ? 'Select level' : 'Selecione o nível'}</option>
+                            <option value="beginner">${isEN ? 'Beginner' : 'Iniciante'}</option>
+                            <option value="intermediate">${isEN ? 'Intermediate' : 'Intermediário'}</option>
+                            <option value="advanced">${isEN ? 'Advanced' : 'Avançado'}</option>
+                        </select>
+                    </div>
+                </div>
+            `;
+            document.getElementById('athletes-container').appendChild(card);
+        }
+
+        function removeAthleteCard(idx) {
+            const card = document.getElementById(`athlete-card-${idx}`);
+            if (card) card.remove();
+        }
+
+        document.getElementById('add-athlete-btn').addEventListener('click', addAthleteCard);
+
+        // ── Collect athletes data ─────────────────────────────────────
+        function collectAthletes() {
+            const athletes = [];
+            const cards = document.querySelectorAll('[id^="athlete-card-"]');
+            for (const card of cards) {
+                const idx = card.id.replace('athlete-card-', '');
+                const name   = document.getElementById(`athlete-name-${idx}`)?.value?.trim();
+                const dob    = document.getElementById(`athlete-dob-${idx}`)?.value;
+                const gender = document.getElementById(`athlete-gender-${idx}`)?.value;
+                const shirt  = document.getElementById(`athlete-shirt-${idx}`)?.value;
+                const level  = document.getElementById(`athlete-level-${idx}`)?.value;
+
+                if (!name || !dob || !gender) return null; // validation fail
+                athletes.push({ name, dob, gender, shirt, level });
+            }
+            return athletes.length ? athletes : null;
+        }
+
+        // ── Form submit ───────────────────────────────────────────────
+        const form        = document.getElementById('enrollment-form');
+        const errorDiv    = document.getElementById('form-error');
+        const errorText   = document.getElementById('form-error-text');
+        const successDiv  = document.getElementById('form-success');
+        const submitBtn   = document.getElementById('submit-btn');
+        const submitText  = document.getElementById('submit-btn-text');
+        const submitSpinner = document.getElementById('submit-spinner');
+
+        function showError(msg) {
+            errorText.textContent = msg;
+            errorDiv.classList.remove('hidden');
+            errorDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            errorDiv.classList.add('hidden');
+            successDiv.classList.add('hidden');
+
+            const lang = localStorage.getItem('preferredLang') || 'en';
+            const isEN = lang !== 'pt';
+
+            // Collect athletes
+            const athletes = collectAthletes();
+            if (!athletes) {
+                showError(isEN
+                    ? 'Please fill in all required athlete fields (name, date of birth, and gender).'
+                    : 'Por favor, preencha todos os campos obrigatórios do atleta (nome, data de nascimento e gênero).');
+                return;
+            }
+
+            // Address
+            const address = document.getElementById('address').value.trim();
+            const city    = document.getElementById('city').value.trim();
+            const state   = document.getElementById('state').value.trim();
+            const zip     = document.getElementById('zip').value.trim();
+            if (!address || !city || !state || !zip) {
+                showError(isEN ? 'Please fill in your complete address.' : 'Por favor, preencha o endereço completo.');
+                return;
+            }
+
+            // Checkboxes
+            if (!document.getElementById('agree-refund').checked) {
+                showError(isEN ? 'You must agree to the Refund Policy to proceed.' : 'Você deve concordar com a Política de Reembolso para continuar.');
+                return;
+            }
+            if (!document.getElementById('agree-waiver').checked) {
+                showError(isEN ? 'You must agree to the Waiver of Liability to proceed.' : 'Você deve concordar com o Termo de Isenção de Responsabilidade para continuar.');
+                return;
+            }
+            if (!document.getElementById('agree-media').checked) {
+                showError(isEN ? 'You must agree to the Media Release to proceed.' : 'Você deve concordar com o Termo de Uso de Imagem para continuar.');
+                return;
+            }
+
+            // Signature
+            const signature = document.getElementById('e-signature').value.trim();
+            if (!signature) {
+                showError(isEN ? 'Please enter your full name as your electronic signature.' : 'Por favor, insira seu nome completo como assinatura eletrônica.');
+                return;
+            }
+
+            // Submit
+            submitBtn.disabled = true;
+            submitText.textContent = isEN ? 'Submitting...' : 'Enviando...';
+            submitSpinner.classList.remove('hidden');
+
+            const enrollmentData = {
+                program_id:   programId,
+                program_name: programInfo.name,
+                athletes:     athletes,
+                address:      `${address}, ${city}, ${state} ${zip}`,
+                current_club: document.getElementById('current-club').value.trim() || null,
+                medical_notes: document.getElementById('medical-notes').value.trim() || null,
+                agree_refund:  true,
+                agree_waiver:  true,
+                agree_media:   true,
+                e_signature:   signature,
+                terms_accepted: true,
+                terms_accepted_at: new Date().toISOString(),
+            };
+
+            const { error } = await saveEnrollment(enrollmentData);
+
+            submitBtn.disabled = false;
+            submitText.textContent = isEN ? 'Submit Registration' : 'Enviar Inscrição';
+            submitSpinner.classList.add('hidden');
+
+            if (error) {
+                showError(error.message || (isEN ? 'An error occurred. Please try again.' : 'Ocorreu um erro. Tente novamente.'));
+                return;
+            }
+
+            successDiv.classList.remove('hidden');
+            successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            setTimeout(() => { window.location.href = 'dashboard.html'; }, 2500);
+        });
+    </script>
+    <script src="i18n.js"></script>
+</body>
+</html>

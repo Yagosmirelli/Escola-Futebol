@@ -102,6 +102,23 @@ const translations = {
         reg_login_link: "Faça Login",
         reg_back_site: "Voltar pro site principal",
 
+        // login.html
+        login_title: "Área do Responsável",
+        login_subtitle: "Acesse o painel para gerenciar a inscrição do seu atleta.",
+        login_label_email: "E-mail",
+        login_email_placeholder: "seu@email.com",
+        login_label_password: "Senha",
+        login_password_placeholder: "••••••••",
+        login_remember: "Lembrar-me",
+        login_forgot: "Esqueci a Senha",
+        login_btn: "Entrar no Portal",
+        login_forgot_label: "Digite seu e-mail para recuperar a senha",
+        login_forgot_btn: "Enviar Link de Recuperação",
+        login_back_to_login: "Voltar ao login",
+        login_no_account: "Não tem conta?",
+        login_register_link: "Cadastre-se",
+        login_back_site: "Voltar pro site principal",
+
         // dashboard.html
         dash_contact_phone: "Telefone de Contato",
         dash_logout: "Sair",
@@ -141,6 +158,47 @@ const translations = {
 
         // Footer (Global)
         footer_copy: "&copy; 2026 Hattrick Soccer. Experiência Premium. Todos os direitos reservados.",
+
+        // enrollment.html
+        enroll_back_programs: "Voltar aos Programas",
+        enroll_title: "Inscrição no <span class='text-gradient'>Programa</span>",
+        enroll_subtitle: "Preencha o formulário abaixo para registrar seu atleta. Leia com atenção todos os termos antes de enviar.",
+        enroll_step1_title: "Informações do Atleta",
+        enroll_add_athlete: "+ Adicionar Outro Atleta",
+        enroll_step2_title: "Informações da Família",
+        enroll_label_address: "Endereço",
+        enroll_ph_address: "Rua, número",
+        enroll_label_city: "Cidade",
+        enroll_ph_city: "Jacksonville",
+        enroll_label_state: "Estado",
+        enroll_label_zip: "CEP / ZIP Code",
+        enroll_label_club: "Clube Atual / Time",
+        enroll_ph_club: "Ex: Clube local, Time da escola, Nenhum",
+        enroll_label_medical: "Condições Médicas / Alergias",
+        enroll_ph_medical: "Ex: asma leve, alergia a amendoim, sem restrições...",
+        enroll_step3_title: "Política de Reembolso",
+        enroll_read_scroll: "Por favor, leia a política completa abaixo antes de concordar.",
+        enroll_agree_refund: "Li e concordo com a <strong class='text-brand-detail'>Política de Reembolso</strong> acima.",
+        enroll_step4_title: "Termo de Isenção de Responsabilidade",
+        enroll_agree_waiver: "Li e concordo com o <strong class='text-brand-detail'>Termo de Isenção de Responsabilidade, Assunção de Risco e Indenização</strong> acima.",
+        enroll_step5_title: "Autorização de Uso de Imagem",
+        enroll_agree_media: "Li e concordo com o <strong class='text-brand-detail'>Termo de Autorização de Uso de Imagem</strong> e autorizo a Hattrick Academy a usar fotos e gravações do meu filho(a) para fins promocionais.",
+        enroll_step6_title: "Assinatura Eletrônica",
+        enroll_signature_desc: "Ao inserir seu nome completo abaixo, você confirma que leu e concorda com todos os termos e isenções deste programa. Sua assinatura eletrônica tem o mesmo valor legal que sua assinatura manuscrita.",
+        enroll_label_signature: "Nome Completo (Assinatura Eletrônica)",
+        enroll_ph_signature: "Insira seu nome completo...",
+        enroll_signature_note: "Esta assinatura eletrônica é juridicamente vinculante. Data/hora e endereço IP serão registrados.",
+        enroll_btn_submit: "Enviar Inscrição",
+        enroll_success_msg: "Inscrição enviada com sucesso! Redirecionando para o painel...",
+        enroll_secure_note: "Suas informações são armazenadas com segurança e usadas apenas para administração do programa.",
+
+        // dashboard.html — Enrollments section
+        dash_enrollments_title: "Minhas Inscrições",
+        dash_enrollments_add: "Inscrever em um Programa",
+        dash_enrollments_loading: "Carregando inscrições...",
+        dash_enrollments_none: "Nenhuma inscrição ainda",
+        dash_enrollments_none_sub: "Navegue pelos nossos programas e registre seu atleta!",
+        dash_enrollments_browse: "Ver Programas",
 
         // Coach pages - shared
         coach_back: "Voltar à Seção da Equipe",
@@ -437,6 +495,23 @@ const translations = {
         reg_login_link: "Log In",
         reg_back_site: "Back to main site",
 
+        // login.html
+        login_title: "Parent Portal",
+        login_subtitle: "Access the dashboard to manage your athlete's registration.",
+        login_label_email: "Email",
+        login_email_placeholder: "your@email.com",
+        login_label_password: "Password",
+        login_password_placeholder: "••••••••",
+        login_remember: "Remember me",
+        login_forgot: "Forgot Password",
+        login_btn: "Log In to Portal",
+        login_forgot_label: "Enter your email to recover your password",
+        login_forgot_btn: "Send Recovery Link",
+        login_back_to_login: "Back to log in",
+        login_no_account: "Don't have an account?",
+        login_register_link: "Sign Up",
+        login_back_site: "Back to main site",
+
         // dashboard.html
         dash_contact_phone: "Contact Phone",
         dash_logout: "Log Out",
@@ -476,6 +551,47 @@ const translations = {
 
         // Footer (Global)
         footer_copy: "&copy; 2026 Hattrick Soccer. Premium Experience. All rights reserved.",
+
+        // enrollment.html
+        enroll_back_programs: "Back to Programs",
+        enroll_title: "Program <span class='text-gradient'>Registration</span>",
+        enroll_subtitle: "Complete the form below to register your athlete. Please review all policies carefully before submitting.",
+        enroll_step1_title: "Athlete Information",
+        enroll_add_athlete: "+ Add Another Athlete",
+        enroll_step2_title: "Family Information",
+        enroll_label_address: "Street Address",
+        enroll_ph_address: "123 Main St",
+        enroll_label_city: "City",
+        enroll_ph_city: "Jacksonville",
+        enroll_label_state: "State",
+        enroll_label_zip: "ZIP Code",
+        enroll_label_club: "Current Club / Team",
+        enroll_ph_club: "e.g., Jacksonville FC, School Team, None",
+        enroll_label_medical: "Medical Conditions / Allergies",
+        enroll_ph_medical: "e.g., mild asthma, peanut allergy, no restrictions...",
+        enroll_step3_title: "Refund Policy",
+        enroll_read_scroll: "Please read the full policy below before agreeing.",
+        enroll_agree_refund: "I have read and agree to the <strong class='text-brand-detail'>Refund Policy</strong> stated above.",
+        enroll_step4_title: "Waiver of Liability",
+        enroll_agree_waiver: "I have read and agree to the <strong class='text-brand-detail'>Waiver of Liability, Assumption of Risk, and Indemnity Agreement</strong> stated above.",
+        enroll_step5_title: "Media Release",
+        enroll_agree_media: "I have read and agree to the <strong class='text-brand-detail'>Media Release</strong> and authorize Hattrick Academy to use photographs and recordings of my child for promotional purposes.",
+        enroll_step6_title: "Electronic Signature",
+        enroll_signature_desc: "By entering your full legal name below, you confirm that you have read and agree to be bound by all agreements and waivers for this program. Your electronic signature is the legal equivalent of your handwritten signature.",
+        enroll_label_signature: "Full Legal Name (Electronic Signature)",
+        enroll_ph_signature: "Enter your full name...",
+        enroll_signature_note: "This electronic signature is legally binding. Timestamp and IP address will be recorded.",
+        enroll_btn_submit: "Submit Registration",
+        enroll_success_msg: "Registration submitted successfully! Redirecting to your dashboard...",
+        enroll_secure_note: "Your information is securely stored and will only be used for program administration.",
+
+        // dashboard.html — Enrollments section
+        dash_enrollments_title: "My Program Enrollments",
+        dash_enrollments_add: "Enroll in a Program",
+        dash_enrollments_loading: "Loading enrollments...",
+        dash_enrollments_none: "No enrollments yet",
+        dash_enrollments_none_sub: "Browse our programs and register your athlete!",
+        dash_enrollments_browse: "Browse Programs",
 
         // sobre.html
         sobre_page_badge: "Our Story",

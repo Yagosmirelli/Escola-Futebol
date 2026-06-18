@@ -6,15 +6,16 @@
  *  Este módulo centraliza toda a comunicação com o Supabase:
  *    • Inicialização do cliente
  *    • Autenticação (cadastro, login, logout, recuperação de senha)
- *    • CRUD da ficha técnica do aluno
+ *    • CRUD da ficha técnica do aluno (tabela: students)
+ *    • CRUD das inscrições em programas (tabela: enrollments)
  *
  *  IMPORTANTE: Antes de usar, você precisa:
  *    1. Criar um projeto no Supabase (https://supabase.com)
  *    2. Substituir SUPABASE_URL e SUPABASE_ANON_KEY abaixo
- *    3. Criar a tabela "students" no Supabase (SQL abaixo)
+ *    3. Criar as tabelas abaixo no Supabase SQL Editor
  *
- *  SQL para criar a tabela students:
- *  ─────────────────────────────────
+ *  SQL — Tabela students:
+ *  ──────────────────────
  *  CREATE TABLE students (
  *      id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
  *      user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE NOT NULL,
@@ -27,26 +28,36 @@
  *      payment_status TEXT DEFAULT 'pending',
  *      created_at TIMESTAMPTZ DEFAULT now()
  *  );
- *
- *  -- Habilitar Row Level Security
  *  ALTER TABLE students ENABLE ROW LEVEL SECURITY;
+ *  CREATE POLICY "Users can view own students" ON students FOR SELECT USING (auth.uid() = user_id);
+ *  CREATE POLICY "Users can insert own students" ON students FOR INSERT WITH CHECK (auth.uid() = user_id);
+ *  CREATE POLICY "Users can update own students" ON students FOR UPDATE USING (auth.uid() = user_id);
+ *  CREATE POLICY "Users can delete own students" ON students FOR DELETE USING (auth.uid() = user_id);
  *
- *  -- Política: usuários só veem/editam seus próprios registros
- *  CREATE POLICY "Users can view own students"
- *      ON students FOR SELECT
- *      USING (auth.uid() = user_id);
- *
- *  CREATE POLICY "Users can insert own students"
- *      ON students FOR INSERT
- *      WITH CHECK (auth.uid() = user_id);
- *
- *  CREATE POLICY "Users can update own students"
- *      ON students FOR UPDATE
- *      USING (auth.uid() = user_id);
- *
- *  CREATE POLICY "Users can delete own students"
- *      ON students FOR DELETE
- *      USING (auth.uid() = user_id);
+ *  SQL — Tabela enrollments (NOVA — rodar no Supabase):
+ *  ─────────────────────────────────────────────────────
+ *  CREATE TABLE enrollments (
+ *      id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+ *      user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE NOT NULL,
+ *      program_id TEXT NOT NULL,
+ *      program_name TEXT NOT NULL,
+ *      athletes JSONB NOT NULL,
+ *      address TEXT,
+ *      current_club TEXT,
+ *      medical_notes TEXT,
+ *      agree_refund BOOLEAN DEFAULT FALSE,
+ *      agree_waiver BOOLEAN DEFAULT FALSE,
+ *      agree_media BOOLEAN DEFAULT FALSE,
+ *      e_signature TEXT,
+ *      terms_accepted BOOLEAN DEFAULT FALSE,
+ *      terms_accepted_at TIMESTAMPTZ,
+ *      payment_status TEXT DEFAULT 'pending',
+ *      created_at TIMESTAMPTZ DEFAULT now()
+ *  );
+ *  ALTER TABLE enrollments ENABLE ROW LEVEL SECURITY;
+ *  CREATE POLICY "Users can view own enrollments" ON enrollments FOR SELECT USING (auth.uid() = user_id);
+ *  CREATE POLICY "Users can insert own enrollments" ON enrollments FOR INSERT WITH CHECK (auth.uid() = user_id);
+ *  CREATE POLICY "Users can update own enrollments" ON enrollments FOR UPDATE USING (auth.uid() = user_id);
  */
 
 // ══════════════════════════════════════════════════════════════
@@ -195,15 +206,39 @@ async function saveStudent(studentData) {
     const user = await hattrickGetUser();
     if (!user) return { data: null, error: { message: 'Usuário não autenticado.' } };
 
-    const { data, error } = await sb
+    // Verifica se já existe uma ficha para este usuário
+    const { data: existing, error: fetchError } = await sb
         .from('students')
-        .upsert({
-            ...studentData,
-            user_id: user.id
-        }, { onConflict: 'user_id' })
-        .select();
+        .select('id')
+        .eq('user_id', user.id)
+        .maybeSingle();
 
-    return { data, error };
+    if (fetchError) {
+        return { data: null, error: fetchError };
+    }
+
+    let result;
+    if (existing) {
+        // Atualiza a ficha existente
+        result = await sb
+            .from('students')
+            .update({
+                ...studentData
+            })
+            .eq('id', existing.id)
+            .select();
+    } else {
+        // Cria uma nova ficha
+        result = await sb
+            .from('students')
+            .insert({
+                ...studentData,
+                user_id: user.id
+            })
+            .select();
+    }
+
+    return { data: result.data, error: result.error };
 }
 
 /**
@@ -261,4 +296,51 @@ async function deleteStudent(studentId) {
         .eq('id', studentId);
 
     return { error };
+}
+
+// ══════════════════════════════════════════════════════════════
+//  CRUD — INSCRIÇÕES EM PROGRAMAS (tabela: enrollments)
+// ══════════════════════════════════════════════════════════════
+
+/**
+ * Salva uma inscrição em programa.
+ * @param {object} enrollmentData - { program_id, program_name, athletes, address, current_club, medical_notes, agree_refund, agree_waiver, agree_media, e_signature, terms_accepted, terms_accepted_at }
+ * @returns {Promise<{data, error}>}
+ */
+async function saveEnrollment(enrollmentData) {
+    const sb = getSupabase();
+    if (!sb) return { data: null, error: { message: 'Supabase não inicializado.' } };
+
+    const user = await hattrickGetUser();
+    if (!user) return { data: null, error: { message: 'Usuário não autenticado.' } };
+
+    const { data, error } = await sb
+        .from('enrollments')
+        .insert({
+            ...enrollmentData,
+            user_id: user.id
+        })
+        .select();
+
+    return { data, error };
+}
+
+/**
+ * Busca todas as inscrições do usuário logado.
+ * @returns {Promise<{data, error}>}
+ */
+async function getMyEnrollments() {
+    const sb = getSupabase();
+    if (!sb) return { data: null, error: { message: 'Supabase não inicializado.' } };
+
+    const user = await hattrickGetUser();
+    if (!user) return { data: null, error: { message: 'Usuário não autenticado.' } };
+
+    const { data, error } = await sb
+        .from('enrollments')
+        .select('*')
+        .eq('user_id', user.id)
+        .order('created_at', { ascending: false });
+
+    return { data, error };
 }

@@ -124,14 +124,14 @@
                 <label class="block text-sm font-bold text-gray-400 mb-2" data-i18n="login_label_email">E-mail</label>
                 <div class="relative">
                     <i class="fa-solid fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
-                    <input type="email" id="login-email" required class="w-full bg-brand-900/50 border border-white/10 rounded-xl py-3 pl-10 pr-4 text-white placeholder-gray-600 focus:border-brand-detail focus:outline-none transition" placeholder="seu@email.com">
+                    <input type="email" id="login-email" required data-i18n="login_email_placeholder" class="w-full bg-brand-900/50 border border-white/10 rounded-xl py-3 pl-10 pr-4 text-white placeholder-gray-600 focus:border-brand-detail focus:outline-none transition" placeholder="seu@email.com">
                 </div>
             </div>
             <div>
                 <label class="block text-sm font-bold text-gray-400 mb-2" data-i18n="login_label_password">Senha</label>
                 <div class="relative">
                     <i class="fa-solid fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
-                    <input type="password" id="login-password" required class="w-full bg-brand-900/50 border border-white/10 rounded-xl py-3 pl-10 pr-4 text-white placeholder-gray-600 focus:border-brand-detail focus:outline-none transition" placeholder="••••••••">
+                    <input type="password" id="login-password" required data-i18n="login_password_placeholder" class="w-full bg-brand-900/50 border border-white/10 rounded-xl py-3 pl-10 pr-4 text-white placeholder-gray-600 focus:border-brand-detail focus:outline-none transition" placeholder="••••••••">
                 </div>
             </div>
 
@@ -155,7 +155,7 @@
                 <label class="block text-sm font-bold text-gray-400 mb-2" data-i18n="login_forgot_label">Digite seu e-mail para recuperar a senha</label>
                 <div class="relative">
                     <i class="fa-solid fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
-                    <input type="email" id="forgot-email" required class="w-full bg-brand-900/50 border border-white/10 rounded-xl py-3 pl-10 pr-4 text-white placeholder-gray-600 focus:border-brand-detail focus:outline-none transition" placeholder="seu@email.com">
+                    <input type="email" id="forgot-email" required data-i18n="login_email_placeholder" class="w-full bg-brand-900/50 border border-white/10 rounded-xl py-3 pl-10 pr-4 text-white placeholder-gray-600 focus:border-brand-detail focus:outline-none transition" placeholder="seu@email.com">
                 </div>
             </div>
             <button type="submit" id="forgot-submit" class="w-full btn-primary text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2">
@@ -230,6 +230,9 @@
             e.preventDefault();
             hideMessages();
 
+            const lang = localStorage.getItem('preferredLang') || 'en';
+            const isEN = lang !== 'pt';
+
             const email = document.getElementById('login-email').value.trim();
             const password = document.getElementById('login-password').value;
             const btnText = document.getElementById('login-btn-text');
@@ -237,27 +240,27 @@
             const submitBtn = document.getElementById('login-submit');
 
             submitBtn.disabled = true;
-            btnText.textContent = 'Entrando...';
+            btnText.textContent = isEN ? 'Signing in...' : 'Entrando...';
             spinner.classList.remove('hidden');
 
             const { data, error } = await hattrickSignIn(email, password);
 
             if (error) {
                 submitBtn.disabled = false;
-                btnText.textContent = 'Entrar no Portal';
+                btnText.textContent = isEN ? 'Log In to Portal' : 'Entrar no Portal';
                 spinner.classList.add('hidden');
 
                 if (error.message.includes('Invalid login credentials')) {
-                    showError('E-mail ou senha incorretos. Tente novamente.');
+                    showError(isEN ? 'Incorrect email or password. Please try again.' : 'E-mail ou senha incorretos. Tente novamente.');
                 } else if (error.message.includes('Email not confirmed')) {
-                    showError('Confirme seu e-mail antes de fazer login. Verifique sua caixa de entrada.');
+                    showError(isEN ? 'Confirm your email before logging in. Check your inbox.' : 'Confirme seu e-mail antes de fazer login. Verifique sua caixa de entrada.');
                 } else {
                     showError(error.message);
                 }
                 return;
             }
 
-            showSuccess('Login realizado com sucesso! Redirecionando...');
+            showSuccess(isEN ? 'Login successful! Redirecting...' : 'Login realizado com sucesso! Redirecionando...');
             setTimeout(() => {
                 window.location.href = 'dashboard.html';
             }, 800);
@@ -268,19 +271,22 @@
             e.preventDefault();
             hideMessages();
 
+            const lang = localStorage.getItem('preferredLang') || 'en';
+            const isEN = lang !== 'pt';
+
             const email = document.getElementById('forgot-email').value.trim();
             const btnText = document.getElementById('forgot-btn-text');
             const spinner = document.getElementById('forgot-spinner');
             const submitBtn = document.getElementById('forgot-submit');
 
             submitBtn.disabled = true;
-            btnText.textContent = 'Enviando...';
+            btnText.textContent = isEN ? 'Sending...' : 'Enviando...';
             spinner.classList.remove('hidden');
 
             const { data, error } = await hattrickResetPassword(email);
 
             submitBtn.disabled = false;
-            btnText.textContent = 'Enviar Link de Recuperação';
+            btnText.textContent = isEN ? 'Send Recovery Link' : 'Enviar Link de Recuperação';
             spinner.classList.add('hidden');
 
             if (error) {
@@ -288,7 +294,7 @@
                 return;
             }
 
-            showSuccess('Link de recuperação enviado! Verifique seu e-mail.');
+            showSuccess(isEN ? 'Recovery link sent! Check your email.' : 'Link de recuperação enviado! Verifique seu e-mail.');
         });
     </script>
     <script src="i18n.js"></script>
