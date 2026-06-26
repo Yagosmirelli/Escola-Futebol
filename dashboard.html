@@ -355,10 +355,34 @@
             window.location.href = 'login.html';
         });
 
-        // Pay redirect alert
-        payBtn.addEventListener('click', () => {
-            alert('A integração completa de pagamento com o Stripe estará disponível em breve! Ao prosseguir, você será redirecionado para a página segura de pagamento.');
-        });
+        // initiateCheckout helper
+        async function initiateCheckout(enrollmentId, buttonElement) {
+            const originalHtml = buttonElement.innerHTML;
+            buttonElement.disabled = true;
+            buttonElement.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> ${localStorage.getItem('preferredLang') === 'pt' ? 'Redirecionando...' : 'Redirecting...'}`;
+
+            const { data, error } = await payEnrollment(enrollmentId);
+
+            if (error) {
+                console.error('Error invoking payEnrollment:', error);
+                alert(localStorage.getItem('preferredLang') === 'pt' 
+                    ? 'Erro ao iniciar o pagamento: ' + (error.message || 'Erro de rede.') 
+                    : 'Error starting payment: ' + (error.message || 'Network error.'));
+                buttonElement.disabled = false;
+                buttonElement.innerHTML = originalHtml;
+                return;
+            }
+
+            if (data && data.url) {
+                window.location.href = data.url;
+            } else {
+                alert(localStorage.getItem('preferredLang') === 'pt'
+                    ? 'Erro: URL de checkout não recebida.'
+                    : 'Error: Checkout URL not received.');
+                buttonElement.disabled = false;
+                buttonElement.innerHTML = originalHtml;
+            }
+        }
 
         // Load existing student data
         async function loadStudentData() {
@@ -449,6 +473,53 @@
 
             loading.classList.add('hidden');
 
+            // Sync the right payment status card based on enrollments
+            const payBadge = document.getElementById('payment-badge');
+            const rightPayBtn = document.getElementById('pay-stripe-btn');
+            
+            if (data && data.length > 0) {
+                const pendingEnrollments = data.filter(e => e.payment_status !== 'paid');
+                if (pendingEnrollments.length > 0) {
+                    const latestPending = pendingEnrollments[0];
+                    
+                    payBadge.setAttribute('data-i18n', 'dash_pay_status_pending');
+                    payBadge.textContent = isEN ? 'Pending' : 'Pendente';
+                    payBadge.className = 'px-3 py-1 bg-amber-500/20 border border-amber-500/40 rounded-full text-amber-300 font-bold text-xs';
+                    
+                    rightPayBtn.disabled = false;
+                    rightPayBtn.setAttribute('data-i18n', 'dash_pay_btn');
+                    rightPayBtn.textContent = isEN ? 'Pay Registration' : 'Pagar Inscrição';
+                    rightPayBtn.style.background = 'linear-gradient(90deg, #635bff, #00d4ff)';
+                    rightPayBtn.style.boxShadow = '0 0 15px rgba(99, 91, 255, 0.3)';
+                    
+                    rightPayBtn.onclick = (e) => {
+                        e.preventDefault();
+                        initiateCheckout(latestPending.id, rightPayBtn);
+                    };
+                } else {
+                    payBadge.setAttribute('data-i18n', 'dash_pay_status_paid');
+                    payBadge.textContent = isEN ? 'Paid' : 'Pago';
+                    payBadge.className = 'px-3 py-1 bg-green-500/20 border border-green-500/40 rounded-full text-green-300 font-bold text-xs';
+                    
+                    rightPayBtn.disabled = true;
+                    rightPayBtn.setAttribute('data-i18n', 'dash_pay_btn_paid');
+                    rightPayBtn.textContent = isEN ? 'Registration Paid' : 'Inscrição Paga';
+                    rightPayBtn.style.background = 'linear-gradient(90deg, #10b981, #059669)';
+                    rightPayBtn.style.boxShadow = 'none';
+                    rightPayBtn.onclick = null;
+                }
+            } else {
+                payBadge.setAttribute('data-i18n', 'dash_pay_status_pending');
+                payBadge.textContent = isEN ? 'No Program' : 'Sem Programa';
+                payBadge.className = 'px-3 py-1 bg-gray-500/20 border border-gray-500/40 rounded-full text-gray-400 font-bold text-xs';
+                
+                rightPayBtn.disabled = true;
+                rightPayBtn.textContent = isEN ? 'Enroll in a Program' : 'Inscrever em Programa';
+                rightPayBtn.style.background = 'linear-gradient(90deg, #4b5563, #374151)';
+                rightPayBtn.style.boxShadow = 'none';
+                rightPayBtn.onclick = null;
+            }
+
             if (error || !data || data.length === 0) {
                 empty.classList.remove('hidden');
                 return;
@@ -473,6 +544,19 @@
 
                 const date = new Date(enrollment.created_at).toLocaleDateString(isEN ? 'en-US' : 'pt-BR', { year: 'numeric', month: 'short', day: 'numeric' });
 
+                const payButtonHtml = isPaid
+                    ? ''
+                    : `
+                    <div class="border-t border-white/5 pt-3 mt-1">
+                        <button class="pay-enrollment-card-btn w-full text-white font-bold py-2 rounded-xl text-xs flex items-center justify-center gap-2 transition hover:scale-[1.02]" 
+                                data-enrollment-id="${enrollment.id}"
+                                style="background: linear-gradient(90deg, #635bff, #00d4ff); box-shadow: 0 0 10px rgba(99, 91, 255, 0.2);">
+                            <i class="fa-brands fa-stripe text-base"></i>
+                            <span>${isEN ? 'Pay Now' : 'Pagar Agora'}</span>
+                        </button>
+                    </div>
+                    `;
+
                 const card = document.createElement('div');
                 card.className = 'glass-card rounded-2xl p-5 flex flex-col gap-3';
                 card.innerHTML = `
@@ -493,8 +577,18 @@
                             ${isEN ? 'Registered on' : 'Inscrito em'} ${date}
                         </p>
                     </div>
+                    ${payButtonHtml}
                 `;
                 list.appendChild(card);
+            });
+
+            // Attach click listeners to the specific enrollment buttons
+            list.querySelectorAll('.pay-enrollment-card-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const enrollmentId = btn.getAttribute('data-enrollment-id');
+                    initiateCheckout(enrollmentId, btn);
+                });
             });
         }
     </script>

@@ -344,3 +344,19 @@ async function getMyEnrollments() {
 
     return { data, error };
 }
+
+/**
+ * Solicita a criação de uma sessão de checkout do Stripe para uma inscrição específica.
+ * @param {string} enrollmentId
+ * @returns {Promise<{data, error}>}
+ */
+async function payEnrollment(enrollmentId) {
+    const sb = getSupabase();
+    if (!sb) return { data: null, error: { message: 'Supabase não inicializado.' } };
+
+    const { data, error } = await sb.functions.invoke('create-checkout-session', {
+        body: { enrollmentId }
+    });
+
+    return { data, error };
+}

@@ -390,7 +390,17 @@ const translations = {
         bridgeport_h3_text: "Mais do que as glórias em campo, Bridgeport proporcionou a formação acadêmica em Administração de Empresas. Essa bagagem de negócios e a vivência completa do sistema de bolsas (NLI) formaram a base para a criação da Hattrick Academy.",
         bridgeport_quote: "\"Bridgeport foi onde entendi o poder da combinação entre educação e esporte. Ser eleito Jogador do Ano foi inesquecível, mas a maior conquista foi a bagagem para ajudar outros jovens a trilharem o mesmo caminho.\"",
         bridgeport_stat1: "Jogador do Ano",
-        bridgeport_stat2: "Formação Acadêmica"
+        bridgeport_stat2: "Formação Acadêmica",
+
+        // success.html & cancel.html
+        success_title: "Pagamento Concluído com Sucesso!",
+        success_desc: "Obrigado! Seu pagamento foi recebido e processado com sucesso. A inscrição do seu atleta está ativa.",
+        success_redirect: "Redirecionando para o painel em <span id='countdown'>5</span> segundos...",
+        success_btn: "Ir para o Painel Agora",
+        cancel_title: "Pagamento Cancelado",
+        cancel_desc: "O processo de pagamento foi cancelado. Nenhuma cobrança foi realizada. Se tiver alguma dúvida ou encontrar problemas, entre em contato conosco.",
+        cancel_redirect: "Redirecionando para o painel em <span id='countdown'>5</span> segundos...",
+        cancel_btn: "Voltar para o Painel"
     },
     en: {
         // Navbar
@@ -784,7 +794,17 @@ const translations = {
         bridgeport_h3_text: "More than just glory on the field, Bridgeport provided him with a valuable Business Administration degree. This business background and first-hand experience with the scholarship system (NLI) formed the foundation for creating Hattrick Academy.",
         bridgeport_quote: "\"Bridgeport was where I truly understood the power of combining education and sports. Being named Player of the Year was unforgettable, but the greatest achievement was the experience to help other young athletes follow the same path.\"",
         bridgeport_stat1: "Player of the Year Award",
-        bridgeport_stat2: "Academic Background"
+        bridgeport_stat2: "Academic Background",
+
+        // success.html & cancel.html
+        success_title: "Payment Successful!",
+        success_desc: "Thank you! Your payment has been received and processed successfully. Your program registration is now active.",
+        success_redirect: "Redirecting back to dashboard in <span id='countdown'>5</span> seconds...",
+        success_btn: "Go to Dashboard Now",
+        cancel_title: "Payment Cancelled",
+        cancel_desc: "The payment process was cancelled. No charges were made. If you have any questions or ran into issues, please contact us.",
+        cancel_redirect: "Redirecting back to dashboard in <span id='countdown'>5</span> seconds...",
+        cancel_btn: "Back to Dashboard"
     },
 };
 
