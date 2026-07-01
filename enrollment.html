@@ -383,8 +383,8 @@
             'futsal-lab':          { name: 'Futsal Lab at UNF',         name_pt: 'Futsal Lab na UNF' },
             'individual-training': { name: 'Individual Training',       name_pt: 'Treinamento Individual' },
             'group-training':      { name: 'Small-Group Training',      name_pt: 'Treinamento em Grupo' },
-            '1v1-clinic':          { name: '1v1 Clinic',                name_pt: 'Clínica de 1v1' },
-            'soccer-camps':        { name: 'Soccer Camps',              name_pt: 'Soccer Camps' },
+            '1v1-clinic':          { name: '1V1 Freestyle',             name_pt: '1V1 Freestyle' },
+            'soccer-camps':        { name: 'Hattrick Finishers',        name_pt: 'Hattrick Finishers' },
         };
 
         const params     = new URLSearchParams(window.location.search);
@@ -436,8 +436,8 @@
                         <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">${isEN ? 'Gender' : 'Gênero'} *</label>
                         <select id="athlete-gender-${idx}" required class="input-field">
                             <option value="" disabled selected>${isEN ? 'Select gender' : 'Selecione o gênero'}</option>
-                            <option value="boy">${isEN ? 'Boy' : 'Menino'}</option>
-                            <option value="girl">${isEN ? 'Girl' : 'Menina'}</option>
+                            <option value="male">${isEN ? 'Male' : 'Masculino'}</option>
+                            <option value="female">${isEN ? 'Female' : 'Feminino'}</option>
                         </select>
                     </div>
                     <div>

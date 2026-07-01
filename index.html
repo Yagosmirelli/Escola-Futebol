@@ -358,58 +358,87 @@
                 <p class="text-gray-400 font-light text-lg" data-i18n="home_prog_subtitle">Programas especializados para desenvolver confiança, habilidade e amor pelo jogo.</p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-
-                <!-- Futsal Lab -->
-                <div class="group relative glass-card rounded-2xl p-6 border border-white/5 hover:border-brand-detail/50 transition-all duration-500 hover:-translate-y-2">
-                    <div class="absolute top-0 right-0 w-24 h-24 bg-brand-detail blur-[60px] opacity-0 group-hover:opacity-20 transition duration-500"></div>
-                    <div class="w-12 h-12 rounded-xl bg-brand-detail/10 border border-brand-detail/30 flex items-center justify-center text-brand-detail text-xl mb-4">
-                        <i class="fa-solid fa-futbol"></i>
+            <!-- 1v1 Freestyle DESTAQUE — Featured Full Width -->
+            <div class="rounded-2xl relative overflow-hidden group mb-8" style="border: 2px solid rgba(251,191,36,0.5); box-shadow: 0 0 35px rgba(251,191,36,0.12), 0 8px 32px rgba(0,0,0,0.4); background: linear-gradient(145deg, rgba(36,37,147,0.6) 0%, rgba(18,19,107,0.95) 100%);">
+                <div style="position:absolute;top:-1px;right:20px;background:linear-gradient(135deg,#f59e0b,#ef4444);color:white;font-size:10px;font-weight:900;padding:5px 14px;border-radius:0 0 10px 10px;text-transform:uppercase;letter-spacing:0.15em;box-shadow:0 4px 12px rgba(245,158,11,0.5);z-index:20;" data-i18n="prog_badge_new">🔥 Novo Programa</div>
+                <div class="flex flex-col md:flex-row relative z-10">
+                    <!-- Photo -->
+                    <div class="md:w-2/5 relative overflow-hidden" style="min-height:160px;">
+                        <img src="mudanca.1v1.jpeg" alt="1v1 Freestyle" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" style="object-position: center top; position:absolute; inset:0; height:100%;">
+                        <div class="absolute inset-0" style="background: linear-gradient(to right, transparent 55%, rgba(18,19,107,0.95) 100%);"></div>
                     </div>
-                    <h3 class="text-lg font-black text-white mb-1" data-i18n="prog_futsal_title">Hattrick Futsal Lab na UNF</h3>
-                    <p class="text-brand-detail text-xs font-bold uppercase tracking-wider mb-3" data-i18n="prog_futsal_duration">Programa de Desenvolvimento de Jogadores de 8 Semanas</p>
-                    <p class="text-gray-400 text-sm font-light leading-relaxed mb-4" data-i18n="home_prog_futsal_short">Futsal focado em domínio de bola, criatividade e decisão rápida em espaços reduzidos.</p>
-                    <div class="flex items-baseline gap-2">
-                        <span class="text-2xl font-black text-white">$300</span>
-                        <span class="text-xs text-gray-500" data-i18n="home_prog_or">ou</span>
-                        <span class="text-sm text-gray-400">$45<span class="text-xs" data-i18n="home_prog_per_session"> /sessão</span></span>
-                    </div>
-                </div>
-
-                <!-- Individual Training -->
-                <div class="group relative glass-card rounded-2xl p-6 border border-white/5 hover:border-brand-detail/50 transition-all duration-500 hover:-translate-y-2">
-                    <div class="absolute top-0 right-0 w-24 h-24 bg-purple-500 blur-[60px] opacity-0 group-hover:opacity-20 transition duration-500"></div>
-                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-xl mb-4">
-                        <i class="fa-solid fa-user"></i>
-                    </div>
-                    <h3 class="text-lg font-black text-white mb-1" data-i18n="prog_individual_title">Treinamento Individual</h3>
-                    <p class="text-purple-400 text-xs font-bold uppercase tracking-wider mb-3" data-i18n="home_prog_individual_tag">Sessões Particulares</p>
-                    <p class="text-gray-400 text-sm font-light leading-relaxed mb-4" data-i18n="home_prog_individual_short">Treinamento 1-a-1 para melhorar controle de bola, finalização, passe e confiança.</p>
-                    <div class="flex items-baseline gap-2">
-                        <span class="text-2xl font-black text-white">$80</span>
-                        <span class="text-xs text-gray-500">/hr</span>
-                        <span class="text-xs text-gray-500 mx-1">|</span>
-                        <span class="text-sm text-gray-400">4x $280</span>
-                    </div>
-                </div>
-
-                <!-- 1v1 Clinic -->
-                <div class="group relative glass-card rounded-2xl p-6 border border-white/5 hover:border-brand-detail/50 transition-all duration-500 hover:-translate-y-2">
-                    <div class="absolute top-0 right-0 w-24 h-24 bg-orange-500 blur-[60px] opacity-0 group-hover:opacity-20 transition duration-500"></div>
-                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-400 text-xl mb-4">
-                        <i class="fa-solid fa-person-running"></i>
-                    </div>
-                    <h3 class="text-lg font-black text-white mb-1" data-i18n="prog_1v1_title">Clínica de 1v1</h3>
-                    <p class="text-orange-400 text-xs font-bold uppercase tracking-wider mb-3" data-i18n="home_prog_1v1_tag">Ataque & Criatividade</p>
-                    <p class="text-gray-400 text-sm font-light leading-relaxed mb-4" data-i18n="home_prog_1v1_short">Fintas, mudança de direção, proteção de bola e finalização após superar o defensor.</p>
-                    <div class="flex items-baseline gap-2">
-                        <span class="text-2xl font-black text-white">$45</span>
-                        <span class="text-xs text-gray-500" data-i18n="home_prog_per_session"> /sessão</span>
+                    <!-- Content -->
+                    <div class="md:w-3/5 p-5">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-11 h-11 rounded-xl flex items-center justify-center text-amber-400 text-xl" style="background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.3);">
+                                <i class="fa-solid fa-person-running"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-black text-white" data-i18n="prog_1v1_title">1V1 Freestyle</h3>
+                                <p class="text-amber-400 text-xs font-bold uppercase tracking-wider" data-i18n="prog_1v1_schedule">Mondays & Wednesdays</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 text-sm font-light leading-relaxed mb-4" data-i18n="home_prog_1v1_short">Fintas, mudança de direção, proteção de bola e finalização após superar o defensor. No Leonard Abess Park.</p>
+                        <div class="flex flex-wrap items-center gap-3 mb-5">
+                            <div class="text-center px-4 py-2 rounded-xl" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);">
+                                <p class="text-[10px] text-gray-400 uppercase font-bold" data-i18n="prog_1v1_price_drop">Sessão Avulsa</p>
+                                <p class="text-xl font-black text-white">$45</p>
+                            </div>
+                            <div class="text-center px-4 py-2 rounded-xl" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);">
+                                <p class="text-[10px] text-gray-400 uppercase font-bold" data-i18n="prog_1v1_price_4weeks">4 Semanas</p>
+                                <p class="text-xl font-black text-white">$240</p>
+                            </div>
+                            <div class="text-center px-4 py-2 rounded-xl" style="background:linear-gradient(135deg,rgba(245,158,11,0.2),rgba(239,68,68,0.15));border:1px solid rgba(245,158,11,0.4);">
+                                <p class="text-[10px] text-amber-300 font-black uppercase" data-i18n="home_prog_early_bird">Early-Bird até 20/Jul</p>
+                                <p class="text-xl font-black" style="background:linear-gradient(135deg,#00D4FF,#66E8FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">$200</p>
+                            </div>
+                        </div>
+                        <a href="camps.html#1v1" class="inline-flex items-center gap-2 text-white font-bold py-3 px-6 rounded-xl text-sm uppercase tracking-wider" style="background:linear-gradient(90deg,#f59e0b,#ef4444);box-shadow:0 0 18px rgba(245,158,11,0.35);transition:all 0.3s ease;" onmouseover="this.style.boxShadow='0 0 30px rgba(245,158,11,0.65)'" onmouseout="this.style.boxShadow='0 0 18px rgba(245,158,11,0.35)'" data-i18n="prog_btn_contact">Registrar Agora <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
-
             </div>
+
+            <!-- Hattrick Finishers DESTAQUE — Featured Full Width (amber theme) -->
+            <div class="rounded-2xl relative overflow-hidden group mb-8" style="border: 2px solid rgba(251,191,36,0.5); box-shadow: 0 0 35px rgba(251,191,36,0.12), 0 8px 32px rgba(0,0,0,0.4); background: linear-gradient(145deg, rgba(36,37,147,0.6) 0%, rgba(18,19,107,0.95) 100%);">  
+                <div style="position:absolute;top:-1px;right:20px;background:linear-gradient(135deg,#f59e0b,#ef4444);color:white;font-size:10px;font-weight:900;padding:5px 14px;border-radius:0 0 10px 10px;text-transform:uppercase;letter-spacing:0.15em;box-shadow:0 4px 12px rgba(245,158,11,0.5);z-index:20;" data-i18n="prog_badge_new">🔥 Novo Programa</div>
+                <div class="flex flex-col md:flex-row relative z-10">
+                    <!-- Photo -->
+                    <div class="md:w-2/5 relative overflow-hidden" style="min-height:160px;">
+                        <img src="mudanca.soccer.camps.jpeg" alt="Hattrick Finishers" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" style="object-position: center top; position:absolute; inset:0; height:100%;">
+                        <div class="absolute inset-0" style="background: linear-gradient(to right, transparent 55%, rgba(18,19,107,0.95) 100%);"></div>
+                    </div>
+                    <!-- Content -->
+                    <div class="md:w-3/5 p-5">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-11 h-11 rounded-xl flex items-center justify-center text-amber-400 text-xl" style="background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.3);">
+                                <i class="fa-solid fa-bullseye"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-black text-white" data-i18n="prog_camps_title">Hattrick Finishers</h3>
+                                <p class="text-amber-400 text-xs font-bold uppercase tracking-wider" data-i18n="prog_camps_schedule">Tuesdays & Thursdays</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 text-sm font-light leading-relaxed mb-4" data-i18n="prog_camps_desc">Focus on finishing, shooting technique, and scoring confidence. Held at Duval Charter School - Mandarin.</p>
+                        <div class="flex flex-wrap items-center gap-3 mb-5">
+                            <div class="text-center px-4 py-2 rounded-xl" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);">
+                                <p class="text-[10px] text-gray-400 uppercase font-bold" data-i18n="prog_camps_price_drop">Sessão Avulsa</p>
+                                <p class="text-xl font-black text-white">$45</p>
+                            </div>
+                            <div class="text-center px-4 py-2 rounded-xl" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);">
+                                <p class="text-[10px] text-gray-400 uppercase font-bold" data-i18n="prog_camps_price_4weeks">4 Semanas</p>
+                                <p class="text-xl font-black text-white">$240</p>
+                            </div>
+                            <div class="text-center px-4 py-2 rounded-xl" style="background:linear-gradient(135deg,rgba(245,158,11,0.2),rgba(239,68,68,0.15));border:1px solid rgba(245,158,11,0.4);">
+                                <p class="text-[10px] text-amber-300 font-black uppercase" data-i18n="home_prog_early_bird">Early-Bird até 20/Jul</p>
+                                <p class="text-xl font-black" style="background:linear-gradient(135deg,#00D4FF,#66E8FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">$200</p>
+                            </div>
+                        </div>
+                        <a href="camps.html#finishers" class="inline-flex items-center gap-2 text-white font-bold py-3 px-6 rounded-xl text-sm uppercase tracking-wider" style="background:linear-gradient(90deg,#f59e0b,#ef4444);box-shadow:0 0 18px rgba(245,158,11,0.35);transition:all 0.3s ease;" onmouseover="this.style.boxShadow='0 0 30px rgba(245,158,11,0.65)'" onmouseout="this.style.boxShadow='0 0 18px rgba(245,158,11,0.35)'" data-i18n="prog_btn_contact">Registrar Agora <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+
 
             <!-- CTA -->
             <div class="text-center mt-12">
@@ -442,7 +471,7 @@
                     <p class="text-brand-detail font-bold text-sm uppercase tracking-wider mb-4" data-i18n="staff_jenn_role">Athletic Development</p>
                     <p class="text-gray-400 font-light text-sm mb-6" data-i18n="staff_jenn_desc">Expertise em performance esportiva e na rota de transição para o esporte americano de elite.</p>
                     <div class="flex justify-center space-x-4 mb-5">
-                        <a href="#" target="_blank" class="w-10 h-10 rounded-full bg-brand-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#0A66C2] transition shadow-lg"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.linkedin.com/in/jennifer-hauser-349610386/" target="_blank" class="w-10 h-10 rounded-full bg-brand-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#0A66C2] transition shadow-lg"><i class="fa-brands fa-linkedin-in"></i></a>
                         <a href="https://www.instagram.com/jennhause2" target="_blank" class="w-10 h-10 rounded-full bg-brand-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-gradient-to-tr hover:from-yellow-500 hover:via-pink-500 hover:to-purple-500 transition shadow-lg"><i class="fa-brands fa-instagram"></i></a>
                     </div>
                     <a href="jenn.html" class="block w-full py-3 bg-brand-900 border border-brand-800 text-brand-detail font-bold rounded-xl hover:bg-brand-detail hover:mb-0 hover:text-white transition" data-i18n="staff_btn_profile">Ver Perfil Completo</a>

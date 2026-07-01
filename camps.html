@@ -130,10 +130,172 @@
     <section class="py-24 relative" style="background:#12136b;">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-6xl">
 
+            <!-- 1. 1v1 Freestyle — NOVO DESTAQUE -->
+            <div class="rounded-3xl relative overflow-hidden group mb-8" style="border: 2px solid rgba(251,191,36,0.6); box-shadow: 0 0 40px rgba(251,191,36,0.15), 0 8px 32px rgba(0,0,0,0.5); background: linear-gradient(145deg, rgba(36,37,147,0.6) 0%, rgba(18,19,107,0.95) 100%);">
+                <!-- HOT badge -->
+                <div style="position:absolute;top:-1px;right:24px;background:linear-gradient(135deg,#f59e0b,#ef4444);color:white;font-size:10px;font-weight:900;padding:6px 16px;border-radius:0 0 12px 12px;text-transform:uppercase;letter-spacing:0.15em;box-shadow:0 4px 15px rgba(245,158,11,0.5);z-index:20;" data-i18n="prog_badge_new">🔥 Novo Programa</div>
+                <div class="absolute top-0 left-0 w-full h-full" style="background: linear-gradient(135deg, rgba(245,158,11,0.05) 0%, transparent 60%); pointer-events:none;"></div>
 
+                <div class="flex flex-col lg:flex-row relative z-10">
+                    <!-- Photo side -->
+                    <div class="lg:w-2/5 relative overflow-hidden" style="min-height:160px;">
+                        <img src="mudanca.1v1.jpeg" alt="1v1 Freestyle" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" style="object-position: center 70%; position:absolute; inset:0; height:100%;">
+                        <div class="absolute inset-0" style="background: linear-gradient(to right, transparent 60%, rgba(18,19,107,0.95) 100%), linear-gradient(to top, rgba(18,19,107,0.5) 0%, transparent 40%);"></div>
+                        <!-- Start date badge on photo -->
+                        <div class="absolute bottom-5 left-5">
+                            <div class="bg-amber-500/20 border border-amber-500/40 backdrop-blur-md rounded-xl px-4 py-2">
+                                <p class="text-[10px] text-amber-300 font-black uppercase tracking-widest" data-i18n="prog_1v1_start">Starts Week of August 3rd</p>
+                            </div>
+                        </div>
+                    </div>
 
-            <!-- 1. Futsal Lab at UNF — FEATURED -->
-            <div class="glass-card rounded-3xl p-10 md:p-12 relative overflow-hidden group border border-brand-detail/40 mb-12">
+                    <!-- Content side -->
+                    <div class="lg:w-3/5 p-6 md:p-8">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="program-icon text-amber-400" style="background:rgba(245,158,11,0.1);border-color:rgba(245,158,11,0.3);">
+                                <i class="fa-solid fa-person-running"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-3xl md:text-4xl font-black text-white" data-i18n="prog_1v1_title">1V1 Freestyle</h3>
+                                <p class="text-amber-400 font-bold text-sm uppercase tracking-wider flex items-center gap-2">
+                                    <i class="fa-solid fa-calendar-day"></i> <span data-i18n="prog_1v1_schedule">Mondays &amp; Wednesdays</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <p class="text-gray-300 font-light text-base leading-relaxed mb-6" data-i18n="prog_1v1_desc">Foco em criatividade, fintas e controle de bola. Realizado no Leonard Abess Park.</p>
+
+                        <!-- Ages & Schedule -->
+                        <div class="bg-white/5 p-4 rounded-2xl border border-white/5 mb-6">
+                            <p class="text-[10px] text-gray-400 uppercase font-black tracking-widest mb-3" data-i18n="prog_1v1_ages_title">Idades &amp; Horários</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                                <div class="text-center bg-white/5 rounded-xl p-2">
+                                    <span class="text-white font-bold text-sm block" data-i18n="prog_1v1_age1">7 a 9 Anos</span>
+                                    <span class="text-amber-400 text-xs">17h — 18h</span>
+                                </div>
+                                <div class="text-center bg-white/5 rounded-xl p-2">
+                                    <span class="text-white font-bold text-sm block" data-i18n="prog_1v1_age2">10 a 12 Anos</span>
+                                    <span class="text-amber-400 text-xs">18h — 19h</span>
+                                </div>
+                                <div class="text-center bg-white/5 rounded-xl p-2">
+                                    <span class="text-white font-bold text-sm block" data-i18n="prog_1v1_age3">13 a 15 Anos</span>
+                                    <span class="text-amber-400 text-xs">19h — 20h</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Prices -->
+                        <div class="flex flex-wrap gap-4 mb-6">
+                            <div class="price-tag flex-1 min-w-[120px] text-center">
+                                <p class="text-[10px] text-gray-400 uppercase font-bold tracking-wider mb-1" data-i18n="prog_1v1_price_drop">Sessão Avulsa</p>
+                                <p class="text-2xl font-black text-white">$45</p>
+                            </div>
+                            <div class="price-tag flex-1 min-w-[120px] text-center">
+                                <p class="text-[10px] text-gray-400 uppercase font-bold tracking-wider mb-1" data-i18n="prog_1v1_price_4weeks">Programa 4 Semanas</p>
+                                <p class="text-2xl font-black text-white">$240</p>
+                            </div>
+                            <!-- Early Bird Highlight -->
+                            <div class="flex-1 min-w-[140px] text-center rounded-2xl p-3" style="background:linear-gradient(135deg,rgba(245,158,11,0.2),rgba(239,68,68,0.15));border:1px solid rgba(245,158,11,0.4);">
+                                <p class="text-[10px] text-amber-300 font-black uppercase tracking-wider" data-i18n="prog_1v1_early_bird">Early-Bird Discount</p>
+                                <p class="text-[10px] text-gray-300 mb-1" data-i18n="prog_1v1_early_bird_date">Until July 20th</p>
+                                <p class="text-2xl font-black text-gradient">$200</p>
+                            </div>
+                        </div>
+
+                        <a href="enrollment.html?program=1v1-clinic" class="block w-full text-white font-bold py-4 rounded-xl text-center text-lg uppercase tracking-wider" style="background:linear-gradient(90deg,#f59e0b,#ef4444);box-shadow:0 0 20px rgba(245,158,11,0.4);transition:all 0.3s ease;" onmouseover="this.style.boxShadow='0 0 35px rgba(245,158,11,0.7)'" onmouseout="this.style.boxShadow='0 0 20px rgba(245,158,11,0.4)'" data-i18n="prog_btn_contact">Registrar Agora →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Hattrick Finishers — NOVO DESTAQUE (amber theme) -->
+            <div id="finishers" class="rounded-3xl relative overflow-hidden group mb-8" style="border: 2px solid rgba(251,191,36,0.6); box-shadow: 0 0 40px rgba(251,191,36,0.15), 0 8px 32px rgba(0,0,0,0.5); background: linear-gradient(145deg, rgba(36,37,147,0.6) 0%, rgba(18,19,107,0.95) 100%);">
+                <!-- HOT badge -->
+                <div style="position:absolute;top:-1px;right:24px;background:linear-gradient(135deg,#f59e0b,#ef4444);color:white;font-size:10px;font-weight:900;padding:6px 16px;border-radius:0 0 12px 12px;text-transform:uppercase;letter-spacing:0.15em;box-shadow:0 4px 15px rgba(245,158,11,0.5);z-index:20;" data-i18n="prog_badge_new">🔥 Novo Programa</div>
+
+                <div class="flex flex-col lg:flex-row relative z-10">
+                    <!-- Photo side -->
+                    <div class="lg:w-2/5 relative overflow-hidden" style="min-height:160px;">
+                        <img src="mudanca.soccer.camps.jpeg" alt="Hattrick Finishers" class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-700" style="position:absolute; inset:0; height:100%;">
+                        <div class="absolute inset-0" style="background: linear-gradient(to right, transparent 60%, rgba(18,19,107,0.95) 100%), linear-gradient(to top, rgba(18,19,107,0.5) 0%, transparent 40%);"></div>
+                        <!-- Start date badge on photo -->
+                        <div class="absolute bottom-5 left-5">
+                            <div class="bg-amber-500/20 border border-amber-500/40 backdrop-blur-md rounded-xl px-4 py-2">
+                                <p class="text-[10px] text-amber-300 font-black uppercase tracking-widest" data-i18n="prog_camps_start">★ Starts Week of August 3rd ★</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content side -->
+                    <div class="lg:w-3/5 p-6 md:p-8">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="program-icon text-amber-400" style="background:rgba(245,158,11,0.1);border-color:rgba(245,158,11,0.3);">
+                                <i class="fa-solid fa-bullseye"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-3xl md:text-4xl font-black text-white" data-i18n="prog_camps_title">Hattrick Finishers</h3>
+                                <p class="text-blue-400 font-bold text-sm uppercase tracking-wider flex items-center gap-2">
+                                    <i class="fa-solid fa-calendar-day"></i> <span data-i18n="prog_camps_schedule">Tuesdays &amp; Thursdays</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <p class="text-gray-300 font-light text-base leading-relaxed mb-5" data-i18n="prog_camps_desc">Focus on finishing, shooting technique, and scoring confidence.</p>
+
+                        <!-- Details grid -->
+                        <div class="bg-white/5 p-4 rounded-2xl border border-white/5 mb-5">
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                <div class="flex items-start gap-2">
+                                    <i class="fa-solid fa-users text-amber-400 mt-0.5 text-sm"></i>
+                                    <div>
+                                        <p class="text-[10px] text-gray-400 uppercase font-black tracking-widest" data-i18n="prog_camps_group">Grupo</p>
+                                        <p class="text-white font-bold text-sm" data-i18n="prog_camps_group_desc">Mixed Age Groups</p>
+                                        <p class="text-amber-400 text-xs">5:15 – 6:15pm</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <i class="fa-solid fa-location-dot text-amber-400 mt-0.5 text-sm"></i>
+                                    <div>
+                                        <p class="text-[10px] text-gray-400 uppercase font-black tracking-widest" data-i18n="prog_camps_local">Local</p>
+                                        <p class="text-white font-bold text-sm">Duval Charter School</p>
+                                        <p class="text-amber-400 text-xs" data-i18n="prog_camps_local_desc">Mandarin</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <i class="fa-solid fa-bullseye text-amber-400 mt-0.5 text-sm"></i>
+                                    <div>
+                                        <p class="text-[10px] text-gray-400 uppercase font-black tracking-widest" data-i18n="prog_camps_focus">Foco</p>
+                                        <p class="text-white font-bold text-sm" data-i18n="prog_camps_focus_desc">Finishing &amp; Shooting</p>
+                                        <p class="text-amber-400 text-xs" data-i18n="prog_camps_price_info">Scoring Confidence</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Prices -->
+                        <div class="flex flex-wrap gap-4 mb-5">
+                            <div class="price-tag flex-1 min-w-[120px] text-center">
+                                <p class="text-[10px] text-gray-400 uppercase font-bold tracking-wider mb-1" data-i18n="prog_camps_price_drop">Drop In</p>
+                                <p class="text-2xl font-black text-white">$45</p>
+                            </div>
+                            <div class="price-tag flex-1 min-w-[120px] text-center">
+                                <p class="text-[10px] text-gray-400 uppercase font-bold tracking-wider mb-1" data-i18n="prog_camps_price_4weeks">4 Week Program</p>
+                                <p class="text-2xl font-black text-white">$240</p>
+                            </div>
+                            <!-- Early Bird Highlight -->
+                            <div class="flex-1 min-w-[140px] text-center rounded-2xl p-3" style="background:linear-gradient(135deg,rgba(245,158,11,0.2),rgba(239,68,68,0.15));border:1px solid rgba(245,158,11,0.4);">
+                                <p class="text-[10px] text-amber-300 font-black uppercase tracking-wider" data-i18n="prog_camps_early_bird">Early-Bird Discount</p>
+                                <p class="text-[10px] text-gray-300 mb-1" data-i18n="prog_camps_early_bird_date">Until July 20th</p>
+                                <p class="text-2xl font-black text-gradient">$200</p>
+                            </div>
+                        </div>
+
+                        <a href="enrollment.html?program=soccer-camps" class="block w-full text-white font-bold py-4 rounded-xl text-center text-lg uppercase tracking-wider" style="background:linear-gradient(90deg,#f59e0b,#ef4444);box-shadow:0 0 20px rgba(245,158,11,0.4);transition:all 0.3s ease;" onmouseover="this.style.boxShadow='0 0 35px rgba(245,158,11,0.7)'" onmouseout="this.style.boxShadow='0 0 20px rgba(245,158,11,0.4)'" data-i18n="prog_btn_contact">Registrar Agora →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Futsal Lab at UNF -->
+            <div class="glass-card rounded-3xl p-10 md:p-12 relative overflow-hidden group border border-brand-detail/40 mb-8">
                 <div class="featured-badge" data-i18n="prog_featured">Destaque</div>
                 <div class="absolute top-0 right-0 w-64 h-64 bg-brand-detail blur-[100px] opacity-15 group-hover:opacity-30 transition duration-500"></div>
 
@@ -160,11 +322,10 @@
                 </div>
             </div>
 
-            <!-- Grid 2x2 for other programs -->
+            <!-- Grid for other programs -->
             <div class="grid md:grid-cols-2 gap-8 mb-12">
 
-
-                <!-- 2. Individual Training -->
+                <!-- 4. Individual Training -->
                 <div class="glass-card rounded-3xl p-8 relative overflow-hidden group border border-white/5 hover:border-brand-detail/50 transition-all duration-500">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500 blur-[80px] opacity-15 group-hover:opacity-30 transition duration-500"></div>
                     <div class="relative z-10">
@@ -183,11 +344,11 @@
                                 <p class="text-2xl font-black text-white">$280 <span class="text-sm text-gray-400 font-light" data-i18n="prog_individual_pack_unit">4 sessões</span></p>
                             </div>
                         </div>
-                        <a href="enrollment.html?program=individual-training" class="block w-full btn-secondary text-brand-detail font-bold py-3 rounded-xl text-center uppercase tracking-wider" data-i18n="prog_btn_contact">Entrar em Contato</a>
+                        <a href="enrollment.html?program=individual-training" class="block w-full btn-primary text-white font-bold py-4 rounded-xl text-center text-lg uppercase tracking-wider" data-i18n="prog_btn_contact">Entrar em Contato</a>
                     </div>
                 </div>
 
-                <!-- 3. Small-Group Training -->
+                <!-- 5. Small-Group Training -->
                 <div class="glass-card rounded-3xl p-8 relative overflow-hidden group border border-white/5 hover:border-brand-detail/50 transition-all duration-500">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-green-500 blur-[80px] opacity-15 group-hover:opacity-30 transition duration-500"></div>
                     <div class="relative z-10">
@@ -200,41 +361,7 @@
                             <p class="text-xs text-gray-400 uppercase tracking-wider font-bold mb-1" data-i18n="prog_group_price_label">Preço</p>
                             <p class="text-lg font-bold text-white" data-i18n="prog_group_price_info">Varia de acordo com o número de jogadores e a duração da sessão.</p>
                         </div>
-                        <a href="enrollment.html?program=group-training" class="block w-full btn-secondary text-brand-detail font-bold py-3 rounded-xl text-center uppercase tracking-wider" data-i18n="prog_btn_contact">Entrar em Contato</a>
-                    </div>
-                </div>
-
-                <!-- 4. 1v1 Clinic -->
-                <div class="glass-card rounded-3xl p-8 relative overflow-hidden group border border-white/5 hover:border-brand-detail/50 transition-all duration-500">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-orange-500 blur-[80px] opacity-15 group-hover:opacity-30 transition duration-500"></div>
-                    <div class="relative z-10">
-                        <div class="program-icon text-orange-400 mb-5">
-                            <i class="fa-solid fa-person-running"></i>
-                        </div>
-                        <h3 class="text-2xl font-black text-white mb-3" data-i18n="prog_1v1_title">Clínica de 1v1</h3>
-                        <p class="text-gray-400 font-light text-sm leading-relaxed mb-6" data-i18n="prog_1v1_desc">Uma clínica especializada para ajudar jogadores a se tornarem mais confiantes e eficientes ao atacar defensores. Os atletas irão trabalhar mudança de velocidade, mudança de direção, fintas corporais, criatividade, proteção de bola, finalização após superar o defensor e tomada de decisão em momentos ofensivos.</p>
-                        <div class="price-tag mb-6">
-                            <p class="text-xs text-gray-400 uppercase tracking-wider font-bold mb-1" data-i18n="prog_1v1_price_label">Preço</p>
-                            <p class="text-2xl font-black text-white">$45 <span class="text-sm text-gray-400 font-light" data-i18n="prog_1v1_price_unit">por sessão</span></p>
-                        </div>
-                        <a href="enrollment.html?program=1v1-clinic" class="block w-full btn-secondary text-brand-detail font-bold py-3 rounded-xl text-center uppercase tracking-wider" data-i18n="prog_btn_contact">Entrar em Contato</a>
-                    </div>
-                </div>
-
-                <!-- 5. Soccer Camps (placeholder for future details) -->
-                <div class="glass-card rounded-3xl p-8 relative overflow-hidden group border border-white/5 hover:border-brand-detail/50 transition-all duration-500">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500 blur-[80px] opacity-15 group-hover:opacity-30 transition duration-500"></div>
-                    <div class="relative z-10">
-                        <div class="program-icon text-blue-400 mb-5">
-                            <i class="fa-solid fa-campground"></i>
-                        </div>
-                        <h3 class="text-2xl font-black text-white mb-3" data-i18n="prog_camps_title">Soccer Camps</h3>
-                        <p class="text-gray-400 font-light text-sm leading-relaxed mb-6" data-i18n="prog_camps_desc">Camps intensivos de futebol com imersão completa. Fique ligado para mais informações sobre datas, locais e inscrições.</p>
-                        <div class="price-tag mb-6">
-                            <p class="text-xs text-gray-400 uppercase tracking-wider font-bold mb-1" data-i18n="prog_camps_price_label">Informações</p>
-                            <p class="text-lg font-bold text-brand-detail" data-i18n="prog_camps_price_info">Em breve</p>
-                        </div>
-                        <a href="enrollment.html?program=soccer-camps" class="block w-full btn-secondary text-brand-detail font-bold py-3 rounded-xl text-center uppercase tracking-wider" data-i18n="prog_btn_contact">Entrar em Contato</a>
+                        <a href="enrollment.html?program=group-training" class="block w-full btn-primary text-white font-bold py-4 rounded-xl text-center text-lg uppercase tracking-wider" data-i18n="prog_btn_contact">Entrar em Contato</a>
                     </div>
                 </div>
 
