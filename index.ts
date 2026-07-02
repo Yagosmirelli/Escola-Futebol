@@ -12,7 +12,7 @@ const PROGRAM_PRICES: Record<string, number> = {
   'individual-training': 28000,  // $280
   'group-training': 15000,       // $150
   '1v1-clinic': 24000,           // $240 (standard price)
-  'soccer-camps': 24000,         // $240 (standard price)
+  'soccer-camps': 15000,         // $150 (standard price)
   'futsal-clinic': 15000,        // $150
   'general': 10000               // $100 fallback
 }
@@ -82,7 +82,7 @@ serve(async (req) => {
     let unitPrice = PROGRAM_PRICES[enrollment.program_id] || PROGRAM_PRICES['general']
 
     // Apply Early Bird promotion ($200 instead of $240) if purchased before July 21st, 2026
-    if (enrollment.program_id === '1v1-clinic' || enrollment.program_id === 'soccer-camps') {
+    if (enrollment.program_id === '1v1-clinic') {
       const now = new Date()
       const deadline = new Date('2026-07-21T00:00:00Z') // July 20th 23:59:59 UTC
       if (now < deadline) {

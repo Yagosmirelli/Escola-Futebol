@@ -296,6 +296,7 @@ const translations = {
         camps_page_subtitle: "Desenvolva confiança, habilidade e amor pelo jogo com nossos programas de treinamento especializados.",
         prog_featured: "Destaque",
         prog_btn_contact: "Registrar Agora",
+        prog_btn_learn_more: "Saiba Mais",
 
         // Futsal Clinic (NEW)
         prog_clinic_title: "Hattrick Futsal Clinic",
@@ -347,7 +348,7 @@ const translations = {
         prog_camps_age_info: "Grupo de Idades Mistas: 17h15 às 18h15",
         prog_camps_price_drop: "Sessão Avulsa",
         prog_camps_price_4weeks: "Programa 4 Semanas",
-        prog_camps_start: "Início na Semana de 3 de Agosto",
+        prog_camps_start: "Início em 6 de Agosto",
         prog_camps_focus: "Foco",
         prog_camps_focus_desc: "Finalização & Chute",
         prog_camps_group: "Grupo",
@@ -654,6 +655,7 @@ const translations = {
         camps_page_subtitle: "Develop confidence, skill, and love for the game with our specialized training programs.",
         prog_featured: "Featured",
         prog_btn_contact: "Register Now",
+        prog_btn_learn_more: "Learn More",
 
         // Futsal Clinic (NEW)
         prog_clinic_title: "Hattrick Futsal Clinic",
@@ -705,7 +707,7 @@ const translations = {
         prog_camps_age_info: "Mixed Age Groups: 5:15 - 6:15 PM",
         prog_camps_price_drop: "Drop In",
         prog_camps_price_4weeks: "4 Week Program",
-        prog_camps_start: "Starts Week of August 3rd",
+        prog_camps_start: "Starts August 6th",
         prog_camps_focus: "Focus",
         prog_camps_focus_desc: "Finishing & Shooting",
         prog_camps_group: "Group",
