@@ -308,36 +308,45 @@
             </div>
 
             <!-- 3. Futsal Lab at UNF -->
-            <div class="glass-card rounded-3xl p-10 md:p-12 relative overflow-hidden group border border-brand-detail/40 mb-8">
+            <div class="rounded-3xl relative overflow-hidden group mb-8" style="border: 2px solid rgba(0,212,255,0.5); box-shadow: 0 0 40px rgba(0,212,255,0.12), 0 8px 32px rgba(0,0,0,0.5); background: linear-gradient(145deg, rgba(36,37,147,0.6) 0%, rgba(18,19,107,0.95) 100%);">
                 <div class="featured-badge" data-i18n="prog_featured">Destaque</div>
-                <div class="absolute top-0 right-0 w-64 h-64 bg-brand-detail blur-[100px] opacity-15 group-hover:opacity-30 transition duration-500"></div>
+                <div class="absolute top-0 left-0 w-full h-full" style="background: linear-gradient(135deg, rgba(0,212,255,0.05) 0%, transparent 60%); pointer-events:none;"></div>
 
-                <div class="flex flex-col lg:flex-row gap-10 items-start relative z-10">
-                    <div class="lg:w-2/3">
-                        <div class="program-icon text-brand-detail mb-6">
-                            <i class="fa-solid fa-futbol"></i>
-                        </div>
-                        <h3 class="text-3xl md:text-4xl font-black text-white mb-2" data-i18n="prog_futsal_title">Hattrick Futsal Lab na UNF</h3>
-                        <p class="text-brand-detail font-bold text-sm uppercase tracking-wider mb-4" data-i18n="prog_futsal_duration">Programa de Desenvolvimento de Jogadores de 8 Semanas</p>
-                        <p class="text-gray-300 font-light text-lg leading-relaxed" data-i18n="prog_futsal_desc">Um programa estruturado de futsal focado em domínio de bola, primeiro toque, ataque 1v1, criatividade, finalização e tomada de decisão rápida em espaços reduzidos.</p>
+                <div class="flex flex-col lg:flex-row relative z-10">
+                    <!-- Photo side -->
+                    <div class="lg:w-2/5 relative overflow-hidden" style="min-height:160px;">
+                        <img src="futsal.lab.jpeg" alt="Futsal Lab at UNF" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" style="object-position: 60% center; position:absolute; inset:0; height:100%;">
+                        <div class="absolute inset-0" style="background: linear-gradient(to right, transparent 60%, rgba(18,19,107,0.95) 100%), linear-gradient(to top, rgba(18,19,107,0.5) 0%, transparent 40%);"></div>
                     </div>
-                    <div class="lg:w-1/3 w-full space-y-4">
-                        <div class="price-tag">
-                            <p class="text-xs text-gray-400 uppercase tracking-wider font-bold mb-1" data-i18n="prog_futsal_full_label">Programa Completo</p>
-                            <p class="text-3xl font-black text-white">$300</p>
-                        </div>
-                        <div class="price-tag">
-                            <p class="text-xs text-gray-400 uppercase tracking-wider font-bold mb-1" data-i18n="prog_futsal_drop_label">Sessão Avulsa</p>
-                            <p class="text-2xl font-black text-white">$45 <span class="text-sm text-gray-400 font-light" data-i18n="prog_futsal_drop_unit">por sessão</span></p>
-                        </div>
-                        <a href="enrollment.html?program=futsal-lab" class="block w-full btn-primary text-white font-bold py-4 rounded-xl text-center text-lg uppercase tracking-wider mt-4" data-i18n="prog_btn_contact">Entrar em Contato</a>
-                    </div>
-                </div>
 
-                <!-- Banner image at bottom -->
-                <div class="relative mt-8 rounded-2xl overflow-hidden" style="height: 140px;">
-                    <img src="futsal.lab.jpeg" alt="Futsal Lab at UNF" class="w-full h-full object-cover object-left group-hover:scale-105 transition duration-700">
-                    <div class="absolute inset-0" style="background: linear-gradient(to right, rgba(18,19,107,0.85) 0%, transparent 40%, transparent 60%, rgba(18,19,107,0.85) 100%);"></div>
+                    <!-- Content side -->
+                    <div class="lg:w-3/5 p-6 md:p-8">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="program-icon text-brand-detail" style="background:rgba(0,212,255,0.1);border-color:rgba(0,212,255,0.3);">
+                                <i class="fa-solid fa-futbol"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-3xl md:text-4xl font-black text-white" data-i18n="prog_futsal_title">Hattrick Futsal Lab na UNF</h3>
+                                <p class="text-brand-detail font-bold text-sm uppercase tracking-wider" data-i18n="prog_futsal_duration">Programa de Desenvolvimento de Jogadores de 8 Semanas</p>
+                            </div>
+                        </div>
+
+                        <p class="text-gray-300 font-light text-base leading-relaxed mb-5" data-i18n="prog_futsal_desc">Um programa estruturado de futsal focado em domínio de bola, primeiro toque, ataque 1v1, criatividade, finalização e tomada de decisão rápida em espaços reduzidos.</p>
+
+                        <!-- Prices -->
+                        <div class="flex flex-wrap gap-4 mb-5">
+                            <div class="price-tag flex-1 min-w-[120px] text-center">
+                                <p class="text-[10px] text-gray-400 uppercase font-bold tracking-wider mb-1" data-i18n="prog_futsal_full_label">Programa Completo</p>
+                                <p class="text-2xl font-black text-white">$300</p>
+                            </div>
+                            <div class="price-tag flex-1 min-w-[120px] text-center">
+                                <p class="text-[10px] text-gray-400 uppercase font-bold tracking-wider mb-1" data-i18n="prog_futsal_drop_label">Sessão Avulsa</p>
+                                <p class="text-2xl font-black text-white">$45 <span class="text-sm text-gray-400 font-light" data-i18n="prog_futsal_drop_unit">por sessão</span></p>
+                            </div>
+                        </div>
+
+                        <a href="enrollment.html?program=futsal-lab" class="block w-full btn-primary text-white font-bold py-4 rounded-xl text-center text-lg uppercase tracking-wider" data-i18n="prog_btn_contact">Entrar em Contato</a>
+                    </div>
                 </div>
             </div>
 
@@ -347,16 +356,18 @@
                 <!-- 4. Individual Training -->
                 <div class="glass-card rounded-3xl relative overflow-hidden group border border-white/5 hover:border-brand-detail/50 transition-all duration-500">
                     <!-- Banner image -->
-                    <div class="relative overflow-hidden" style="height: 150px;">
+                    <div class="relative overflow-hidden" style="height: 200px;">
                         <img src="individual.training.jpeg" alt="Individual Training" class="w-full h-full object-cover object-left group-hover:scale-105 transition duration-700">
-                        <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 40%, rgba(18,19,107,0.97) 100%);"></div>
+                        <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 40%, rgba(18,19,107,0.95) 100%);"></div>
                     </div>
                     <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500 blur-[80px] opacity-15 group-hover:opacity-30 transition duration-500"></div>
                     <div class="relative z-10 p-8 pt-4">
-                        <div class="program-icon text-purple-400 mb-5">
-                            <i class="fa-solid fa-user"></i>
+                        <div class="flex items-center gap-3 mb-5">
+                            <div class="program-icon text-purple-400" style="background:rgba(168,85,247,0.1); border-color:rgba(168,85,247,0.3);">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <h3 class="text-2xl font-black text-white" data-i18n="prog_individual_title">Treinamento Individual</h3>
                         </div>
-                        <h3 class="text-2xl font-black text-white mb-3" data-i18n="prog_individual_title">Treinamento Individual</h3>
                         <p class="text-gray-400 font-light text-sm leading-relaxed mb-6" data-i18n="prog_individual_desc">Treinamento particular desenvolvido para ajudar jogadores a melhorarem áreas específicas do seu jogo, incluindo controle de bola, domínio, finalização, passe, 1 contra 1, velocidade e confiança para tomar decisões.</p>
                         <div class="space-y-3 mb-6">
                             <div class="price-tag">
@@ -375,16 +386,18 @@
                 <!-- 5. Small-Group Training -->
                 <div class="glass-card rounded-3xl relative overflow-hidden group border border-white/5 hover:border-brand-detail/50 transition-all duration-500">
                     <!-- Banner image -->
-                    <div class="relative overflow-hidden" style="height: 150px;">
+                    <div class="relative overflow-hidden" style="height: 200px;">
                         <img src="small.group.training.jpeg" alt="Small-Group Training" class="w-full h-full object-cover object-left group-hover:scale-105 transition duration-700">
-                        <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 40%, rgba(18,19,107,0.97) 100%);"></div>
+                        <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 40%, rgba(18,19,107,0.95) 100%);"></div>
                     </div>
                     <div class="absolute top-0 right-0 w-32 h-32 bg-green-500 blur-[80px] opacity-15 group-hover:opacity-30 transition duration-500"></div>
                     <div class="relative z-10 p-8 pt-4">
-                        <div class="program-icon text-green-400 mb-5">
-                            <i class="fa-solid fa-users"></i>
+                        <div class="flex items-center gap-3 mb-5">
+                            <div class="program-icon text-green-400" style="background:rgba(34,197,94,0.1); border-color:rgba(34,197,94,0.3);">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <h3 class="text-2xl font-black text-white" data-i18n="prog_group_title">Treinamento em Grupo</h3>
                         </div>
-                        <h3 class="text-2xl font-black text-white mb-3" data-i18n="prog_group_title">Treinamento em Grupo</h3>
                         <p class="text-gray-400 font-light text-sm leading-relaxed mb-6" data-i18n="prog_group_desc">Sessões em pequenos grupos que oferecem aos jogadores os benefícios de uma atenção mais individualizada, ao mesmo tempo em que adicionam situações reais de jogo, competição e tomada de decisão. Os atletas treinam em um ambiente competitivo, mas positivo e de apoio, onde podem evoluir tecnicamente e taticamente.</p>
                         <div class="price-tag mb-6">
                             <p class="text-xs text-gray-400 uppercase tracking-wider font-bold mb-1" data-i18n="prog_group_price_label">Preço</p>
