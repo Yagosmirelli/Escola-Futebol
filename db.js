@@ -65,7 +65,7 @@
 // ══════════════════════════════════════════════════════════════
 
 const SUPABASE_URL = 'https://twryrcujdtnblmwbmjpq.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_Y1o8-DvvrQVq7I_SQEyPVg_Ou16gAyb';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR3cnlyY3VqZHRuYmxtd2JtanBxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1OTY4ODEsImV4cCI6MjA5NjE3Mjg4MX0.eQdrsPKzd0GMbV-13JxDhPqsdkki9aWWbmEQl4NH6XA';
 
 // ══════════════════════════════════════════════════════════════
 //  INICIALIZAÇÃO DO CLIENTE
@@ -347,6 +347,8 @@ async function getMyEnrollments() {
 
 /**
  * Solicita a criação de uma sessão de checkout do Stripe para uma inscrição específica.
+ * Obtém explicitamente o JWT de sessão do usuário e o envia no header Authorization
+ * para garantir que a Edge Function consiga autenticar corretamente.
  * @param {string} enrollmentId
  * @returns {Promise<{data, error}>}
  */
@@ -354,8 +356,20 @@ async function payEnrollment(enrollmentId) {
     const sb = getSupabase();
     if (!sb) return { data: null, error: { message: 'Supabase não inicializado.' } };
 
+    // Obter a sessão atual para pegar o access_token do usuário
+    const { data: sessionData, error: sessionError } = await sb.auth.getSession();
+    if (sessionError || !sessionData?.session) {
+        return { data: null, error: { message: 'Sessão expirada. Faça login novamente.' } };
+    }
+
+    const accessToken = sessionData.session.access_token;
+
+    // Invocar a Edge Function passando explicitamente o Bearer token do usuário
     const { data, error } = await sb.functions.invoke('create-checkout-session', {
-        body: { enrollmentId }
+        body: { enrollmentId },
+        headers: {
+            Authorization: `Bearer ${accessToken}`
+        }
     });
 
     return { data, error };
