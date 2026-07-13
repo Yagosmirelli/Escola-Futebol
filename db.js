@@ -347,8 +347,8 @@ async function getMyEnrollments() {
 
 /**
  * Solicita a criação de uma sessão de checkout do Stripe para uma inscrição específica.
- * Obtém explicitamente o JWT de sessão do usuário e o envia no header Authorization
- * para garantir que a Edge Function consiga autenticar corretamente.
+ * Usa fetch diretamente para ter acesso completo à resposta da Edge Function,
+ * incluindo mensagens de erro detalhadas.
  * @param {string} enrollmentId
  * @returns {Promise<{data, error}>}
  */
@@ -359,18 +359,40 @@ async function payEnrollment(enrollmentId) {
     // Obter a sessão atual para pegar o access_token do usuário
     const { data: sessionData, error: sessionError } = await sb.auth.getSession();
     if (sessionError || !sessionData?.session) {
+        console.error('[payEnrollment] Sessão não encontrada:', sessionError);
         return { data: null, error: { message: 'Sessão expirada. Faça login novamente.' } };
     }
 
     const accessToken = sessionData.session.access_token;
+    console.log('[payEnrollment] Token obtido, enviando para Edge Function...');
 
-    // Invocar a Edge Function passando explicitamente o Bearer token do usuário
-    const { data, error } = await sb.functions.invoke('create-checkout-session', {
-        body: { enrollmentId },
-        headers: {
-            Authorization: `Bearer ${accessToken}`
+    try {
+        const response = await fetch(
+            `${SUPABASE_URL}/functions/v1/create-checkout-session`,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${accessToken}`,
+                    'apikey': SUPABASE_ANON_KEY
+                },
+                body: JSON.stringify({ enrollmentId })
+            }
+        );
+
+        const responseBody = await response.json();
+        console.log('[payEnrollment] Resposta da Edge Function:', response.status, responseBody);
+
+        if (!response.ok) {
+            // Mostrar o erro real vindo da Edge Function
+            const errorMsg = responseBody?.error || `Erro HTTP ${response.status}`;
+            return { data: null, error: { message: errorMsg } };
         }
-    });
 
-    return { data, error };
+        return { data: responseBody, error: null };
+
+    } catch (err) {
+        console.error('[payEnrollment] Erro de rede:', err);
+        return { data: null, error: { message: 'Erro de rede: ' + err.message } };
+    }
 }
