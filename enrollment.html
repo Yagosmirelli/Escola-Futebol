@@ -440,20 +440,7 @@
                             <option value="female">${isEN ? 'Female' : 'Feminino'}</option>
                         </select>
                     </div>
-                    <div>
-                        <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">${isEN ? 'Shirt Size' : 'Tamanho da Camiseta'}</label>
-                        <select id="athlete-shirt-${idx}" class="input-field">
-                            <option value="" disabled selected>${isEN ? 'Select size' : 'Selecione o tamanho'}</option>
-                            <option value="YS">Youth Small (YS)</option>
-                            <option value="YM">Youth Medium (YM)</option>
-                            <option value="YL">Youth Large (YL)</option>
-                            <option value="S">Small (S)</option>
-                            <option value="M">Medium (M)</option>
-                            <option value="L">Large (L)</option>
-                            <option value="XL">X-Large (XL)</option>
-                        </select>
-                    </div>
-                    <div>
+                    <div class="sm:col-span-2">
                         <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">${isEN ? 'Experience Level' : 'Nível de Experiência'}</label>
                         <select id="athlete-level-${idx}" class="input-field">
                             <option value="" disabled selected>${isEN ? 'Select level' : 'Selecione o nível'}</option>
@@ -483,11 +470,10 @@
                 const name   = document.getElementById(`athlete-name-${idx}`)?.value?.trim();
                 const dob    = document.getElementById(`athlete-dob-${idx}`)?.value;
                 const gender = document.getElementById(`athlete-gender-${idx}`)?.value;
-                const shirt  = document.getElementById(`athlete-shirt-${idx}`)?.value;
                 const level  = document.getElementById(`athlete-level-${idx}`)?.value;
 
                 if (!name || !dob || !gender) return null; // validation fail
-                athletes.push({ name, dob, gender, shirt, level });
+                athletes.push({ name, dob, gender, level });
             }
             return athletes.length ? athletes : null;
         }
